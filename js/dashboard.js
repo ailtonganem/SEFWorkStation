@@ -1,19 +1,7 @@
 // js/dashboard.js - Lógica para o Dashboard Informativo da Página Principal
+// v2.6.0 - REMOVIDO: Lógica de verificação de pasta (directoryHandle) para alinhar com a migração web. A aplicação agora sempre renderiza o dashboard.
 // v2.5.8 - CORREÇÃO: Utiliza o State Manager (SEFWorkStation.State.getDirectoryHandle) para verificar se a pasta foi definida, corrigindo o loop da tela de boas-vindas.
-// v2.5.7 - Adiciona botão de ajuda contextual.
-// v2.5.6 - ETAPA 3.6 (Correção Final): Remove div de teste e restaura classes do grid.
-// v2.5.5 - ETAPA 3.5 (Diagnóstico): Altera widgetsContainer para display:block temporariamente.
-// v2.5.4 - ETAPA 3.4 (Diagnóstico): Adiciona div de teste direto no widgetsContainer.
-// v2.5.3 - ETAPA 3.3 (Diagnóstico): Ajusta chamada dos widgets de servidor para usar o elemento retornado.
-// v2.5.2 - ETAPA 3.2 (Melhorias Dashboard): Adiciona logs para diagnóstico dos widgets de servidores.
-// v2.5.1 - CORREÇÃO: Garante a chamada e renderização do widget "Servidores em Trabalho Remoto Hoje".
-// v2.5 - ETAPA 3 (Melhorias Dashboard): Adiciona chamada para renderWidgetServidoresTrabalhoRemotoHoje.
-// v2.4 - ETAPA 2 (Melhorias Dashboard): Implementa Widget "Links Rápidos para Ações Comuns".
-// v2.3 - ETAPA 1 (Melhorias Dashboard): Implementa Widget "Prazos Importantes Próximos".
-// v2.2 - Restaura o prompt de seleção de pasta na página inicial se window.directoryHandle não estiver definido.
-// v2.1 - Remove a solicitação de seleção de pasta da página principal.
-// v2.0 - Reimplementa dashboard informativo, movendo lógica do app.js e adicionando widget de servidores.
-// v1.3 - Funcionalidade de dashboard personalizável removida.
+// ... (histórico anterior)
 
 window.SEFWorkStation = window.SEFWorkStation || {};
 
@@ -31,7 +19,7 @@ window.SEFWorkStation.Dashboard = (function() {
         appModuleRef = applicationModule;
         servidoresWidgetsModuleRef = servidoresWidgetsMod;
         mainContentWrapperRef = document.querySelector('.main-content-wrapper');
-        console.log("Dashboard.JS: Módulo reativado (v2.5.8).");
+        console.log("Dashboard.JS: Módulo reativado (v2.6.0).");
     }
 
     function criarWidgetCard(titulo, colSpanClass = 'md:col-span-1', id = '') {
@@ -226,37 +214,6 @@ window.SEFWorkStation.Dashboard = (function() {
         if (!mainContentWrapperRef) return;
         
         mainContentWrapperRef.innerHTML = ''; 
-
-        // CORREÇÃO: Utilizar o State Manager para verificar a pasta, não uma variável global.
-        if (!SEFWorkStation.State.getDirectoryHandle()) {
-            const selectDirPromptContainer = document.createElement('div');
-            selectDirPromptContainer.className = 'welcome-message-container';
-            
-            const selectDirPrompt = document.createElement('div');
-            selectDirPrompt.className = 'p-6 md:p-8 text-center';
-            selectDirPrompt.innerHTML = `
-                <div class="bg-white dark:bg-slate-700 p-6 rounded-lg shadow">
-                     <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100 flex items-center justify-center">
-                        <div class="red-triangle mr-2"></div>
-                        <span class="text-red-600 font-bold">SEF</span>WorkStation!
-                    </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">Sua estação de trabalho digital para gestão eficiente.</p>
-                    <div class="p-4 bg-yellow-100 dark:bg-yellow-700 border border-yellow-300 dark:border-yellow-600 rounded-lg">
-                        <p class="font-semibold text-yellow-800 dark:text-yellow-200">Atenção: Pasta da Aplicação Não Definida</p>
-                        <p class="text-sm text-yellow-700 dark:text-yellow-300 mt-1">Para utilizar todas as funcionalidades, por favor, selecione uma pasta onde a aplicação poderá armazenar seus dados.</p>
-                        <button id="btn-selecionar-pasta-app-dashboard" class="btn-primary text-base px-5 py-2.5 mt-4">Selecionar Pasta da Aplicação</button>
-                    </div>
-                </div>
-            `;
-            selectDirPromptContainer.appendChild(selectDirPrompt);
-            mainContentWrapperRef.appendChild(selectDirPromptContainer);
-
-            const btnSelPasta = document.getElementById('btn-selecionar-pasta-app-dashboard');
-            if (btnSelPasta && appModuleRef && typeof appModuleRef.selectAppDirectory === 'function') {
-                btnSelPasta.addEventListener('click', appModuleRef.selectAppDirectory);
-            }
-            return; 
-        }
 
         const dashboardWrapper = document.createElement('div');
         dashboardWrapper.id = 'dashboard-informativo';
