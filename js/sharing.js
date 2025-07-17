@@ -1,10 +1,8 @@
 // js/sharing.js - Módulo de Compartilhamento de Entidades
+// v4.0.0 - REATORADO PARA WEB: A função shareItem agora gera um pacote .sefshare.zip autocontido e o oferece para download, em vez de salvar em uma pasta compartilhada. Removida a dependência da File System Access API.
 // v3.2 - CORREÇÃO: Adiciona verificação explícita do shareId antes de salvar no DB para garantir integridade.
 // v3.1 - Implementada a lógica completa da função shareItem com dependências.
 // v3.0 - Renomeado de itensCompartilhados.js e reestruturado para ser o módulo central de compartilhamento.
-// v2.1 - Aprimora tratamento de erros na importação (ex: arquivo .sefshare ausente).
-// v2.0 - Implementada a lógica de importação, resolução de conflitos e atualização do .meta.
-// v1.0 - Implementação inicial da listagem e verificação de itens na pasta compartilhada.
 
 window.SEFWorkStation = window.SEFWorkStation || {};
 
@@ -29,7 +27,7 @@ window.SEFWorkStation.Sharing = (function() {
         uiModuleRef = ui;
         mainContentWrapperRef = document.querySelector('.main-content-wrapper');
         ajudaModuleRef = window.SEFWorkStation.Ajuda;
-        console.log("Sharing.JS: Módulo de Compartilhamento inicializado (v3.2).");
+        console.log("Sharing.JS: Módulo de Compartilhamento inicializado (v4.0.0).");
     }
     
     function handleMenuAction(action, data) {
@@ -43,19 +41,35 @@ window.SEFWorkStation.Sharing = (function() {
             console.warn(`Sharing.js: Ação desconhecida recebida: ${action}`);
         }
     }
+
+    /**
+     * Dispara o download de um Blob.
+     * @param {Blob} blob - O conteúdo do arquivo.
+     * @param {string} fileName - O nome do arquivo para download.
+     */
+    function _triggerDownload(blob, fileName) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = fileName;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
     
     /**
-     * Cria e salva os arquivos de compartilhamento (.meta e .sefshare) para um ou mais itens.
+     * Cria um pacote de compartilhamento e o oferece para download.
      * @param {Array<{entityId: string, storeName: string}>} itemsToShare - Uma lista de objetos identificando os itens a serem compartilhados.
      * @param {Array<object>} recipients - Lista de destinatários (servidores ou grupos).
      * @param {object} [options={}] - Opções para o compartilhamento.
      * @param {string} [options.customTitle] - Um título personalizado para o lote.
      * @param {boolean} [options.incluirVinculos=true] - Se deve incluir entidades vinculadas.
-     * @param {boolean} [options.incluirAnexos=true] - Se deve incluir metadados de anexos.
      * @returns {Promise<object|null>} Uma promessa que resolve com o objeto de metadados do compartilhamento em sucesso, ou null em caso de falha.
      */
     async function shareItem(itemsToShare, recipients, options = {}) {
-        const { customTitle, incluirVinculos = true, incluirAnexos = true } = options;
+        const { customTitle, incluirVinculos = true } = options;
+        const incluirAnexos = false; // Anexos físicos não são suportados na versão web
 
         if (!itemsToShare || itemsToShare.length === 0 || !recipients || recipients.length === 0) {
             appModuleRef.showGlobalFeedback("Informações insuficientes para o compartilhamento (itens ou destinatários ausentes).", "error");
@@ -64,14 +78,10 @@ window.SEFWorkStation.Sharing = (function() {
         uiModuleRef.showLoading(true, "Iniciando processo de compartilhamento...");
         try {
             const currentUser = await sharedUtilsRef.getCurrentUser();
-            if (!currentUser) {
+            if (!currentUser || !currentUser.id) {
                 throw new Error("Usuário atual não definido. Configure seu perfil em 'Configurações' para poder compartilhar.");
             }
-            const sharedFolderHandle = await sharedUtilsRef.getSharedFolderHandle();
-            if (!sharedFolderHandle) {
-                throw new Error("A pasta compartilhada não está selecionada.");
-            }
-
+            
             const pacoteDeDados = await sharedUtilsRef.criarPacoteDeCompartilhamento(itemsToShare, dbRef, { incluirVinculos, incluirAnexos });
             
             if (!pacoteDeDados || !pacoteDeDados.entidades || pacoteDeDados.entidades.length === 0) {
@@ -105,40 +115,23 @@ window.SEFWorkStation.Sharing = (function() {
             
             const zip = new JSZip();
             zip.file('share_package.json', JSON.stringify(pacoteDeDados));
+            zip.file('share_meta.json', JSON.stringify(metaData, null, 2)); // Adiciona os metadados dentro do zip
 
-            if (incluirAnexos && pacoteDeDados.attachmentPaths && pacoteDeDados.attachmentPaths.length > 0) {
-                uiModuleRef.showLoading(true, "Compactando anexos...");
-                const appDirHandle = SEFWorkStation.State.getDirectoryHandle();
-                for (const path of pacoteDeDados.attachmentPaths) {
-                    try {
-                        const fileHandle = await appDirHandle.getFileHandle(path, { create: false });
-                        const file = await fileHandle.getFile();
-                        zip.file(path, file);
-                    } catch (e) {
-                        console.warn(`Não foi possível incluir o anexo "${path}" no ZIP.`, e);
-                    }
-                }
+            if (incluirAnexos) {
+                 console.warn("Compartilhamento de anexos físicos não é suportado na versão web. Apenas os metadados dos anexos serão incluídos no pacote de dados.");
             }
             
-            uiModuleRef.showLoading(true, "Salvando arquivos na pasta compartilhada...");
+            uiModuleRef.showLoading(true, "Gerando arquivo para download...");
             const zipBlob = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 6 } });
             
-            const metaFileHandle = await sharedFolderHandle.getFileHandle(`${shareId}.meta`, { create: true });
-            const metaWritable = await metaFileHandle.createWritable();
-            await metaWritable.write(JSON.stringify(metaData, null, 2));
-            await metaWritable.close();
-            
-            const shareFileHandle = await sharedFolderHandle.getFileHandle(`${shareId}.sefshare.zip`, { create: true });
-            const shareWritable = await shareFileHandle.createWritable();
-            await shareWritable.write(zipBlob);
-            await shareWritable.close();
+            _triggerDownload(zipBlob, `${shareId}.sefshare.zip`);
             
             if (!metaData.shareId) {
                 throw new Error("Objeto de metadados está sem 'shareId' antes de salvar no histórico. Operação abortada.");
             }
             await dbRef.addItem(dbRef.STORES.SHARING_HISTORY, metaData);
             
-            appModuleRef.showGlobalFeedback("Item compartilhado com sucesso! O registro foi adicionado ao seu histórico de envios.", "success");
+            appModuleRef.showGlobalFeedback("Arquivo de compartilhamento gerado. Envie o arquivo baixado para os destinatários.", "success");
             return metaData;
 
         } catch (error) {
@@ -176,8 +169,7 @@ window.SEFWorkStation.Sharing = (function() {
             - **Tipo:** ${STORE_MAP_SHARING_MANAGER[metaData.storeName] || metaData.storeName}${metaData.itemCount > 1 ? ` (+${metaData.itemCount - 1} outros)` : ''}
             - **Compartilhado em:** ${new Date(metaData.timestamp).toLocaleString()}
 
-            Para acessar este(s) item(ns), abra o SEFWorkStation e navegue até "Compartilhamento > Itens Recebidos". 
-            Certifique-se de que sua pasta 'SEFWorkStation_Compartilhado' esteja sincronizada.
+            Para acessar este(s) item(ns), peça o arquivo .sefshare.zip para ${metaData.sender.nome}, abra o SEFWorkStation e navegue até "Compartilhamento > Itens Recebidos" para importar o arquivo.
 
             Esta é uma notificação automática.
         `;
