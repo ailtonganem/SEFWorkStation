@@ -1,0 +1,378 @@
+{
+  "id": "1f466663-1164-4c2d-bfb9-400deb71ff24",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "202.509.173.103-7",
+  "dataFatoGerador": "2021-04-02",
+  "dataPagamento": "2025-07-14",
+  "deCujusNome": "PAULO PAIZANTE",
+  "estadoCivil": "casado",
+  "regimeBens": "comunhao_universal",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": true,
+  "valorRecolhido": 60492.36,
+  "dataRecolhimentoPrevio": "2021-06-21",
+  "calcularDescontoSobreRecolhido": true,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "136fe7cf-7118-457d-9c30-e69f96e3c36e",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BENJAMIN CONSTANT, 783-A, LOTE 08P e 16P, QUADRA 106, GOVERNADOR VALADARES, CENTRO, CEP 35010-060",
+      "valorAvaliacao": 5228.8,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2020,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "9994e595-4056-4000-863a-5d68f4f0db67",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Veículo de Placa: OMA6427 RENAVAM: 0048146431-0",
+      "valorAvaliacao": 28200,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "ab5e4303-dd7c-489f-9108-28c5d04e9581",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BENJAMIN CONSTANT, 783-B, GOVERNADOR VALADARES, CENTRO, CEP 35010-060",
+      "valorAvaliacao": 396867.22,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "d96c8e29-f011-4117-9bc2-c778bd761568",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BENJAMIN CONSTANT, 783-A, GOVERNADOR VALADARES, CENTRO, CEP 35010-060",
+      "valorAvaliacao": 289700.86,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "b90fcebe-13a1-48b6-991b-b44dc8c84855",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BENJAMIN CONSTANT, 783, PAVIMENTO 1º, GOVERNADOR VALADARES, CENTRO, CEP 35010-060",
+      "valorAvaliacao": 497814,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "2728b8b7-572b-44a7-a0c0-f8ee80f545f5",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BENJAMIN CONSTANT, 783, PAVIMENTO 2º, GOVERNADOR VALADARES, CENTRO, CEP 35010-060",
+      "valorAvaliacao": 500191.23,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "bf15728d-2afc-4b80-a5ad-8986c66a03b8",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BENJAMIN CONSTANT, 783-loja, GOVERNADOR VALADARES, CENTRO, CEP 35010-060",
+      "valorAvaliacao": 81581.75,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "31e4b00e-14e1-44e9-a20c-d812a03eb3fb",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA RAUL SOARES, 1230, GOVERNADOR VALADARES, SAO PEDRO, CEP 35020-470",
+      "valorAvaliacao": 343115.91,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "aecf61c6-457f-4fd5-9aff-12f7618258bd",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BELGICA, 190, GOVERNADOR VALADARES, GRA-DUQUESA, CEP 35057-070",
+      "valorAvaliacao": 206454.71,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "6c1da331-5df9-4068-a800-e840f5e30bf3",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BELGICA, 190-A, GOVERNADOR VALADARES, GRA-DUQUESA, CEP 35057-070",
+      "valorAvaliacao": 219478.93,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "b574528d-2545-4c03-8efa-267a4dfa7ccf",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA BELGICA, 170, GOVERNADOR VALADARES, GRA-DUQUESA, CEP 35057-070",
+      "valorAvaliacao": 283294.73,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "d299897d-5f6f-4876-8fc8-31bb33b4cd1f": 12.5,
+        "dac33b13-316f-435c-8f8d-d31e1bb580a9": 12.5,
+        "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb": 12.5,
+        "c0baa4e0-da44-4244-9a3e-807c72780d90": 12.5
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "d299897d-5f6f-4876-8fc8-31bb33b4cd1f",
+      "nome": "GRASIELLA OLIVEIRA PAIZANTE",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "dac33b13-316f-435c-8f8d-d31e1bb580a9",
+      "nome": "GISELE OLIVEIRA PAIZANTE",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb",
+      "nome": "REINALDO OLIVEIRA PAIZANTE",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "c0baa4e0-da44-4244-9a3e-807c72780d90",
+      "nome": "LIDIANE OLIVEIRA PAIZANTE DE SOUZA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-14T18:40:31.955Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 361594.2620091673,
+      "baseCalculoReais": 1426127.7693641558,
+      "aliquota": 5,
+      "itcdPrincipal": 71306.38846820779,
+      "desconto": 10675.12235294118,
+      "multa": 16.668733831993304,
+      "juros": 67.71318608616143,
+      "percentualJuros": 43.52450700000001,
+      "recolhimentoPrevio": 60492.36,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 223.2880351847656
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "d299897d-5f6f-4876-8fc8-31bb33b4cd1f",
+          "nome": "GRASIELLA OLIVEIRA PAIZANTE",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 90398.56550229182,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 90398.56550229182,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "dac33b13-316f-435c-8f8d-d31e1bb580a9",
+          "nome": "GISELE OLIVEIRA PAIZANTE",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 90398.56550229182,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 90398.56550229182,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "f22db1e4-2a23-4d6c-87d9-a004f07ed8eb",
+          "nome": "REINALDO OLIVEIRA PAIZANTE",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 90398.56550229182,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 90398.56550229182,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "c0baa4e0-da44-4244-9a3e-807c72780d90",
+          "nome": "LIDIANE OLIVEIRA PAIZANTE DE SOUZA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 90398.56550229182,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 90398.56550229182,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "conjuge-meacao",
+          "nome": "Cônjuge (Meeiro)",
+          "tipo": "meeiro",
+          "quinhaoDevidoOriginalUfemg": 361594.2620091673,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 361594.2620091673,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Desconto de 15% calculado sobre o valor recolhido (recolhido=R$ 60.492,36, desconto=R$ 10.675,12).",
+      "Soma dos índices SELIC de nov. de 2021 a jul. de 2025, mais 1%. Total da soma SELIC: 42,524507%. Taxa final: 43,524507%."
+    ]
+  }
+}

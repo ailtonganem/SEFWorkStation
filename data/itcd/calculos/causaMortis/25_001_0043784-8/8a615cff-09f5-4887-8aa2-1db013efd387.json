@@ -1,0 +1,124 @@
+{
+  "id": "8a615cff-09f5-4887-8aa2-1db013efd387",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0043784-8",
+  "dataFatoGerador": "2021-03-26",
+  "dataPagamento": "2025-07-10",
+  "deCujusNome": "MATHEUS PHILIPI RODRIGUES FERRAZ",
+  "estadoCivil": "solteiro",
+  "regimeBens": "",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "judicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "valorPagamentoAnterior": 0,
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "30db84d1-7864-4ad6-aff2-b74659774552",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Rua Sete de Setembro 19",
+      "valorAvaliacao": 116931,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "01152964-2d2b-4a6a-a79c-134e04c80b46": 100
+      },
+      "anoReferenciaUfemg": 2013,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "08a827c0-0501-4466-b19e-bda7e5eb3853",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "VW/POLO SEDAN 1.6",
+      "valorAvaliacao": 20810,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "01152964-2d2b-4a6a-a79c-134e04c80b46": 100
+      },
+      "anoReferenciaUfemg": 2021,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "01152964-2d2b-4a6a-a79c-134e04c80b46",
+      "nome": "AURORA RODRIGUES SILVA FERRAZ",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-10T13:09:02.716Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 52018.85397807878,
+      "baseCalculoReais": 205162.36008954272,
+      "aliquota": 5,
+      "itcdPrincipal": 10258.118004477137,
+      "desconto": 0,
+      "multa": 1230.9741605372565,
+      "juros": 5000.570723598142,
+      "percentualJuros": 43.52450700000001,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 16489.662888612536
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "01152964-2d2b-4a6a-a79c-134e04c80b46",
+          "nome": "AURORA RODRIGUES SILVA FERRAZ",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 52018.85397807878,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 52018.85397807878,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Soma dos índices SELIC de nov. de 2021 a jul. de 2025, mais 1%. Total da soma SELIC: 42,524507%. Taxa final: 43,524507%."
+    ]
+  }
+}

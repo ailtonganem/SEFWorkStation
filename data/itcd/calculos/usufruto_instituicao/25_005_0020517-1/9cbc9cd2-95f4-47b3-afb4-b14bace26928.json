@@ -1,0 +1,79 @@
+{
+  "id": "9cbc9cd2-95f4-47b3-afb4-b14bace26928",
+  "tipoCalculo": "usufruto_instituicao",
+  "deCujusNome": "Usufruto de LINDOMAR SANGIORGIO, ROSIMEIRE DE SOUSA SANGIORGIO para MIKE SOUZA SANGIORGIO",
+  "declaracaoNumero": "25.005.0020517-1",
+  "dataFatoGerador": null,
+  "dataPagamento": "2025-07-14",
+  "bens": [
+    {
+      "id": "bem_1752500549094",
+      "descricao": "RUA GILDO CREMASCO 180",
+      "valor": 169864.21,
+      "percentual": 100,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752500487526": 100
+      }
+    }
+  ],
+  "dadosUsufruto": {
+    "instituidores": [
+      {
+        "id": "pessoa_1752500466838",
+        "nome": "LINDOMAR SANGIORGIO"
+      },
+      {
+        "id": "pessoa_1752500477078",
+        "nome": "ROSIMEIRE DE SOUSA SANGIORGIO"
+      }
+    ],
+    "beneficiarios": [
+      {
+        "id": "pessoa_1752500487526",
+        "nome": "MIKE SOUZA SANGIORGIO"
+      }
+    ],
+    "efetivada": false,
+    "formalizada": null
+  },
+  "dataSalvamento": "2025-07-14T13:42:52.142Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 1415.535083333333,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (10.237,1006 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porBeneficiario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 10237.100584583859,
+          "baseCalculoReais": 56621.40333333332,
+          "aliquota": 5,
+          "itcdPrincipal": 2831.070166666666,
+          "desconto": 1415.535083333333,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 1415.535083333333
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (10.237,1006 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "MIKE SOUZA SANGIORGIO",
+        "id": "pessoa_1752500487526"
+      }
+    ],
+    "resumo": {
+      "totalBensUfemg": 30711.30175375158,
+      "baseCalculoTotalUfemg": 10237.100584583859,
+      "baseCalculoTotalReais": 56621.40333333332,
+      "valorUfemgDoVencimento": 5.531
+    }
+  }
+}

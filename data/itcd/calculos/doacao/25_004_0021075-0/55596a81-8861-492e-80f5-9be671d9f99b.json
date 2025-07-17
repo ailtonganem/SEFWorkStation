@@ -1,0 +1,72 @@
+{
+  "id": "55596a81-8861-492e-80f5-9be671d9f99b",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.004.0021075-0",
+  "deCujusNome": "Doação de FABIO FELISBERTO PEREIRA, MARIELIA ANDRADE PEREIRA para FABIO FELISBERTO JUNIOR",
+  "doadores": [
+    {
+      "id": "pessoa_1752511042519",
+      "nome": "FABIO FELISBERTO PEREIRA"
+    },
+    {
+      "id": "pessoa_1752511050784",
+      "nome": "MARIELIA ANDRADE PEREIRA"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752511060303",
+      "nome": "FABIO FELISBERTO JUNIOR"
+    }
+  ],
+  "tipoDoacaoGlobal": "nua_propriedade",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-14",
+  "dataPagamento": "2025-07-14",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752511089336",
+      "descricao": "JOSE MARCIANO RODRIGUES 276",
+      "valor": 343595.95,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752511060303": 100
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-14T16:38:18.888Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 8589.89875,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (62.121,8496 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 62121.84957512205,
+          "baseCalculoReais": 343595.95,
+          "aliquota": 5,
+          "itcdPrincipal": 17179.7975,
+          "desconto": 8589.89875,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 8589.89875
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (62.121,8496 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "FABIO FELISBERTO JUNIOR",
+        "id": "pessoa_1752511060303"
+      }
+    ]
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "id": "7e284cb6-0268-409f-8806-fbcd21d66b74",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "",
+  "deCujusNome": "Doação de NIVAL ROZA, SILVIA CRUZ RAMOS ROZA para WILMA ROSA SALES, WANDA SALES ROSA",
+  "doadores": [
+    {
+      "id": "pessoa_1752668269517",
+      "nome": "NIVAL ROZA"
+    },
+    {
+      "id": "pessoa_1752668278565",
+      "nome": "SILVIA CRUZ RAMOS ROZA"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752668286917",
+      "nome": "WILMA ROSA SALES"
+    },
+    {
+      "id": "pessoa_1752668295670",
+      "nome": "WANDA SALES ROSA"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-16",
+  "dataPagamento": "2025-07-16",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752668323669",
+      "descricao": "Rua Sombreiro 112",
+      "valor": 329580,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-16",
+      "partilha": {
+        "pessoa_1752668286917": 50,
+        "pessoa_1752668295670": 50
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-16T12:19:00.767Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 8239.5,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (29.793,8890 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 29793.888989332852,
+          "baseCalculoReais": 164790,
+          "aliquota": 5,
+          "itcdPrincipal": 8239.5,
+          "desconto": 4119.75,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 4119.75
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (29.793,8890 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "WILMA ROSA SALES",
+        "id": "pessoa_1752668286917"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 29793.888989332852,
+          "baseCalculoReais": 164790,
+          "aliquota": 5,
+          "itcdPrincipal": 8239.5,
+          "desconto": 4119.75,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 4119.75
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (29.793,8890 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "WANDA SALES ROSA",
+        "id": "pessoa_1752668295670"
+      }
+    ]
+  }
+}

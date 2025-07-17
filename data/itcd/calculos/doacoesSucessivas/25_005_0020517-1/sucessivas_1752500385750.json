@@ -1,0 +1,171 @@
+{
+  "id": "sucessivas_1752500385750",
+  "tipoCalculo": "doacoesSucessivas",
+  "deCujusNome": "Doações para MIKE SOUZA SANGIORGIO",
+  "declaracaoNumero": "25.005.0020517-1",
+  "donatario": "MIKE SOUZA SANGIORGIO",
+  "bens": [
+    {
+      "id": "doacao_1752500193244",
+      "doador": "LINDOMAR SANGIORGIO",
+      "valor": 30000,
+      "data": "2023-07-05",
+      "valorPago": 0,
+      "dataPago": "2023-07-05"
+    },
+    {
+      "id": "doacao_1752500250734",
+      "doador": "LINDOMAR SANGIORGIO",
+      "valor": 25000,
+      "data": "2023-08-03",
+      "valorPago": 1375,
+      "dataPago": "2023-08-11"
+    },
+    {
+      "id": "doacao_1752500293062",
+      "doador": "LINDOMAR SANGIORGIO",
+      "valor": 70000,
+      "data": "2025-06-26",
+      "valorPago": 1750,
+      "dataPago": "2025-07-08"
+    },
+    {
+      "id": "doacao_1752500340485",
+      "doador": "LINDOMAR SANGIORGIO",
+      "valor": 169864.21,
+      "data": "2025-07-14",
+      "valorPago": 0,
+      "dataPago": "2025-07-14"
+    }
+  ],
+  "dataFatoGerador": "2025-07-14",
+  "dataPagamento": "2025-07-14",
+  "dataSalvamento": "2025-07-14T13:39:45.750Z",
+  "resultadoFinal": {
+    "porPeriodo": [
+      {
+        "doacaoReferencia": {
+          "id": "doacao_1752500193244",
+          "doador": "LINDOMAR SANGIORGIO",
+          "valor": 30000,
+          "data": "2023-07-05",
+          "valorPago": 0,
+          "dataPago": "2023-07-05"
+        },
+        "isento": true,
+        "baseCalculoAcumuladaUfemg": 5956.044392384204
+      },
+      {
+        "doacaoReferencia": {
+          "id": "doacao_1752500250734",
+          "doador": "LINDOMAR SANGIORGIO",
+          "valor": 25000,
+          "data": "2023-08-03",
+          "valorPago": 1375,
+          "dataPago": "2023-08-11"
+        },
+        "isento": false,
+        "ufemgData": 5.0369,
+        "ufemg": {
+          "baseCalculo": 10919.414719371041,
+          "itcdPrincipal": 545.970735968552,
+          "desconto": 272.985367984276,
+          "recolhimentoAnterior": 0,
+          "pagamentoEfetuado": 272.985367984276,
+          "itcdDevido": 0,
+          "multa": 0,
+          "juros": 0,
+          "totalARecolher": 0,
+          "clawback": 0
+        },
+        "reais": {
+          "baseCalculo": 55000,
+          "itcdPrincipal": 2750,
+          "desconto": 1375,
+          "recolhimentoAnterior": 0,
+          "pagamentoEfetuado": 1375,
+          "itcdDevido": 0,
+          "multa": 0,
+          "juros": 0,
+          "totalARecolher": 0,
+          "clawback": 0
+        }
+      },
+      {
+        "doacaoReferencia": {
+          "id": "doacao_1752500293062",
+          "doador": "LINDOMAR SANGIORGIO",
+          "valor": 70000,
+          "data": "2025-06-26",
+          "valorPago": 1750,
+          "dataPago": "2025-07-08"
+        },
+        "isento": false,
+        "ufemgData": 5.531,
+        "ufemg": {
+          "baseCalculo": 23575.353970862634,
+          "itcdPrincipal": 1178.7676985431317,
+          "desconto": 589.3838492715659,
+          "recolhimentoAnterior": 545.970735968552,
+          "pagamentoEfetuado": 316.3984812872898,
+          "itcdDevido": -272.985367984276,
+          "multa": 0,
+          "juros": 0,
+          "totalARecolher": 0,
+          "clawback": 0
+        },
+        "reais": {
+          "baseCalculo": 130395.28281284122,
+          "itcdPrincipal": 6519.764140642061,
+          "desconto": 3259.8820703210304,
+          "recolhimentoAnterior": 3019.764140642061,
+          "pagamentoEfetuado": 1750,
+          "itcdDevido": -1509.8820703210306,
+          "multa": 0,
+          "juros": 0,
+          "totalARecolher": 0,
+          "clawback": 0
+        }
+      },
+      {
+        "doacaoReferencia": {
+          "id": "doacao_1752500340485",
+          "doador": "LINDOMAR SANGIORGIO",
+          "valor": 169864.21,
+          "data": "2025-07-14",
+          "valorPago": 0,
+          "dataPago": "2025-07-14"
+        },
+        "isento": false,
+        "ufemgData": 5.531,
+        "ufemg": {
+          "baseCalculo": 54286.65572461422,
+          "itcdPrincipal": 2714.332786230711,
+          "desconto": 1357.1663931153555,
+          "recolhimentoAnterior": 1178.7676985431317,
+          "pagamentoEfetuado": 0,
+          "itcdDevido": 178.3986945722238,
+          "multa": 21.407843348666855,
+          "juros": 0,
+          "totalARecolher": 199.80653792089066,
+          "clawback": 0
+        },
+        "reais": {
+          "baseCalculo": 300259.4928128412,
+          "itcdPrincipal": 15012.974640642062,
+          "desconto": 7506.487320321031,
+          "recolhimentoAnterior": 6519.764140642061,
+          "pagamentoEfetuado": 0,
+          "itcdDevido": 986.7231796789698,
+          "multa": 118.40678156147638,
+          "juros": 0,
+          "totalARecolher": 1105.1299612404462,
+          "clawback": 0
+        }
+      }
+    ],
+    "total": {
+      "impostoARecolher": 1105.1299612404462
+    }
+  }
+}

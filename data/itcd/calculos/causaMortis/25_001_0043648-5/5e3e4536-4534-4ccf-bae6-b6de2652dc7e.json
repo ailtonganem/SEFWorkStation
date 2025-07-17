@@ -1,0 +1,241 @@
+{
+  "id": "5e3e4536-4534-4ccf-bae6-b6de2652dc7e",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0043648-5",
+  "dataFatoGerador": "2025-03-30",
+  "dataPagamento": "2025-07-10",
+  "deCujusNome": "CLESIA VALADAO DE SOUZA",
+  "estadoCivil": "casado",
+  "regimeBens": "comunhao_universal",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "valorPagamentoAnterior": 0,
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "d3444ba6-fc5a-4b90-93a7-92a61cd9886a",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "AVENIDA OLEGARIO MACIEL",
+      "valorAvaliacao": 408573,
+      "percentualTransmissao": 20,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "51e14d36-9849-4880-96ff-0e9f8e950502": 16.666667,
+        "a94e104b-eee3-453d-ab27-0e16e74ddf75": 16.666667,
+        "625a77c0-141a-498a-bccd-baefd72cea66": 16.666667
+      },
+      "anoReferenciaUfemg": 2023,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "5413914b-6c08-4da7-953d-2c57270e20d0",
+      "tipo": "imovel",
+      "imovelTipo": "nao_residencial",
+      "foraDeMG": false,
+      "descricao": "RUA ANISIO BERNARDINO ALVES 40",
+      "valorAvaliacao": 135945.48,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "51e14d36-9849-4880-96ff-0e9f8e950502": 16.666667,
+        "a94e104b-eee3-453d-ab27-0e16e74ddf75": 16.666667,
+        "625a77c0-141a-498a-bccd-baefd72cea66": 16.666667
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "d6dc563a-8c5d-46ac-818f-663387a24069",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "VW/FOX 1.6 GII",
+      "valorAvaliacao": 30000,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "51e14d36-9849-4880-96ff-0e9f8e950502": 16.666667,
+        "a94e104b-eee3-453d-ab27-0e16e74ddf75": 16.666667,
+        "625a77c0-141a-498a-bccd-baefd72cea66": 16.666667
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "51e14d36-9849-4880-96ff-0e9f8e950502",
+      "nome": "JULIANA VALERIA DE SOUZA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "a94e104b-eee3-453d-ab27-0e16e74ddf75",
+      "nome": "JUSSANIA MARA DE SOUZA LESSA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "625a77c0-141a-498a-bccd-baefd72cea66",
+      "nome": "JUCELIO VINICIUS VALADAO DE SOUZA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-10T14:20:31.302Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 23112.995803714926,
+      "baseCalculoReais": 127837.97979034725,
+      "aliquota": 5,
+      "itcdPrincipal": 6391.898989517363,
+      "desconto": 0,
+      "multa": 0,
+      "juros": 0,
+      "percentualJuros": 0,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 6391.898989517363
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0.002556759596921438,
+        "baseCalculoUfemg": 0.0004622599162757979,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "51e14d36-9849-4880-96ff-0e9f8e950502",
+          "nome": "JULIANA VALERIA DE SOUZA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7704.331934571642,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7704.332088658281,
+          "excedenteUfemg": 0.0001540866387585993,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 0.0001540866387585993,
+            "baseCalculoReais": 0.0008522531989738127,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "a94e104b-eee3-453d-ab27-0e16e74ddf75",
+          "nome": "JUSSANIA MARA DE SOUZA LESSA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7704.331934571642,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7704.332088658281,
+          "excedenteUfemg": 0.0001540866387585993,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 0.0001540866387585993,
+            "baseCalculoReais": 0.0008522531989738127,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "625a77c0-141a-498a-bccd-baefd72cea66",
+          "nome": "JUCELIO VINICIUS VALADAO DE SOUZA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7704.331934571642,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7704.332088658281,
+          "excedenteUfemg": 0.0001540866387585993,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 0.0001540866387585993,
+            "baseCalculoReais": 0.0008522531989738127,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "conjuge-meacao",
+          "nome": "Cônjuge (Meeiro)",
+          "tipo": "meeiro",
+          "quinhaoDevidoOriginalUfemg": 23112.995803714926,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 23112.995803714926,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": [
+        "JULIANA VALERIA DE SOUZA: Isenção aplicada: Valor da doação/excedente (0,0002 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03).",
+        "JUSSANIA MARA DE SOUZA LESSA: Isenção aplicada: Valor da doação/excedente (0,0002 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03).",
+        "JUCELIO VINICIUS VALADAO DE SOUZA: Isenção aplicada: Valor da doação/excedente (0,0002 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+      ]
+    },
+    "erros": [],
+    "justificativaCalculo": []
+  }
+}

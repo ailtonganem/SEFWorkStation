@@ -1,0 +1,83 @@
+{
+  "id": "sucessivas_1752667114899",
+  "tipoCalculo": "doacoesSucessivas",
+  "deCujusNome": "Doações para MARIA DE FATIMA DE PAULA BOMFIM COLOMBIANO",
+  "declaracaoNumero": "202.508.795.343-8",
+  "donatario": "MARIA DE FATIMA DE PAULA BOMFIM COLOMBIANO",
+  "bens": [
+    {
+      "id": "doacao_1752666971210",
+      "doador": "ALGENIR DE PAULA BOMFIM",
+      "valor": 50000,
+      "data": "2024-12-18",
+      "valorPago": 0,
+      "dataPago": "2024-12-18"
+    },
+    {
+      "id": "doacao_1752666991306",
+      "doador": "ALGENIR DE PAULA BOMFIM",
+      "valor": 50000,
+      "data": "2025-06-10",
+      "valorPago": 1250,
+      "dataPago": "2025-06-16"
+    }
+  ],
+  "dataFatoGerador": "2025-06-10",
+  "dataPagamento": "2025-07-30",
+  "dataSalvamento": "2025-07-16T11:58:34.899Z",
+  "resultadoFinal": {
+    "porPeriodo": [
+      {
+        "doacaoReferencia": {
+          "id": "doacao_1752666971210",
+          "doador": "ALGENIR DE PAULA BOMFIM",
+          "valor": 50000,
+          "data": "2024-12-18",
+          "valorPago": 0,
+          "dataPago": "2024-12-18"
+        },
+        "isento": true,
+        "baseCalculoAcumuladaUfemg": 9470.23505123397
+      },
+      {
+        "doacaoReferencia": {
+          "id": "doacao_1752666991306",
+          "doador": "ALGENIR DE PAULA BOMFIM",
+          "valor": 50000,
+          "data": "2025-06-10",
+          "valorPago": 1250,
+          "dataPago": "2025-06-16"
+        },
+        "isento": false,
+        "ufemgData": 5.531,
+        "ufemg": {
+          "baseCalculo": 18510.19165944225,
+          "itcdPrincipal": 925.5095829721126,
+          "desconto": 462.7547914860563,
+          "recolhimentoAnterior": 0,
+          "pagamentoEfetuado": 225.99891520520703,
+          "itcdDevido": 236.7558762808493,
+          "multa": 28.410705153701915,
+          "juros": 2.6516658143455123,
+          "totalARecolher": 267.8182472488967,
+          "clawback": 0
+        },
+        "reais": {
+          "baseCalculo": 102379.87006837508,
+          "itcdPrincipal": 5118.993503418755,
+          "desconto": 2559.4967517093773,
+          "recolhimentoAnterior": 0,
+          "pagamentoEfetuado": 1250,
+          "itcdDevido": 1309.4967517093773,
+          "multa": 157.13961020512528,
+          "juros": 14.666363619145027,
+          "totalARecolher": 1481.3027255336476,
+          "clawback": 0
+        }
+      }
+    ],
+    "total": {
+      "impostoARecolher": 1481.3027255336476
+    }
+  }
+}

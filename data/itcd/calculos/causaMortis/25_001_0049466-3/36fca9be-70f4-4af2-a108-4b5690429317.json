@@ -1,0 +1,396 @@
+{
+  "id": "36fca9be-70f4-4af2-a108-4b5690429317",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0049466-3",
+  "dataFatoGerador": "2025-05-17",
+  "dataPagamento": "2025-07-16",
+  "deCujusNome": "MATIAS PISKE",
+  "estadoCivil": "casado",
+  "regimeBens": "uniao_estavel_parcial",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "1199aa21-1216-4687-9dd8-02370ad1420e",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "SÍTIO BOA SORTE",
+      "valorAvaliacao": 630555.07,
+      "percentualTransmissao": 50,
+      "natureza": "particular",
+      "partilha": {
+        "69639c86-f4e8-47dc-8085-65d52acd4b9c": 12.5,
+        "5ed5a67a-c935-49f5-9bcf-7beb72d09c83": 12.5,
+        "fbae5bcb-9485-44e8-a5f9-e338ce533e82": 12.5,
+        "d2925f5b-b986-4edc-8e03-000b0380c168": 12.5,
+        "81c56e87-25e1-49c2-a922-d187c7e34e18": 12.5,
+        "014cc115-577c-4abd-b50a-30f3e667c08d": 12.5,
+        "8cc109de-1c27-4283-8881-4e1d688bce99": 6.25,
+        "b0e0f555-712d-4e4e-8625-7912e642692e": 6.25,
+        "conjuge-meacao": 12.5
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "34a2a8db-828f-4cb9-b520-22826743dcc1",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "SALDO SICOOB",
+      "valorAvaliacao": 4612.28,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "69639c86-f4e8-47dc-8085-65d52acd4b9c": 12.5,
+        "5ed5a67a-c935-49f5-9bcf-7beb72d09c83": 12.5,
+        "fbae5bcb-9485-44e8-a5f9-e338ce533e82": 12.5,
+        "d2925f5b-b986-4edc-8e03-000b0380c168": 12.5,
+        "81c56e87-25e1-49c2-a922-d187c7e34e18": 12.5,
+        "014cc115-577c-4abd-b50a-30f3e667c08d": 12.5,
+        "8cc109de-1c27-4283-8881-4e1d688bce99": 6.25,
+        "b0e0f555-712d-4e4e-8625-7912e642692e": 6.25,
+        "conjuge-meacao": 12.5
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "f268e48a-0e3f-4a11-8efb-e7b21c80ea5d",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "BANCO SICOOB",
+      "valorAvaliacao": 552.76,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "69639c86-f4e8-47dc-8085-65d52acd4b9c": 7.142857,
+        "5ed5a67a-c935-49f5-9bcf-7beb72d09c83": 7.142857,
+        "fbae5bcb-9485-44e8-a5f9-e338ce533e82": 7.142857,
+        "d2925f5b-b986-4edc-8e03-000b0380c168": 7.142857,
+        "81c56e87-25e1-49c2-a922-d187c7e34e18": 7.142857,
+        "014cc115-577c-4abd-b50a-30f3e667c08d": 7.142857,
+        "8cc109de-1c27-4283-8881-4e1d688bce99": 3.571429,
+        "b0e0f555-712d-4e4e-8625-7912e642692e": 3.571429
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "e24134e9-5bf2-4dd4-b25d-a89e245e9e58",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "SEMOVENTES",
+      "valorAvaliacao": 2000,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "69639c86-f4e8-47dc-8085-65d52acd4b9c": 7.142857,
+        "5ed5a67a-c935-49f5-9bcf-7beb72d09c83": 7.142857,
+        "fbae5bcb-9485-44e8-a5f9-e338ce533e82": 7.142857,
+        "d2925f5b-b986-4edc-8e03-000b0380c168": 7.142857,
+        "81c56e87-25e1-49c2-a922-d187c7e34e18": 7.142857,
+        "014cc115-577c-4abd-b50a-30f3e667c08d": 7.142857,
+        "8cc109de-1c27-4283-8881-4e1d688bce99": 3.571429,
+        "b0e0f555-712d-4e4e-8625-7912e642692e": 3.571429
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "4a70f624-ebeb-458c-8b42-b3cd7eb1a8fd",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "VEÍCULO",
+      "valorAvaliacao": 20000,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "69639c86-f4e8-47dc-8085-65d52acd4b9c": 12.5,
+        "5ed5a67a-c935-49f5-9bcf-7beb72d09c83": 12.5,
+        "fbae5bcb-9485-44e8-a5f9-e338ce533e82": 12.5,
+        "d2925f5b-b986-4edc-8e03-000b0380c168": 12.5,
+        "81c56e87-25e1-49c2-a922-d187c7e34e18": 12.5,
+        "014cc115-577c-4abd-b50a-30f3e667c08d": 12.5,
+        "8cc109de-1c27-4283-8881-4e1d688bce99": 6.25,
+        "b0e0f555-712d-4e4e-8625-7912e642692e": 6.25,
+        "conjuge-meacao": 12.5
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "69639c86-f4e8-47dc-8085-65d52acd4b9c",
+      "nome": "ELIANE PISKE DE BARROS",
+      "tipo": "filho_unilateral",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "5ed5a67a-c935-49f5-9bcf-7beb72d09c83",
+      "nome": "ELEUZA PISKE GALINA",
+      "tipo": "filho_unilateral",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "fbae5bcb-9485-44e8-a5f9-e338ce533e82",
+      "nome": "EDMAR PISKE MOGNATTO",
+      "tipo": "filho_unilateral",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "d2925f5b-b986-4edc-8e03-000b0380c168",
+      "nome": "EDNA PISKE",
+      "tipo": "filho_unilateral",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "81c56e87-25e1-49c2-a922-d187c7e34e18",
+      "nome": "LYLLIAN CHRISTINA PISKE MENDES",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "014cc115-577c-4abd-b50a-30f3e667c08d",
+      "nome": "RENATA DE OLIVEIRA PISKE JUSTINO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "8cc109de-1c27-4283-8881-4e1d688bce99",
+      "nome": "RAPHAEL PISKE DE CARVALHO",
+      "tipo": "neto",
+      "representadoPor": "FERNANDA DE OLIVEIRA PISKE",
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "b0e0f555-712d-4e4e-8625-7912e642692e",
+      "nome": "GABRIEL PISKE DE CARVALHO",
+      "tipo": "neto",
+      "representadoPor": "FERNANDA DE OLIVEIRA PISKE",
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-16T19:23:32.226Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 61682.5519797505,
+      "baseCalculoReais": 341166.195,
+      "aliquota": 5,
+      "itcdPrincipal": 17058.30975,
+      "desconto": 2558.7464625,
+      "multa": 0,
+      "juros": 0,
+      "percentualJuros": 0,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 14499.563287500001
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0.000021880796975892735,
+        "baseCalculoUfemg": 0.000003956029104301706,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "69639c86-f4e8-47dc-8085-65d52acd4b9c",
+          "nome": "ELIANE PISKE DE BARROS",
+          "tipo": "filho_unilateral",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7714.439861688664,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7714.439861029326,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "5ed5a67a-c935-49f5-9bcf-7beb72d09c83",
+          "nome": "ELEUZA PISKE GALINA",
+          "tipo": "filho_unilateral",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7714.439861688664,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7714.439861029326,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "fbae5bcb-9485-44e8-a5f9-e338ce533e82",
+          "nome": "EDMAR PISKE MOGNATTO",
+          "tipo": "filho_unilateral",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7714.439861688664,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7714.439861029326,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "d2925f5b-b986-4edc-8e03-000b0380c168",
+          "nome": "EDNA PISKE",
+          "tipo": "filho_unilateral",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7714.439861688664,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7714.439861029326,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "81c56e87-25e1-49c2-a922-d187c7e34e18",
+          "nome": "LYLLIAN CHRISTINA PISKE MENDES",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7714.439861688664,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7714.439861029326,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "014cc115-577c-4abd-b50a-30f3e667c08d",
+          "nome": "RENATA DE OLIVEIRA PISKE JUSTINO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 7714.439861688664,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7714.439861029326,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "8cc109de-1c27-4283-8881-4e1d688bce99",
+          "nome": "RAPHAEL PISKE DE CARVALHO",
+          "tipo": "neto",
+          "representadoPor": "FERNANDA DE OLIVEIRA PISKE",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 3857.219930844332,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 3857.2199328223464,
+          "excedenteUfemg": 0.000001978014552150853,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 0.000001978014552150853,
+            "baseCalculoReais": 0.000010940398487946367,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "b0e0f555-712d-4e4e-8625-7912e642692e",
+          "nome": "GABRIEL PISKE DE CARVALHO",
+          "tipo": "neto",
+          "representadoPor": "FERNANDA DE OLIVEIRA PISKE",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 3857.219930844332,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 3857.2199328223464,
+          "excedenteUfemg": 0.000001978014552150853,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 0.000001978014552150853,
+            "baseCalculoReais": 0.000010940398487946367,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "conjuge-meacao",
+          "nome": "Cônjuge (Meeiro)",
+          "tipo": "conjuge",
+          "quinhaoDevidoOriginalUfemg": 7912.241344241547,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 7912.241344241547,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": [
+        "RAPHAEL PISKE DE CARVALHO: Isenção aplicada: Valor da doação/excedente (0,0000 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03).",
+        "GABRIEL PISKE DE CARVALHO: Isenção aplicada: Valor da doação/excedente (0,0000 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+      ]
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Desconto de pontualidade de 15% aplicado (pagamento em 60 dias)."
+    ]
+  }
+}

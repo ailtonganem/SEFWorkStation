@@ -1,0 +1,75 @@
+{
+  "id": "cf85b811-1c2a-4bd2-9964-65265696523b",
+  "tipoCalculo": "usufruto_instituicao",
+  "deCujusNome": "Usufruto de REGIANE DE OLIVEIRA REIS para CLOVES DE OLIVEIRA REIS",
+  "declaracaoNumero": "25.005.0018576-5",
+  "dataFatoGerador": null,
+  "dataPagamento": "2025-07-16",
+  "bens": [
+    {
+      "id": "bem_1752673979020",
+      "descricao": "Sítio Paraiso",
+      "valor": 574097.79,
+      "percentual": 53.8172,
+      "dataAvaliacao": "2025-07-16",
+      "partilha": {
+        "pessoa_1752673940403": 100
+      }
+    }
+  ],
+  "dadosUsufruto": {
+    "instituidores": [
+      {
+        "id": "pessoa_1752673930643",
+        "nome": "REGIANE DE OLIVEIRA REIS"
+      }
+    ],
+    "beneficiarios": [
+      {
+        "id": "pessoa_1752673940403",
+        "nome": "CLOVES DE OLIVEIRA REIS"
+      }
+    ],
+    "efetivada": false,
+    "formalizada": null
+  },
+  "dataSalvamento": "2025-07-16T13:53:22.595Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 2574.6946319989997,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (18.620,1022 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porBeneficiario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 18620.102202126196,
+          "baseCalculoReais": 102987.78527995998,
+          "aliquota": 5,
+          "itcdPrincipal": 5149.3892639979995,
+          "desconto": 2574.6946319989997,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 2574.6946319989997
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (18.620,1022 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "CLOVES DE OLIVEIRA REIS",
+        "id": "pessoa_1752673940403"
+      }
+    ],
+    "resumo": {
+      "totalBensUfemg": 55860.306606378595,
+      "baseCalculoTotalUfemg": 18620.102202126196,
+      "baseCalculoTotalReais": 102987.78527995998,
+      "valorUfemgDoVencimento": 5.531
+    }
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "id": "10cb4283-e00e-44ac-a6e2-64786ec341be",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0047803-0",
+  "dataFatoGerador": "2025-04-30",
+  "dataPagamento": "2025-07-15",
+  "deCujusNome": "VANA ALZIRA ANGELA LIMAS",
+  "estadoCivil": "viuvo",
+  "regimeBens": "",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "6e409627-617f-493f-8eb0-2b24dc84883b",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Rua Brasília 661",
+      "valorAvaliacao": 180000,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "1518a314-b0a8-44c2-9efa-857fc8694d92": 33.333333,
+        "622af784-cec1-45dc-8b01-f28242af3110": 33.333333,
+        "7e9473f3-b875-4f60-9fec-d35d2f143825": 33.333333
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "1518a314-b0a8-44c2-9efa-857fc8694d92",
+      "nome": "AGNALDO RODRIGUES LIMAS",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "622af784-cec1-45dc-8b01-f28242af3110",
+      "nome": "LOURIVALDO RODRIGUES LIMAS",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "7e9473f3-b875-4f60-9fec-d35d2f143825",
+      "nome": "ROSANE RODRIGUES DE SOUZA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-15T18:44:55.459Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 32543.843789549814,
+      "baseCalculoReais": 180000,
+      "aliquota": 0,
+      "itcdPrincipal": 0,
+      "desconto": 0,
+      "multa": 0,
+      "juros": 0,
+      "percentualJuros": 0,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 0
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "1518a314-b0a8-44c2-9efa-857fc8694d92",
+          "nome": "AGNALDO RODRIGUES LIMAS",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10847.947929849937,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 10847.94782137046,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "622af784-cec1-45dc-8b01-f28242af3110",
+          "nome": "LOURIVALDO RODRIGUES LIMAS",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10847.947929849937,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 10847.94782137046,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "7e9473f3-b875-4f60-9fec-d35d2f143825",
+          "nome": "ROSANE RODRIGUES DE SOUZA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10847.947929849937,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 10847.94782137046,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Isenção parcial aplicada: O valor do imóvel residencial (32.543,8438 UFEMG) foi excluído da base de cálculo (Art. 3º, I, da Lei 14.941/03, c/ redação da Lei 17.272/07). O imposto incidirá sobre os demais bens. (Tetos: 40.000,0000 para o imóvel e 48.000,0000 para o monte-mor)."
+    ]
+  }
+}

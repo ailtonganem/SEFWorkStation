@@ -1,0 +1,60 @@
+{
+  "id": "01b7dcb8-40e7-4c88-88fc-75aec506883d",
+  "creationDate": "2025-07-16T17:09:45.795Z",
+  "modificationDate": "2025-07-16T17:09:45.795Z",
+  "tipo": "semovente",
+  "responsavelMasp": "7525520",
+  "responsavelNome": "Ailton Ganem Ribas de Menezes",
+  "declaracao": "25.001.0049466-3",
+  "dataAvaliacao": "2025-07-16",
+  "dadosFormulario": {
+    "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd",
+    "srfNome": "GOVERNADOR VALADARES",
+    "ufId": "30c8af56-09b4-4704-a844-24cfe82c37b4",
+    "declaracao": "25.001.0049466-3",
+    "cpfProdutor": "12049867620",
+    "inscricaoProdutor": "106610",
+    "fatoGeradorMes": "5",
+    "fatoGeradorAno": "2025",
+    "quantidades": {
+      "bezerros0a12": 0,
+      "bezerras0a12": 0,
+      "novilhas12a24": 0,
+      "novilhasMais24": 0,
+      "novilhos12a24": 0,
+      "novilhosMais24": 0,
+      "vacas": 0,
+      "touros": 0,
+      "vacaComCria": 0,
+      "burroOuMula": 0,
+      "cavalo": 2,
+      "egua": 0,
+      "novilhosMais36": 0
+    },
+    "pautaUtilizada": {
+      "bezerros0a12": 1018.16,
+      "bezerras0a12": 952.92,
+      "novilhas12a24": 1258.09,
+      "novilhasMais24": 1791.28,
+      "novilhos12a24": 1334.62,
+      "novilhosMais24": 1943.91,
+      "vacas": 2240.96,
+      "touros": 2637.56,
+      "vacaComCria": 0,
+      "burroOuMula": 550,
+      "cavalo": 500,
+      "egua": 500,
+      "novilhosMais36": 0
+    },
+    "observacao": "Avaliação realizada com base na pauta de valores de semoventes da SEAPA, conforme documentação apresentada."
+  },
+  "dadosCalculados": {
+    "valorTotal": 1000
+  },
+  "documentosVinculadosIds": [],
+  "contribuintesVinculadosIds": [],
+  "recursosVinculadosIds": [],
+  "vinculosAvaliacoesIds": [],
+  "anexos": [],
+  "_versions": []
+}

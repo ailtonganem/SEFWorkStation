@@ -1,0 +1,264 @@
+{
+  "id": "fb904a4c-204d-4ea0-9bf9-084372f645f9",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0048802-7",
+  "dataFatoGerador": "2024-09-13",
+  "dataPagamento": "2025-07-16",
+  "deCujusNome": "LAURITA OLIVEIRA SILVA",
+  "estadoCivil": "viuvo",
+  "regimeBens": "",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "fceaa727-ad3d-43f3-bdbd-00990b08c536",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA HERMELINDO RIBEIRO 58",
+      "valorAvaliacao": 100774,
+      "percentualTransmissao": 50,
+      "natureza": "particular",
+      "partilha": {
+        "53b275bf-8cbd-4d5f-9f0a-738c330e452b": 20,
+        "f4cb2ebe-a67f-4820-9f9d-c9347b912938": 20,
+        "527a1627-3491-4f4a-ba6f-500505d76bbf": 20,
+        "cc1b3419-d244-4186-9771-8e34859b6ee1": 20,
+        "0f998348-f6a1-4996-bccf-4b3f5027bb10": 5,
+        "6878c9bb-1742-4795-9a41-26293dd2ad80": 5,
+        "23535536-095d-49d3-8d00-060e0eb67c42": 5,
+        "06cb3834-f0e2-4842-aa2e-a1f1769ddb2c": 5
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "53b275bf-8cbd-4d5f-9f0a-738c330e452b",
+      "nome": "MARIA APARECIDA DA SILVA VIANA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "f4cb2ebe-a67f-4820-9f9d-c9347b912938",
+      "nome": "MARIA ALVES DA SILVA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "527a1627-3491-4f4a-ba6f-500505d76bbf",
+      "nome": "NAIR DA SILVA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "cc1b3419-d244-4186-9771-8e34859b6ee1",
+      "nome": "MARIA DE FATIMA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "0f998348-f6a1-4996-bccf-4b3f5027bb10",
+      "nome": "RENATO CASSIUS DA SILVA",
+      "tipo": "neto",
+      "representadoPor": "JOSE ALVES DA SILVA",
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "6878c9bb-1742-4795-9a41-26293dd2ad80",
+      "nome": "RODRIGO JUNIOR DA SILVA",
+      "tipo": "neto",
+      "representadoPor": "JOSE ALVES DA SILVA",
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "23535536-095d-49d3-8d00-060e0eb67c42",
+      "nome": "RAFAELA MARIA DA SILVA",
+      "tipo": "neto",
+      "representadoPor": "JOSE ALVES DA SILVA",
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "06cb3834-f0e2-4842-aa2e-a1f1769ddb2c",
+      "nome": "RONALDO ALVES DA SILVA",
+      "tipo": "neto",
+      "representadoPor": "JOSE ALVES DA SILVA",
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-16T12:32:31.944Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 9109.925872355812,
+      "baseCalculoReais": 50386.99999999999,
+      "aliquota": 0,
+      "itcdPrincipal": 0,
+      "desconto": 0,
+      "multa": 0,
+      "juros": 0,
+      "percentualJuros": 0,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 0
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "53b275bf-8cbd-4d5f-9f0a-738c330e452b",
+          "nome": "MARIA APARECIDA DA SILVA VIANA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 1821.9851744711625,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 1821.9851744711625,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "f4cb2ebe-a67f-4820-9f9d-c9347b912938",
+          "nome": "MARIA ALVES DA SILVA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 1821.9851744711625,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 1821.9851744711625,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "527a1627-3491-4f4a-ba6f-500505d76bbf",
+          "nome": "NAIR DA SILVA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 1821.9851744711625,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 1821.9851744711625,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "cc1b3419-d244-4186-9771-8e34859b6ee1",
+          "nome": "MARIA DE FATIMA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 1821.9851744711625,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 1821.9851744711625,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "0f998348-f6a1-4996-bccf-4b3f5027bb10",
+          "nome": "RENATO CASSIUS DA SILVA",
+          "tipo": "neto",
+          "representadoPor": "JOSE ALVES DA SILVA",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 455.4962936177906,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 455.4962936177906,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "6878c9bb-1742-4795-9a41-26293dd2ad80",
+          "nome": "RODRIGO JUNIOR DA SILVA",
+          "tipo": "neto",
+          "representadoPor": "JOSE ALVES DA SILVA",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 455.4962936177906,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 455.4962936177906,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "23535536-095d-49d3-8d00-060e0eb67c42",
+          "nome": "RAFAELA MARIA DA SILVA",
+          "tipo": "neto",
+          "representadoPor": "JOSE ALVES DA SILVA",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 455.4962936177906,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 455.4962936177906,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "06cb3834-f0e2-4842-aa2e-a1f1769ddb2c",
+          "nome": "RONALDO ALVES DA SILVA",
+          "tipo": "neto",
+          "representadoPor": "JOSE ALVES DA SILVA",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 455.4962936177906,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 455.4962936177906,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Isenção parcial aplicada: O valor do imóvel residencial (9.109,9259 UFEMG) foi excluído da base de cálculo (Art. 3º, I, da Lei 14.941/03, c/ redação da Lei 17.272/07). O imposto incidirá sobre os demais bens. (Tetos: 40.000,0000 para o imóvel e 48.000,0000 para o monte-mor)."
+    ]
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "id": "7306abc5-6a88-46cc-a2fc-9f6cafd0cf19",
+  "tipoCalculo": "usufruto_instituicao",
+  "deCujusNome": "Usufruto de MAIKE FERREIRA SANTOS, VINICIUS FERREIRA SANTOS para MARCOS ANTONIO DOS SANTOS, IRACI FERREIRA DE PAULA",
+  "declaracaoNumero": "25.005.0022604-6",
+  "dataFatoGerador": null,
+  "dataPagamento": "2025-07-16",
+  "bens": [
+    {
+      "id": "bem_1752685009473",
+      "descricao": "RUA ISRAEL PINHEIRO 470 AP 202",
+      "valor": 190808.6,
+      "percentual": 100,
+      "dataAvaliacao": "2025-07-16",
+      "partilha": {
+        "pessoa_1752684973001": 50,
+        "pessoa_1752684981977": 50
+      }
+    }
+  ],
+  "dadosUsufruto": {
+    "instituidores": [
+      {
+        "id": "pessoa_1752684952536",
+        "nome": "MAIKE FERREIRA SANTOS"
+      },
+      {
+        "id": "pessoa_1752684962953",
+        "nome": "VINICIUS FERREIRA SANTOS"
+      }
+    ],
+    "beneficiarios": [
+      {
+        "id": "pessoa_1752684973001",
+        "nome": "MARCOS ANTONIO DOS SANTOS"
+      },
+      {
+        "id": "pessoa_1752684981977",
+        "nome": "IRACI FERREIRA DE PAULA"
+      }
+    ],
+    "efetivada": false,
+    "formalizada": null
+  },
+  "dataSalvamento": "2025-07-16T16:57:23.058Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 0,
+      "justificativas": [
+        "Isenção aplicada: Valor da doação/excedente (5.749,6715 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+      ]
+    },
+    "porBeneficiario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 5749.6715482432355,
+          "baseCalculoReais": 31801.433333333334,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (5.749,6715 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "MARCOS ANTONIO DOS SANTOS",
+        "id": "pessoa_1752684973001"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 5749.6715482432355,
+          "baseCalculoReais": 31801.433333333334,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (5.749,6715 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "IRACI FERREIRA DE PAULA",
+        "id": "pessoa_1752684981977"
+      }
+    ],
+    "resumo": {
+      "totalBensUfemg": 34498.02928945942,
+      "baseCalculoTotalUfemg": 11499.343096486471,
+      "baseCalculoTotalReais": 63602.86666666667,
+      "valorUfemgDoVencimento": 5.531
+    }
+  }
+}

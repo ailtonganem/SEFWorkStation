@@ -1,0 +1,68 @@
+{
+  "id": "465ea5d8-8008-499c-9225-da2b76b0c2ed",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.004.0018364-7",
+  "deCujusNome": "Doação de REGIANE DE OLIVEIRA REIS para ISABELLA CASTRO REIS",
+  "doadores": [
+    {
+      "id": "pessoa_1752674066044",
+      "nome": "REGIANE DE OLIVEIRA REIS"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752674076628",
+      "nome": "ISABELLA CASTRO REIS"
+    }
+  ],
+  "tipoDoacaoGlobal": "nua_propriedade",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-16",
+  "dataPagamento": "2025-07-16",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752674108085",
+      "descricao": "Sítio Paraiso",
+      "valor": 574097.79,
+      "percentualTransmissao": 53.8172,
+      "dataAvaliacao": "2025-07-16",
+      "partilha": {
+        "pessoa_1752674076628": 100
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-16T13:55:19.917Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 7724.083895997001,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (55.860,3066 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 55860.306606378595,
+          "baseCalculoReais": 308963.35583988,
+          "aliquota": 5,
+          "itcdPrincipal": 15448.167791994001,
+          "desconto": 7724.083895997001,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 7724.083895997001
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (55.860,3066 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "ISABELLA CASTRO REIS",
+        "id": "pessoa_1752674076628"
+      }
+    ]
+  }
+}

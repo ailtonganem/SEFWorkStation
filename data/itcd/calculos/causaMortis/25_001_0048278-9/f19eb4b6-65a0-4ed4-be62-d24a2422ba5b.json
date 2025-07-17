@@ -1,0 +1,121 @@
+{
+  "id": "f19eb4b6-65a0-4ed4-be62-d24a2422ba5b",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0048278-9",
+  "dataFatoGerador": "2022-06-07",
+  "dataPagamento": "2025-07-15",
+  "deCujusNome": "AMINTHAS JOSE DA SILVA FILHO",
+  "estadoCivil": "casado",
+  "regimeBens": "comunhao_parcial",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "b87ccd52-a7aa-4e77-ac12-de3df4ac5f2f",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "BENJAMIM RODRIGUES COELHO 47",
+      "valorAvaliacao": 294288.53,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "ba79ce03-3dbc-412e-abba-b20b5bedaa4b": 50
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "ba79ce03-3dbc-412e-abba-b20b5bedaa4b",
+      "nome": "DEBORA FILGUEIRAS MELO E SILVA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-15T17:53:32.369Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 26603.555414934013,
+      "baseCalculoReais": 126906.94039585971,
+      "aliquota": 5,
+      "itcdPrincipal": 6345.3470197929855,
+      "desconto": 0,
+      "multa": 761.4416423751583,
+      "juros": 2128.00228793059,
+      "percentualJuros": 29.943233,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 9234.790950098733
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "ba79ce03-3dbc-412e-abba-b20b5bedaa4b",
+          "nome": "DEBORA FILGUEIRAS MELO E SILVA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 26603.555414934013,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 26603.555414934013,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "conjuge-meacao",
+          "nome": "Cônjuge (Meeiro)",
+          "tipo": "meeiro",
+          "quinhaoDevidoOriginalUfemg": 26603.555414934013,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 26603.555414934013,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Soma dos índices SELIC de fev. de 2023 a jul. de 2025, mais 1%. Total da soma SELIC: 28,943233%. Taxa final: 29,943233%."
+    ]
+  }
+}

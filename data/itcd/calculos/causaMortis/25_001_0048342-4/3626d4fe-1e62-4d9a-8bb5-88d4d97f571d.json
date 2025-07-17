@@ -1,0 +1,349 @@
+{
+  "id": "3626d4fe-1e62-4d9a-8bb5-88d4d97f571d",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0048342-4",
+  "dataFatoGerador": "2016-06-01",
+  "dataPagamento": "2025-07-15",
+  "deCujusNome": "SEBASTIAO PINTO",
+  "estadoCivil": "casado",
+  "regimeBens": "comunhao_parcial",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "judicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": true,
+  "valorRecolhido": 5567.73,
+  "dataRecolhimentoPrevio": "2016-08-11",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "d88cf2ec-74ea-4b2b-b386-2ce305d2e2c0",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "FAZENDA SANTA MARIA",
+      "valorAvaliacao": 273931,
+      "percentualTransmissao": 12.5,
+      "natureza": "comum",
+      "partilha": {
+        "21519ad8-058e-4d31-9c28-675e6967fa7f": 50,
+        "0cc97bdc-1dfe-4cf2-bcef-4803d035ecfc": 50,
+        "d260213c-09b9-4b4e-8f4c-16fdcd882c0b": 0,
+        "conjuge-meacao": 0
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "833703f3-fb4c-44db-8b42-ffaa4078722a",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "FAZENDA SÃO BOM JESUS",
+      "valorAvaliacao": 283487,
+      "percentualTransmissao": 12.5,
+      "natureza": "comum",
+      "partilha": {
+        "d260213c-09b9-4b4e-8f4c-16fdcd882c0b": 100
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "eab391e8-2c37-45ed-b437-50d12062d3c2",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA MANOEL EUFRASIO, 165, CONSELHEIRO PENA",
+      "valorAvaliacao": 71986,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 100
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "e218f6e8-7391-4983-b3ec-deae37645112",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA JOSE FIRMINO PINTO, 85, CONSELHEIRO PENA",
+      "valorAvaliacao": 68316,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "1656c85b-5f02-4604-8434-a497e972d2fb": 50
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "5961ff60-ddc9-4a2e-be1d-6af883bed595",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA VIOLETA, 96, CONSELHEIRO PENA",
+      "valorAvaliacao": 19856,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "21519ad8-058e-4d31-9c28-675e6967fa7f": 100
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "e2074573-e513-4628-98f2-5094f0d7f062",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA JOSE FIRMINO PITNO, 0",
+      "valorAvaliacao": 16285,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "0cc97bdc-1dfe-4cf2-bcef-4803d035ecfc": 100
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "d981dc7f-aedd-4bc5-a944-28da5eecb023",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "HBQ-7130",
+      "valorAvaliacao": 13800,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 100
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "7d91e61c-748a-4d3c-9208-262b16929c97",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "GLJ-4945",
+      "valorAvaliacao": 2090,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "1656c85b-5f02-4604-8434-a497e972d2fb": 100
+      },
+      "anoReferenciaUfemg": 2016,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "1656c85b-5f02-4604-8434-a497e972d2fb",
+      "nome": "EDIR JOSE PINTO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "0cc97bdc-1dfe-4cf2-bcef-4803d035ecfc",
+      "nome": "ERNANDES PINTO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "21519ad8-058e-4d31-9c28-675e6967fa7f",
+      "nome": "ALAIR FIRMINO PINTO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "d260213c-09b9-4b4e-8f4c-16fdcd882c0b",
+      "nome": "IVANIR FIRMINO PINTO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-15T18:34:58.014Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 43510.287621641364,
+      "baseCalculoReais": 131005.12499999999,
+      "aliquota": 5,
+      "itcdPrincipal": 6550.256249999999,
+      "desconto": 982.5384374999999,
+      "multa": 0,
+      "juros": 0,
+      "percentualJuros": 0,
+      "recolhimentoPrevio": 5567.73,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 0
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 20319.201027931882,
+        "baseCalculoUfemg": 3673.6939121193063,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "1656c85b-5f02-4604-8434-a497e972d2fb",
+          "nome": "EDIR JOSE PINTO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10877.571905410341,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 12038.92523830084,
+          "excedenteUfemg": 1161.3533328904996,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 1161.3533328904996,
+            "baseCalculoReais": 6423.445284217353,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "0cc97bdc-1dfe-4cf2-bcef-4803d035ecfc",
+          "nome": "ERNANDES PINTO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10877.571905410341,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 11094.917632601548,
+          "excedenteUfemg": 217.3457271912066,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 217.3457271912066,
+            "baseCalculoReais": 1202.1392170945637,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "21519ad8-058e-4d31-9c28-675e6967fa7f",
+          "nome": "ALAIR FIRMINO PINTO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10877.571905410341,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 12280.941744993192,
+          "excedenteUfemg": 1403.3698395828505,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 1403.3698395828505,
+            "baseCalculoReais": 7762.038582732746,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "d260213c-09b9-4b4e-8f4c-16fdcd882c0b",
+          "nome": "IVANIR FIRMINO PINTO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 10877.571905410341,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 11769.19691786509,
+          "excedenteUfemg": 891.6250124547496,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 891.6250124547496,
+            "baseCalculoReais": 4931.57794388722,
+            "aliquota": 0,
+            "itcdPrincipal": 0,
+            "desconto": 0,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 0
+          }
+        },
+        {
+          "id": "conjuge-meacao",
+          "nome": "Cônjuge (Meeiro)",
+          "tipo": "meeiro",
+          "quinhaoDevidoOriginalUfemg": 43510.287621641364,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 39836.59370952207,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": [
+        "EDIR JOSE PINTO: Isenção aplicada: Valor da doação/excedente (1.161,3533 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03).",
+        "ERNANDES PINTO: Isenção aplicada: Valor da doação/excedente (217,3457 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03).",
+        "ALAIR FIRMINO PINTO: Isenção aplicada: Valor da doação/excedente (1.403,3698 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03).",
+        "IVANIR FIRMINO PINTO: Isenção aplicada: Valor da doação/excedente (891,6250 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+      ]
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Desconto de pontualidade de 15% aplicado (pagamento em 71 dias)."
+    ]
+  }
+}

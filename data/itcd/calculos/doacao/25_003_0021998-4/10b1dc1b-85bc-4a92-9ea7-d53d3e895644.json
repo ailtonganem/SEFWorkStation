@@ -1,0 +1,64 @@
+{
+  "id": "10b1dc1b-85bc-4a92-9ea7-d53d3e895644",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.003.0021998-4",
+  "deCujusNome": "Doação de NACIONAL DE GRAFITE LTDA para INVEST PARTICIPACOES LTDA",
+  "doadores": [
+    {
+      "id": "pessoa_1752601012293",
+      "nome": "NACIONAL DE GRAFITE LTDA"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752601021861",
+      "nome": "INVEST PARTICIPACOES LTDA"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-15",
+  "dataPagamento": "2025-07-15",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752601053413",
+      "descricao": "Fazenda Recanto",
+      "valor": 535169.74,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-15",
+      "partilha": {
+        "pessoa_1752601021861": 100
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-15T17:37:43.575Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 26758.487,
+      "justificativas": []
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 96758.22455252215,
+          "baseCalculoReais": 535169.74,
+          "aliquota": 5,
+          "itcdPrincipal": 26758.487,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 26758.487
+        },
+        "erros": [],
+        "justificativaCalculo": [],
+        "nome": "INVEST PARTICIPACOES LTDA",
+        "id": "pessoa_1752601021861"
+      }
+    ]
+  }
+}

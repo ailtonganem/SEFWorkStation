@@ -1,0 +1,4589 @@
+{
+  "itcdConfiguracoesStore": {
+    "srfCidades": [
+      {
+        "id": "1024c128-2513-4ec1-b918-3bb3b649fadd",
+        "nome": "GOVERNADOR VALADARES",
+        "cidades": [
+          {
+            "id": "05f9c050-20e8-4631-8f79-9387d8aaf2ea",
+            "nome": "GOVERNADOR VALADARES",
+            "valoresUrbanos": {
+              "CENTRAL": 3452.59,
+              "EXCELENTE": 2600.11,
+              "BOA": 1706.89,
+              "MÉDIA": 1062.45,
+              "POPULAR": 514.28,
+              "CHÁCARA URBANA": 267.8,
+              "PERIFÉRICOS": 133.9
+            },
+            "valoresRurais": {
+              "Classe A": 14081.91,
+              "Classe B": 10829.63,
+              "Classe C": 8787.05,
+              "Classe D": 7157.51,
+              "Classe E": 5562.82
+            }
+          },
+          {
+            "id": "c087776c-8d2d-435f-bab7-4601ef02aab4",
+            "nome": "AIMORÉS",
+            "valoresUrbanos": {
+              "CENTRAL": 748,
+              "EXCELENTE": 563.3,
+              "BOA": 369.79,
+              "MÉDIA": 230.17,
+              "POPULAR": 111.42,
+              "CHÁCARA URBANA": 55.71,
+              "PERIFÉRICOS": 89.14
+            },
+            "valoresRurais": {
+              "Classe A": 12003.18,
+              "Classe B": 9230.99,
+              "Classe C": 7489.93,
+              "Classe D": 6100.94,
+              "Classe E": 4741.65
+            }
+          },
+          {
+            "id": "d939fec7-3731-40cf-9ff1-5c5263604b27",
+            "nome": "CONSELHEIRO PENA",
+            "valoresUrbanos": {
+              "CENTRAL": 1070.3,
+              "EXCELENTE": 806.03,
+              "BOA": 529.14,
+              "MÉDIA": 329.36,
+              "POPULAR": 159.43,
+              "CHÁCARA URBANA": 83.02,
+              "PERIFÉRICOS": 41.51
+            },
+            "valoresRurais": {
+              "Classe A": 7040.96,
+              "Classe B": 5414.81,
+              "Classe C": 4393.52,
+              "Classe D": 3578.76,
+              "Classe E": 2781.41
+            }
+          },
+          {
+            "id": "6c33057c-fe41-4f26-8421-1fdfef97c513",
+            "nome": "ALVARENGA",
+            "valoresUrbanos": {
+              "CENTRAL": 552.41,
+              "EXCELENTE": 416.02,
+              "BOA": 273.1,
+              "MÉDIA": 169.99,
+              "POPULAR": 82.28,
+              "CHÁCARA URBANA": 42.85,
+              "PERIFÉRICOS": 21.42
+            },
+            "valoresRurais": {
+              "Classe A": 5351.13,
+              "Classe B": 4115.26,
+              "Classe C": 3339.08,
+              "Classe D": 2719.85,
+              "Classe E": 2113.87
+            }
+          },
+          {
+            "id": "c814b5a9-5a23-4701-8941-882b958ed508",
+            "nome": "CUPARAQUE",
+            "valoresUrbanos": {
+              "CENTRAL": 655.99,
+              "EXCELENTE": 494.02,
+              "BOA": 324.31,
+              "MÉDIA": 201.87,
+              "POPULAR": 97.71,
+              "CHÁCARA URBANA": 50.88,
+              "PERIFÉRICOS": 25.44
+            },
+            "valoresRurais": {
+              "Classe A": 7040.96,
+              "Classe B": 5414.81,
+              "Classe C": 4393.52,
+              "Classe D": 3578.76,
+              "Classe E": 2781.41
+            }
+          },
+          {
+            "id": "bd327015-7385-43cd-869a-463155374383",
+            "nome": "GALILÉIA",
+            "valoresUrbanos": {
+              "CENTRAL": 655.99,
+              "EXCELENTE": 494.02,
+              "BOA": 324.31,
+              "MÉDIA": 201.87,
+              "POPULAR": 97.71,
+              "CHÁCARA URBANA": 50.88,
+              "PERIFÉRICOS": 25.44
+            },
+            "valoresRurais": {
+              "Classe A": 7040.96,
+              "Classe B": 5414.81,
+              "Classe C": 4393.52,
+              "Classe D": 3578.76,
+              "Classe E": 2781.41
+            }
+          },
+          {
+            "id": "60a8fe9e-d515-4709-9d5a-7224197c77ef",
+            "nome": "GOIABEIRA",
+            "valoresUrbanos": {
+              "CENTRAL": 655.99,
+              "EXCELENTE": 494.02,
+              "BOA": 324.31,
+              "MÉDIA": 201.87,
+              "POPULAR": 97.71,
+              "CHÁCARA URBANA": 50.88,
+              "PERIFÉRICOS": 25.44
+            },
+            "valoresRurais": {
+              "Classe A": 7040.96,
+              "Classe B": 5414.81,
+              "Classe C": 4393.52,
+              "Classe D": 3578.76,
+              "Classe E": 2781.41
+            }
+          },
+          {
+            "id": "4f6ca1b0-9bf8-46f8-b7f8-95f8accaff0e",
+            "nome": "SÃO GERALDO DO BAIXIO",
+            "valoresUrbanos": {
+              "CENTRAL": 655.99,
+              "EXCELENTE": 494.02,
+              "BOA": 324.31,
+              "MÉDIA": 201.87,
+              "POPULAR": 97.71,
+              "CHÁCARA URBANA": 50.88,
+              "PERIFÉRICOS": 25.44
+            },
+            "valoresRurais": {
+              "Classe A": 7040.96,
+              "Classe B": 5414.81,
+              "Classe C": 4393.52,
+              "Classe D": 3578.76,
+              "Classe E": 2781.34
+            }
+          },
+          {
+            "id": "9d5a566d-43f2-4afc-97f4-c1681a106e70",
+            "nome": "ALPERCATA",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {}
+          },
+          {
+            "id": "d5e90d7a-d569-47d8-a49a-b6d307a76bac",
+            "nome": "CAPITÃO ANDRADE",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "ea56f1fd-4f38-48f9-aa94-a001f14fc769",
+            "nome": "COROACI",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "0c7d523f-0dcc-4912-aa19-0174b6d10585",
+            "nome": "DIVINO DAS LARANJEIRAS",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "fb6b651e-9f8c-4b49-8f9e-a4890fc3c95f",
+            "nome": "ENGENHEIRO CALDAS",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "49993d55-303f-4f6a-857a-6aa1462861e1",
+            "nome": "FERNANDES TOURINHO",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "393d6a3c-3bff-4864-b35c-28339cae18bc",
+            "nome": "FREI INOCÊNCIO",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "18c9db0f-c7d8-4a8d-930a-f1589cf563b8",
+            "nome": "ITANHOMI",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "bf8e43e9-8fbd-431e-a996-77d5cdd2851a",
+            "nome": "JAMPRUCA",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "30c6d218-0cc9-4dc7-b272-65926765f243",
+            "nome": "MARILAC",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "eb54c818-6cb0-4f57-945a-1eab77221f98",
+            "nome": "MATHIAS LOBATO",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "9e5e1343-c2ae-4e47-8e0c-51a9c376b06d",
+            "nome": "MENDES PIMENTEL",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "856ebc80-d645-4fa5-bfb1-d79ade4a0faa",
+            "nome": "NACIP RAYDAN",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "fd89cd52-92c5-4364-8622-9e7088c7e087",
+            "nome": "SÃO FÉLIX DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "31c3da17-ceed-4992-b4fc-c7bcab5e3b38",
+            "nome": "SÃO GERALDO DA PIEDADE",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "64f1f5b5-d497-45d1-94f7-84f8d5e12077",
+            "nome": "SÃO JOSÉ DA SAFIRA",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "57c83bf4-6d4d-4bdc-bee4-4893a50a0fcf",
+            "nome": "SOBRÁLIA",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "0c8062bf-17f9-4cc6-af83-0fe105fe7b5e",
+            "nome": "TARUMIRIM",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "895ddb09-9b70-401f-989a-29824ab6a561",
+            "nome": "TUMIRITINGA",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {}
+          },
+          {
+            "id": "397e6361-6522-4201-b240-8d27ff3ad4e3",
+            "nome": "VIRGOLÂNDIA",
+            "valoresUrbanos": {
+              "CENTRAL": 1035.78,
+              "EXCELENTE": 780.03,
+              "BOA": 512.07,
+              "MÉDIA": 318.74,
+              "POPULAR": 154.28,
+              "CHÁCARA URBANA": 80.34,
+              "PERIFÉRICOS": 40.17
+            },
+            "valoresRurais": {
+              "Classe A": 10561.43,
+              "Classe B": 8122.22,
+              "Classe C": 6590.29,
+              "Classe D": 5368.13,
+              "Classe E": 4172.12
+            }
+          },
+          {
+            "id": "e6bd4eb7-b544-467c-bc92-2f4e0b4a5dfc",
+            "nome": "MANTENA",
+            "valoresUrbanos": {
+              "CENTRAL": 853.48,
+              "EXCELENTE": 642.73,
+              "BOA": 421.93,
+              "MÉDIA": 262.63,
+              "POPULAR": 127.13,
+              "CHÁCARA URBANA": 63.57,
+              "PERIFÉRICOS": 101.7
+            },
+            "valoresRurais": {
+              "Classe A": 23911.77,
+              "Classe B": 18389.23,
+              "Classe C": 14920.83,
+              "Classe D": 12153.8,
+              "Classe E": 9445.94
+            }
+          },
+          {
+            "id": "f5047e82-e09d-4c80-9c69-218e931faf38",
+            "nome": "CENTRAL DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 682.78,
+              "EXCELENTE": 514.18,
+              "BOA": 337.54,
+              "MÉDIA": 210.1,
+              "POPULAR": 101.7,
+              "CHÁCARA URBANA": 50.85,
+              "PERIFÉRICOS": 81.36
+            },
+            "valoresRurais": {
+              "Classe A": 23911.77,
+              "Classe B": 18389.23,
+              "Classe C": 14920.83,
+              "Classe D": 12153.8,
+              "Classe E": 9445.94
+            }
+          },
+          {
+            "id": "b31bfa53-7c46-42d0-9b12-a0668bc5cd6c",
+            "nome": "ITABIRINHA DE MANTENA",
+            "valoresUrbanos": {
+              "CENTRAL": 682.78,
+              "EXCELENTE": 514.18,
+              "BOA": 337.54,
+              "MÉDIA": 210.1,
+              "POPULAR": 101.7,
+              "CHÁCARA URBANA": 50.85,
+              "PERIFÉRICOS": 81.36
+            },
+            "valoresRurais": {
+              "Classe A": 23911.77,
+              "Classe B": 18389.23,
+              "Classe C": 14920.83,
+              "Classe D": 12153.8,
+              "Classe E": 9445.94
+            }
+          },
+          {
+            "id": "2cf54429-2cee-44df-b42b-6d95285555ec",
+            "nome": "NOVA BELÉM",
+            "valoresUrbanos": {
+              "CENTRAL": 597.44,
+              "EXCELENTE": 449.91,
+              "BOA": 295.35,
+              "MÉDIA": 183.84,
+              "POPULAR": 88.99,
+              "CHÁCARA URBANA": 44.5,
+              "PERIFÉRICOS": 71.19
+            },
+            "valoresRurais": {}
+          },
+          {
+            "id": "83f2218e-5d57-455c-a2fb-5222ed104b4d",
+            "nome": "SÃO JOÃO DO MANTENINHA",
+            "valoresUrbanos": {
+              "CENTRAL": 682.78,
+              "EXCELENTE": 514.18,
+              "BOA": 337.54,
+              "MÉDIA": 210.1,
+              "POPULAR": 101.7,
+              "CHÁCARA URBANA": 50.85,
+              "PERIFÉRICOS": 81.36
+            },
+            "valoresRurais": {}
+          },
+          {
+            "id": "431bfb97-6bce-4cf8-be70-91a08162b54e",
+            "nome": "RESPLENDOR",
+            "valoresUrbanos": {
+              "CENTRAL": 785.4,
+              "EXCELENTE": 591.46,
+              "BOA": 388.28,
+              "MÉDIA": 241.68,
+              "POPULAR": 116.99,
+              "CHÁCARA URBANA": 58.5,
+              "PERIFÉRICOS": 93.59
+            },
+            "valoresRurais": {
+              "Classe A": 13377.81,
+              "Classe B": 10288.15,
+              "Classe C": 8347.7,
+              "Classe D": 6799.64,
+              "Classe E": 5284.68
+            }
+          },
+          {
+            "id": "7ba06261-b878-44a4-ba59-9726aa13ecbc",
+            "nome": "ITUETA",
+            "valoresUrbanos": {
+              "CENTRAL": 667.59,
+              "EXCELENTE": 502.74,
+              "BOA": 330.04,
+              "MÉDIA": 205.43,
+              "POPULAR": 99.44,
+              "CHÁCARA URBANA": 49.72,
+              "PERIFÉRICOS": 79.55
+            },
+            "valoresRurais": {
+              "Classe A": 14786.01,
+              "Classe B": 11371.11,
+              "Classe C": 9226.4,
+              "Classe D": 7515.39,
+              "Classe E": 5840.96
+            }
+          },
+          {
+            "id": "34968b25-457c-413b-9621-31e47923aebb",
+            "nome": "SANTA RITA DO ITUÊTO",
+            "valoresUrbanos": {
+              "CENTRAL": 589.05,
+              "EXCELENTE": 443.6,
+              "BOA": 291.21,
+              "MÉDIA": 181.26,
+              "POPULAR": 87.74,
+              "CHÁCARA URBANA": 43.87,
+              "PERIFÉRICOS": 70.19
+            },
+            "valoresRurais": {
+              "Classe A": 15490.1,
+              "Classe B": 11912.59,
+              "Classe C": 9665.75,
+              "Classe D": 7873.26,
+              "Classe E": 6119.1
+            }
+          },
+          {
+            "id": "8fc50f3e-5ce4-4b97-b20a-1efcf3f18dd1",
+            "nome": "ÁGUAS FORMOSAS",
+            "valoresUrbanos": {
+              "CENTRAL": 1178.83,
+              "EXCELENTE": 887.74,
+              "BOA": 582.77,
+              "MÉDIA": 362.75,
+              "POPULAR": 17559,
+              "CHÁCARA URBANA": 87.8,
+              "PERIFÉRICOS": 140.47
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "dab855ca-ab2a-4ff6-a34b-1b88180a4309",
+            "nome": "BERTÓPOLIS",
+            "valoresUrbanos": {
+              "CENTRAL": 884.12,
+              "EXCELENTE": 665.81,
+              "BOA": 437.08,
+              "MÉDIA": 272.06,
+              "POPULAR": 131.69,
+              "CHÁCARA URBANA": 65.85,
+              "PERIFÉRICOS": 105.35
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "44bb4297-ad14-49b6-b89f-889d6a79dfc5",
+            "nome": "CRISÓLITA",
+            "valoresUrbanos": {
+              "CENTRAL": 884.12,
+              "EXCELENTE": 665.81,
+              "BOA": 437.08,
+              "MÉDIA": 272.06,
+              "POPULAR": 131.69,
+              "CHÁCARA URBANA": 65.85,
+              "PERIFÉRICOS": 105.35
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "0d9e6ed6-4cba-4f90-90d5-4d8a4f341eeb",
+            "nome": "FRONTEIRA DO VALES",
+            "valoresUrbanos": {
+              "CENTRAL": 825.18,
+              "EXCELENTE": 621.42,
+              "BOA": 407.94,
+              "MÉDIA": 253.93,
+              "POPULAR": 122.91,
+              "CHÁCARA URBANA": 61.46,
+              "PERIFÉRICOS": 98.33
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "fbd797ad-da2c-46c2-b9c4-8c9cbffe4769",
+            "nome": "MACHACALIS",
+            "valoresUrbanos": {
+              "CENTRAL": 884.12,
+              "EXCELENTE": 665.81,
+              "BOA": 437.08,
+              "MÉDIA": 272.06,
+              "POPULAR": 131.69,
+              "CHÁCARA URBANA": 64.85,
+              "PERIFÉRICOS": 105.35
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "5ed6a28f-6e30-415a-8d0d-bac408554962",
+            "nome": "SANTA HELENA DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 884.12,
+              "EXCELENTE": 665.81,
+              "BOA": 437.08,
+              "MÉDIA": 272.06,
+              "POPULAR": 131.69,
+              "CHÁCARA URBANA": 65.85,
+              "PERIFÉRICOS": 105.35
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "8e102004-21fb-4825-bd72-b6f2b05c35a9",
+            "nome": "UMBURATIBA",
+            "valoresUrbanos": {
+              "CENTRAL": 825.18,
+              "EXCELENTE": 621.42,
+              "BOA": 407.94,
+              "MÉDIA": 253.93,
+              "POPULAR": 122.91,
+              "CHÁCARA URBANA": 61.46,
+              "PERIFÉRICOS": 98.33
+            },
+            "valoresRurais": {
+              "Classe A": 9085.93,
+              "Classe B": 6987.5,
+              "Classe C": 5669.58,
+              "Classe D": 4618.17,
+              "Classe E": 3589.24
+            }
+          },
+          {
+            "id": "5eed8193-e623-4e94-b5e5-9d027be92aa7",
+            "nome": "ALMENARA",
+            "valoresUrbanos": {
+              "CENTRAL": 379.53,
+              "EXCELENTE": 285.81,
+              "BOA": 187.63,
+              "MÉDIA": 116.79,
+              "POPULAR": 56.53,
+              "CHÁCARA URBANA": 28.27,
+              "PERIFÉRICOS": 45.22
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "12dd6312-a7d2-4087-bb72-8fa57c3d3b6e",
+            "nome": "BANDEIRA",
+            "valoresUrbanos": {
+              "CENTRAL": 227.72,
+              "EXCELENTE": 171.49,
+              "BOA": 112.58,
+              "MÉDIA": 70.07,
+              "POPULAR": 33.92,
+              "CHÁCARA URBANA": 16.96,
+              "PERIFÉRICOS": 27.13
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "7b5b0ab2-2c0c-4666-8a56-4ea328e0ef96",
+            "nome": "FELISBURGO",
+            "valoresUrbanos": {
+              "CENTRAL": 246.69,
+              "EXCELENTE": 185.78,
+              "BOA": 121.96,
+              "MÉDIA": 75.91,
+              "POPULAR": 36.74,
+              "CHÁCARA URBANA": 18.37,
+              "PERIFÉRICOS": 29.4
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "5190e3cb-b381-4098-b967-ce3a32bdedda",
+            "nome": "JACINTO",
+            "valoresUrbanos": {
+              "CENTRAL": 303.62,
+              "EXCELENTE": 228.65,
+              "BOA": 150.1,
+              "MÉDIA": 93.43,
+              "POPULAR": 45.22,
+              "CHÁCARA URBANA": 22.61,
+              "PERIFÉRICOS": 36.18
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "5ec0aa3f-c13c-4c53-a394-e938865e9ecb",
+            "nome": "JEQUITINHONHA",
+            "valoresUrbanos": {
+              "CENTRAL": 303.62,
+              "EXCELENTE": 228.65,
+              "BOA": 150.1,
+              "MÉDIA": 93.43,
+              "POPULAR": 45.22,
+              "CHÁCARA URBANA": 22.61,
+              "PERIFÉRICOS": 36.18
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "88a2e15a-5ada-40fc-8cf2-eb4587a8cd1b",
+            "nome": "JOAÍMA",
+            "valoresUrbanos": {
+              "CENTRAL": 227.72,
+              "EXCELENTE": 171.49,
+              "BOA": 112.58,
+              "MÉDIA": 70.07,
+              "POPULAR": 33.92,
+              "CHÁCARA URBANA": 16.96,
+              "PERIFÉRICOS": 27.13
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "1e4c4d20-d783-415f-8a63-c96317701c2c",
+            "nome": "JORDÂNIA",
+            "valoresUrbanos": {
+              "CENTRAL": 227.72,
+              "EXCELENTE": 171.49,
+              "BOA": 112.58,
+              "MÉDIA": 70.07,
+              "POPULAR": 33.92,
+              "CHÁCARA URBANA": 16.96,
+              "PERIFÉRICOS": 27.13
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "de7dcb65-1319-4346-992d-55530d40f16e",
+            "nome": "MONTE FORMOSO",
+            "valoresUrbanos": {
+              "CENTRAL": 227.72,
+              "EXCELENTE": 171.49,
+              "BOA": 112.58,
+              "MÉDIA": 70.07,
+              "POPULAR": 33.92,
+              "CHÁCARA URBANA": 16.96,
+              "PERIFÉRICOS": 27.13
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "d9da116d-6355-45a6-86bb-49646b48dbd1",
+            "nome": "PALMÓPOLIS",
+            "valoresUrbanos": {
+              "CENTRAL": 246.69,
+              "EXCELENTE": 171.49,
+              "BOA": 112.58,
+              "MÉDIA": 70.07,
+              "POPULAR": 33.92,
+              "CHÁCARA URBANA": 16.96,
+              "PERIFÉRICOS": 27.13
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "8ba2cb1b-2605-4efd-9c42-a5ffba9593e2",
+            "nome": "RIO DO PRADO",
+            "valoresUrbanos": {
+              "CENTRAL": 284.65,
+              "EXCELENTE": 214.36,
+              "BOA": 140.72,
+              "MÉDIA": 87.59,
+              "POPULAR": 42.4,
+              "CHÁCARA URBANA": 21.2,
+              "PERIFÉRICOS": 33.92
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "c95ed15b-139a-4ce2-9738-9d1d7f09d834",
+            "nome": "RUBIM",
+            "valoresUrbanos": {
+              "CENTRAL": 284.65,
+              "EXCELENTE": 214.36,
+              "BOA": 140.72,
+              "MÉDIA": 87.59,
+              "POPULAR": 42.4,
+              "CHÁCARA URBANA": 21.2,
+              "PERIFÉRICOS": 33.92
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "452fc1b4-c297-483c-9423-0202d93bfcac",
+            "nome": "SALTO DA DIVISA",
+            "valoresUrbanos": {
+              "CENTRAL": 284.65,
+              "EXCELENTE": 214.36,
+              "BOA": 140.72,
+              "MÉDIA": 87.59,
+              "POPULAR": 42.4,
+              "CHÁCARA URBANA": 21.2,
+              "PERIFÉRICOS": 33.92
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "d850e519-325d-4eab-bbd5-821f3e1dbbd9",
+            "nome": "SANTA MARIA DO SALTO",
+            "valoresUrbanos": {
+              "CENTRAL": 246.69,
+              "EXCELENTE": 185.78,
+              "BOA": 121.96,
+              "MÉDIA": 75.91,
+              "POPULAR": 36.74,
+              "CHÁCARA URBANA": 18.37,
+              "PERIFÉRICOS": 29.4
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "f0be22d0-4dba-44e5-ace3-65435ccbcbbd",
+            "nome": "SANTO ANTÔNIO DO JACINTO",
+            "valoresUrbanos": {
+              "CENTRAL": 284.65,
+              "EXCELENTE": 214.36,
+              "BOA": 140.72,
+              "MÉDIA": 87.59,
+              "POPULAR": 42.4,
+              "CHÁCARA URBANA": 21.2,
+              "PERIFÉRICOS": 33.92
+            },
+            "valoresRurais": {
+              "Classe A": 6393.9,
+              "Classe B": 4917.2,
+              "Classe C": 3989.76,
+              "Classe D": 3249.87,
+              "Classe E": 2525.8
+            }
+          },
+          {
+            "id": "46b396d8-5b40-4f42-b8e4-7f44c9835056",
+            "nome": "ARAÇUAÍ",
+            "valoresUrbanos": {
+              "CENTRAL": 454.86,
+              "EXCELENTE": 342.54,
+              "BOA": 224.87,
+              "MÉDIA": 139.97,
+              "POPULAR": 67.75,
+              "CHÁCARA URBANA": 33.88,
+              "PERIFÉRICOS": 54.2
+            },
+            "valoresRurais": {
+              "Classe A": 5269.93,
+              "Classe B": 4052.82,
+              "Classe C": 3288.41,
+              "Classe D": 2678.59,
+              "Classe E": 2081.8
+            }
+          },
+          {
+            "id": "af3c7c91-fff2-43c6-94e1-4168a9709468",
+            "nome": "BERILO",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "25c397f8-afa3-4af6-ab7e-ca60a6862236",
+            "nome": "CORONEL MURTA",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "0d499480-4762-4e97-846c-c1707deb3ba7",
+            "nome": "FRANCISCO BADARÓ",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "9b921a25-3707-4e35-8024-55d33a291f0a",
+            "nome": "ITINGA",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "06f5f3a2-b9c4-4c5c-9733-4bcaa562e1cf",
+            "nome": "JENIPAPO DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "ee5a8d16-c289-4aef-8dd3-d3dac4d89c09",
+            "nome": "JOSÉ GONÇALVES DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "81a3acd1-7d5b-43ae-a4c9-53fe511cd921",
+            "nome": "VIRGEM DA LAPA",
+            "valoresUrbanos": {
+              "CENTRAL": 272.92,
+              "EXCELENTE": 205.52,
+              "BOA": 134.92,
+              "MÉDIA": 83.98,
+              "POPULAR": 40.65,
+              "CHÁCARA URBANA": 20.33,
+              "PERIFÉRICOS": 32.52
+            },
+            "valoresRurais": {
+              "Classe A": 4742.94,
+              "Classe B": 3647.54,
+              "Classe C": 2959.57,
+              "Classe D": 2410.73,
+              "Classe E": 1873.62
+            }
+          },
+          {
+            "id": "a448723c-26da-42bc-b846-ec1bf0f6b0eb",
+            "nome": "ITAMBACURI",
+            "valoresUrbanos": {
+              "CENTRAL": 1418.02,
+              "EXCELENTE": 1067.86,
+              "BOA": 701.02,
+              "MÉDIA": 436.35,
+              "POPULAR": 211.21,
+              "CHÁCARA URBANA": 105.61,
+              "PERIFÉRICOS": 168.97
+            },
+            "valoresRurais": {
+              "Classe A": 12655.41,
+              "Classe B": 9732.58,
+              "Classe C": 7896.92,
+              "Classe D": 6432.45,
+              "Classe E": 4999.3
+            }
+          },
+          {
+            "id": "729ebf82-bfe7-4742-b1d2-92a09b8dee03",
+            "nome": "CAMPANÁRIO",
+            "valoresUrbanos": {
+              "CENTRAL": 1418.02,
+              "EXCELENTE": 1067.86,
+              "BOA": 701.02,
+              "MÉDIA": 436.35,
+              "POPULAR": 211.21,
+              "CHÁCARA URBANA": 105.61,
+              "PERIFÉRICOS": 168.97
+            },
+            "valoresRurais": {
+              "Classe A": 12655.41,
+              "Classe B": 9732.58,
+              "Classe C": 7896.92,
+              "Classe D": 6432.45,
+              "Classe E": 4999.3
+            }
+          },
+          {
+            "id": "73afc11b-f2ec-4ce7-b9ca-77df819f5941",
+            "nome": "NOVA MÓDICA",
+            "valoresUrbanos": {
+              "CENTRAL": 1418.02,
+              "EXCELENTE": 1067.86,
+              "BOA": 701.02,
+              "MÉDIA": 436.35,
+              "POPULAR": 211.21,
+              "CHÁCARA URBANA": 105.61,
+              "PERIFÉRICOS": 168.97
+            },
+            "valoresRurais": {
+              "Classe A": 12655.41,
+              "Classe B": 9732.58,
+              "Classe C": 7896.92,
+              "Classe D": 6432.45,
+              "Classe E": 4999.3
+            }
+          },
+          {
+            "id": "965dec31-8b99-4010-b031-53ffad61b35b",
+            "nome": "PESCADOR",
+            "valoresUrbanos": {
+              "CENTRAL": 1418.02,
+              "EXCELENTE": 1067.86,
+              "BOA": 701.02,
+              "MÉDIA": 436.35,
+              "POPULAR": 211.21,
+              "CHÁCARA URBANA": 105.61,
+              "PERIFÉRICOS": 168.97
+            },
+            "valoresRurais": {
+              "Classe A": 12655.41,
+              "Classe B": 9732.58,
+              "Classe C": 7896.92,
+              "Classe D": 6432.45,
+              "Classe E": 4999.3
+            }
+          },
+          {
+            "id": "42f16451-1615-4378-9f92-bf9c1e730d4b",
+            "nome": "SÃO JOSÉ DO DIVINO",
+            "valoresUrbanos": {
+              "CENTRAL": 1418.02,
+              "EXCELENTE": 1067.86,
+              "BOA": 701.02,
+              "MÉDIA": 436.35,
+              "POPULAR": 211.21,
+              "CHÁCARA URBANA": 105.61,
+              "PERIFÉRICOS": 168.97
+            },
+            "valoresRurais": {
+              "Classe A": 12655.41,
+              "Classe B": 9732.58,
+              "Classe C": 7896.92,
+              "Classe D": 6432.45,
+              "Classe E": 4999.3
+            }
+          },
+          {
+            "id": "21e48cda-1a8f-444c-9964-13fda6a24b17",
+            "nome": "ITAOBIM",
+            "valoresUrbanos": {
+              "CENTRAL": 854.23,
+              "EXCELENTE": 643.29,
+              "BOA": 422.3,
+              "MÉDIA": 262.86,
+              "POPULAR": 127.24,
+              "CHÁCARA URBANA": 63.62,
+              "PERIFÉRICOS": 101.79
+            },
+            "valoresRurais": {
+              "Classe A": 5408.29,
+              "Classe B": 4159.22,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.45
+            }
+          },
+          {
+            "id": "0bf05919-7d6f-4876-8c97-16a912d3f582",
+            "nome": "PONTO DOS VOLANTES",
+            "valoresUrbanos": {
+              "CENTRAL": 854.23,
+              "EXCELENTE": 643.29,
+              "BOA": 422.3,
+              "MÉDIA": 262.86,
+              "POPULAR": 127.24,
+              "CHÁCARA URBANA": 63.62,
+              "PERIFÉRICOS": 101.79
+            },
+            "valoresRurais": {
+              "Classe A": 5408.29,
+              "Classe B": 4159.22,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.45
+            }
+          },
+          {
+            "id": "57980bcf-9032-45d3-a4e9-4ad7c5b4955c",
+            "nome": "NANUQUE",
+            "valoresUrbanos": {
+              "CENTRAL": 551.75,
+              "EXCELENTE": 415.5,
+              "BOA": 272.77,
+              "MÉDIA": 169.78,
+              "POPULAR": 82.18,
+              "CHÁCARA URBANA": 41.09,
+              "PERIFÉRICOS": 65.74
+            },
+            "valoresRurais": {
+              "Classe A": 25393.62,
+              "Classe B": 19528.84,
+              "Classe C": 15845.5,
+              "Classe D": 12907,
+              "Classe E": 10031.32
+            }
+          },
+          {
+            "id": "1cbb6638-2743-4150-a17b-71e96410b9c1",
+            "nome": "CARLOS CHAGAS",
+            "valoresUrbanos": {
+              "CENTRAL": 413.81,
+              "EXCELENTE": 311.63,
+              "BOA": 204.58,
+              "MÉDIA": 127.34,
+              "POPULAR": 61.64,
+              "CHÁCARA URBANA": 30.82,
+              "PERIFÉRICOS": 49.31
+            },
+            "valoresRurais": {
+              "Classe A": 19045.22,
+              "Classe B": 14646.63,
+              "Classe C": 11884.13,
+              "Classe D": 9680.25,
+              "Classe E": 7523.49
+            }
+          },
+          {
+            "id": "631b5eae-5c66-41cb-8937-8eb322afecae",
+            "nome": "Serra dos Aimorés",
+            "valoresUrbanos": {
+              "CENTRAL": 165.53,
+              "EXCELENTE": 124.65,
+              "BOA": 81.83,
+              "MÉDIA": 50.93,
+              "POPULAR": 24.65,
+              "CHÁCARA URBANA": 12.33,
+              "PERIFÉRICOS": 19.72
+            },
+            "valoresRurais": {
+              "Classe A": 25393.62,
+              "Classe B": 19528.84,
+              "Classe C": 15845.5,
+              "Classe D": 12907,
+              "Classe E": 10031.32
+            }
+          },
+          {
+            "id": "c3987384-fd15-4537-b0c3-c7c798b0442a",
+            "nome": "PEDRA AZUL",
+            "valoresUrbanos": {
+              "CENTRAL": 501.1,
+              "EXCELENTE": 377.36,
+              "BOA": 247.73,
+              "MÉDIA": 154.2,
+              "POPULAR": 74.64,
+              "CHÁCARA URBANA": 37.32,
+              "PERIFÉRICOS": 59.71
+            },
+            "valoresRurais": {
+              "Classe A": 5241.59,
+              "Classe B": 4031.02,
+              "Classe C": 3270.73,
+              "Classe D": 2664.18,
+              "Classe E": 2070.6
+            }
+          },
+          {
+            "id": "0e8fad46-e3cf-4ea0-90ec-233456b835a2",
+            "nome": "ÁGUAS VERMELHAS",
+            "valoresUrbanos": {
+              "CENTRAL": 25055,
+              "EXCELENTE": 188.68,
+              "BOA": 123.87,
+              "MÉDIA": 77.1,
+              "POPULAR": 37.32,
+              "CHÁCARA URBANA": 18.66,
+              "PERIFÉRICOS": 29.86
+            },
+            "valoresRurais": {
+              "Classe A": 4717.43,
+              "Classe B": 3627.92,
+              "Classe C": 2943.66,
+              "Classe D": 2397.76,
+              "Classe E": 1863.54
+            }
+          },
+          {
+            "id": "ced731c4-31f1-4205-b853-efff89ebc69b",
+            "nome": "CACHOEIRA DO PAJEÚ",
+            "valoresUrbanos": {
+              "CENTRAL": 250.55,
+              "EXCELENTE": 188.68,
+              "BOA": 123.87,
+              "MÉDIA": 77.1,
+              "POPULAR": 37.32,
+              "CHÁCARA URBANA": 18.66,
+              "PERIFÉRICOS": 29.86
+            },
+            "valoresRurais": {
+              "Classe A": 4193.27,
+              "Classe B": 3224.82,
+              "Classe C": 2616.58,
+              "Classe D": 2131.34,
+              "Classe E": 1656.48
+            }
+          },
+          {
+            "id": "b0be00d5-a5be-4be4-96c3-a69b0ccbae75",
+            "nome": "COMERCINHO",
+            "valoresUrbanos": {
+              "CENTRAL": 250.55,
+              "EXCELENTE": 188.68,
+              "BOA": 123.87,
+              "MÉDIA": 77.1,
+              "POPULAR": 37.32,
+              "CHÁCARA URBANA": 18.66,
+              "PERIFÉRICOS": 29.86
+            },
+            "valoresRurais": {
+              "Classe A": 3669.11,
+              "Classe B": 2821.71,
+              "Classe C": 2289.51,
+              "Classe D": 1864.93,
+              "Classe E": 1449.42
+            }
+          },
+          {
+            "id": "946f81a2-f75f-483a-b788-e963ce56e441",
+            "nome": "CURRAL DE DENTRO",
+            "valoresUrbanos": {
+              "CENTRAL": 250.55,
+              "EXCELENTE": 188.68,
+              "BOA": 123.87,
+              "MÉDIA": 77.1,
+              "POPULAR": 37.32,
+              "CHÁCARA URBANA": 18.66,
+              "PERIFÉRICOS": 29.86
+            },
+            "valoresRurais": {
+              "Classe A": 4193.27,
+              "Classe B": 3224.82,
+              "Classe C": 2616.58,
+              "Classe D": 2131.34,
+              "Classe E": 1656.48
+            }
+          },
+          {
+            "id": "bb3edc27-cbdc-47db-b7b2-3684a2259c15",
+            "nome": "DIVISA ALEGRE",
+            "valoresUrbanos": {
+              "CENTRAL": 250.55,
+              "EXCELENTE": 188.68,
+              "BOA": 123.87,
+              "MÉDIA": 77.1,
+              "POPULAR": 37.32,
+              "CHÁCARA URBANA": 18.66,
+              "PERIFÉRICOS": 29.86
+            },
+            "valoresRurais": {
+              "Classe A": 4193.27,
+              "Classe B": 3224.82,
+              "Classe C": 2616.58,
+              "Classe D": 2131.34,
+              "Classe E": 1656.48
+            }
+          },
+          {
+            "id": "c70a208a-f28f-4ed8-a44a-f27d559a696f",
+            "nome": "DIVISÓPOLIS",
+            "valoresUrbanos": {},
+            "valoresRurais": {
+              "Classe A": 4717.43,
+              "Classe B": 3627.92,
+              "Classe C": 2943.66,
+              "Classe D": 2397.76,
+              "Classe E": 1863.54
+            }
+          },
+          {
+            "id": "0d5f460e-fe8e-43f5-ac7a-deef39d42188",
+            "nome": "MATA VERDE",
+            "valoresUrbanos": {
+              "CENTRAL": 250.55,
+              "EXCELENTE": 188.68,
+              "BOA": 123.87,
+              "MÉDIA": 77.1,
+              "POPULAR": 37.32,
+              "CHÁCARA URBANA": 18.66,
+              "PERIFÉRICOS": 29.86
+            },
+            "valoresRurais": {
+              "Classe A": 5241.59,
+              "Classe B": 4031.02,
+              "Classe C": 3270.73,
+              "Classe D": 2664.18,
+              "Classe E": 2070.6
+            }
+          },
+          {
+            "id": "ace9b772-9f58-4291-9327-7dd1f9da9f59",
+            "nome": "MEDINA",
+            "valoresUrbanos": {
+              "CENTRAL": 501.1,
+              "EXCELENTE": 377.36,
+              "BOA": 247.74,
+              "MÉDIA": 154.2,
+              "POPULAR": 74.64,
+              "CHÁCARA URBANA": 37.32,
+              "PERIFÉRICOS": 59.71
+            },
+            "valoresRurais": {
+              "Classe A": 5241.59,
+              "Classe B": 4031.02,
+              "Classe C": 3270.73,
+              "Classe D": 2664.18,
+              "Classe E": 2070.6
+            }
+          },
+          {
+            "id": "39d8bac6-6bae-48bc-ad6f-dea3b87d992a",
+            "nome": "TEÓFILO OTONI",
+            "valoresUrbanos": {
+              "CENTRAL": 1708.45,
+              "EXCELENTE": 1286.58,
+              "BOA": 844.6,
+              "MÉDIA": 525.72,
+              "POPULAR": 254.47,
+              "CHÁCARA URBANA": 127.24,
+              "PERIFÉRICOS": 203.58
+            },
+            "valoresRurais": {
+              "Classe A": 10816.59,
+              "Classe B": 8318.45,
+              "Classe C": 6749.5,
+              "Classe D": 5497.82,
+              "Classe E": 4272.91
+            }
+          },
+          {
+            "id": "5db7d436-c2c1-4ed4-ba8d-23a31ee626f2",
+            "nome": "ATALÉIA",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "c50646a1-a5cd-4b1d-a9a2-598bdf499961",
+            "nome": "CARAÍ",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "fde27ab7-be2c-416c-8e29-a2ddb1fb7958",
+            "nome": "CATUJI",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 0.31,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "3165d09b-7d1c-47ca-83c1-784211677562",
+            "nome": "FRANCISCÓPOLIS",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 8653.27,
+              "Classe B": 6654.76,
+              "Classe C": 5399.6,
+              "Classe D": 4398.26,
+              "Classe E": 3418.33
+            }
+          },
+          {
+            "id": "4ac3ef86-1efe-4431-918b-ce73ba2ba1a5",
+            "nome": "FREI GASPAR",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "a5101e0d-93e0-4914-ae28-1ba55f021e9a",
+            "nome": "ITAIPÉ",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "c307639a-0c85-4667-8be7-199d73a08179",
+            "nome": "LADAINHA",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "1ce2064a-98a3-4e88-82ab-c0b1339d1051",
+            "nome": "MALACACHETA",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 8653.27,
+              "Classe B": 6654.76,
+              "Classe C": 5399.6,
+              "Classe D": 4398.26,
+              "Classe E": 3418.33
+            }
+          },
+          {
+            "id": "4beb5631-382b-49ab-90a9-61f8551803f5",
+            "nome": "NOVO CRUZEIRO",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "bbb20a72-dcc3-43ca-b304-2ad4f4487a78",
+            "nome": "NOVO ORIENTE DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 10816.59,
+              "Classe B": 8318.45,
+              "Classe C": 6749.5,
+              "Classe D": 5497.82,
+              "Classe E": 4272.91
+            }
+          },
+          {
+            "id": "8f7543ab-cb2a-4357-918b-61dd708bebc0",
+            "nome": "OURO VERDE DE MINAS",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 10816.59,
+              "Classe B": 8318.45,
+              "Classe C": 6749.5,
+              "Classe D": 5497.82,
+              "Classe E": 4272.91
+            }
+          },
+          {
+            "id": "e1e2be76-bd6f-40ac-ace7-50382e5b408d",
+            "nome": "PADRE PARAÍSO",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 5408.3,
+              "Classe B": 4159.23,
+              "Classe C": 3374.75,
+              "Classe D": 2748.91,
+              "Classe E": 2136.46
+            }
+          },
+          {
+            "id": "28a54c41-1fb7-4fdf-b85d-3cb06cb7abb3",
+            "nome": "PAVÃO",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 10816.59,
+              "Classe B": 8318.45,
+              "Classe C": 6749.5,
+              "Classe D": 5497.82,
+              "Classe E": 4272.91
+            }
+          },
+          {
+            "id": "b1d9caa5-5849-4818-a470-f81759970dcb",
+            "nome": "POTÉ",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 8653.27,
+              "Classe B": 665476,
+              "Classe C": 5399.6,
+              "Classe D": 4398.26,
+              "Classe E": 3418.33
+            }
+          },
+          {
+            "id": "6de3d089-df86-412c-bc37-e6690930c433",
+            "nome": "SETUBINHA",
+            "valoresUrbanos": {
+              "CENTRAL": 427.11,
+              "EXCELENTE": 321.65,
+              "BOA": 211.15,
+              "MÉDIA": 131.43,
+              "POPULAR": 63.62,
+              "CHÁCARA URBANA": 31.81,
+              "PERIFÉRICOS": 50.89
+            },
+            "valoresRurais": {
+              "Classe A": 8653.27,
+              "Classe B": 6654.76,
+              "Classe C": 5399.6,
+              "Classe D": 4398.26,
+              "Classe E": 3418.33
+            }
+          }
+        ]
+      }
+    ],
+    "unidadesFazendarias": [
+      {
+        "id": "30c8af56-09b4-4704-a844-24cfe82c37b4",
+        "nome": "AF GOVERNADOR VALADARES",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "4926d24c-4369-4f18-8da6-f64d1da5edcf",
+        "nome": "DF GOVERNADOR VALADARES",
+        "tipo": "DF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "fd43d146-afce-4889-9754-0f5d78f4dc22",
+        "nome": "AF AIMORÉS",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "e97c32be-502b-4e7a-8269-745e8be4f736",
+        "nome": "AF MANTENA",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "5a4131f0-9ca9-4c1e-91de-b5d4d32f72ec",
+        "nome": "AF ALMENARA",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "9e71e32a-61d8-4214-93cc-642963d52959",
+        "nome": "AF ARAÇUAÍ",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "02b22cfe-b85f-4fc3-bfb5-b98b372f18fd",
+        "nome": "AF NANUQUE",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "860babc6-a313-43b4-8ccd-5a7a3a353d6f",
+        "nome": "AF PEDRA AZUL",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "dec6614d-235e-4288-8e3d-af6cf386027a",
+        "nome": "AF TEÓFILO OTONI",
+        "tipo": "AF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      },
+      {
+        "id": "c370fc89-9742-4753-8ab5-26da9c3a7570",
+        "nome": "DF TEÓFILO OTONI",
+        "tipo": "DF",
+        "srfId": "1024c128-2513-4ec1-b918-3bb3b649fadd"
+      }
+    ],
+    "urbanoLocalizacoes": [],
+    "valoresCUB": {
+      "referenceDate": "MAIO/2025",
+      "residencial_baixo_r1": 2355.13,
+      "residencial_baixo_pp4": 2227.72,
+      "residencial_baixo_r8": 2108.11,
+      "residencial_baixo_pis": 1620.01,
+      "residencial_normal_r1": 2819.73,
+      "residencial_normal_pp4": 2684.72,
+      "residencial_normal_r8": 2334.78,
+      "residencial_normal_r16": 2264.03,
+      "residencial_alto_r1": 3516.47,
+      "residencial_alto_r8": 2860.77,
+      "residencial_alto_r16": 2964.31,
+      "comercial_normal_cal8": 2703.58,
+      "comercial_normal_csl8": 2293.8,
+      "comercial_normal_csl16": 3062.61,
+      "comercial_alto_cal8": 2928.57,
+      "comercial_alto_csl8": 2524.5,
+      "comercial_alto_csl16": 3370.89,
+      "galpao_rp1q": 2409.8,
+      "galpao_gi": 1239.07
+    },
+    "ruralGeralConfig": {
+      "recursosHidricos": 10,
+      "tipoImovel": {
+        "CHÁCARA/GLEBA": 100,
+        "FAZENDA": 0,
+        "SÍTIO": 50
+      },
+      "localizacao": {
+        "BOA": 25,
+        "MÉDIA": 0,
+        "RUIM": -25
+      }
+    },
+    "partilhaLegalRegras": [
+      {
+        "estadoCivil": "solteiro",
+        "regimeBens": null,
+        "heranca": {
+          "particulares": {
+            "herdeiros": 100
+          },
+          "comuns": {}
+        },
+        "id": "934a3f5d-9a7c-419d-81a5-c8356754b447"
+      },
+      {
+        "estadoCivil": "viuvo",
+        "regimeBens": null,
+        "heranca": {
+          "particulares": {
+            "herdeiros": 100
+          },
+          "comuns": {}
+        },
+        "id": "786c0920-a757-483a-bd2f-6cb14bddfff4"
+      },
+      {
+        "estadoCivil": "separado",
+        "regimeBens": null,
+        "heranca": {
+          "particulares": {
+            "herdeiros": 100
+          },
+          "comuns": {}
+        },
+        "id": "a9be18bf-fe24-49f1-b5e6-e13913a05463"
+      },
+      {
+        "estadoCivil": "casado",
+        "regimeBens": "comunhao_parcial",
+        "heranca": {
+          "particulares": {
+            "herdeiros": 50,
+            "conjuge": 50
+          },
+          "comuns": {
+            "herdeiros": 100
+          }
+        },
+        "id": "a8b76daa-0c9d-4e5c-a905-b929466367c5"
+      },
+      {
+        "estadoCivil": "casado",
+        "regimeBens": "uniao_estavel_parcial",
+        "heranca": {
+          "particulares": {
+            "herdeiros": 50,
+            "conjuge": 50
+          },
+          "comuns": {
+            "herdeiros": 100
+          }
+        },
+        "id": "c7f0a7c1-370b-419a-b6c0-4fb6d21e05a3"
+      },
+      {
+        "estadoCivil": "casado",
+        "regimeBens": "comunhao_universal",
+        "heranca": {
+          "particulares": {
+            "herdeiros": 100
+          },
+          "comuns": {
+            "herdeiros": 100
+          }
+        },
+        "id": "7bdb7bc3-b576-4827-9619-c68c7ee2e380"
+      },
+      {
+        "estadoCivil": "casado",
+        "regimeBens": "separacao_obrigatoria",
+        "heranca": {
+          "particulares": {
+            "herdeiros": 100
+          },
+          "comuns": {
+            "herdeiros": 100
+          }
+        },
+        "id": "1d525f1e-2610-438f-9c0c-503325c35ea4"
+      },
+      {
+        "estadoCivil": "casado",
+        "regimeBens": "separacao_convencional",
+        "heranca": {
+          "particulares": {
+            "herdeiros": 50,
+            "conjuge": 50
+          },
+          "comuns": {}
+        },
+        "id": "7c90e0e9-4f01-4feb-9d93-6c1849403f55"
+      },
+      {
+        "estadoCivil": "casado",
+        "regimeBens": "uniao_estavel_cc1790",
+        "heranca": {
+          "particulares": {
+            "herdeiros": 100
+          },
+          "comuns": {
+            "herdeiros": 66.67,
+            "conjuge": 33.33
+          }
+        },
+        "id": "a045e506-eb1d-4af2-adc8-fa4f3f837676"
+      }
+    ]
+  },
+  "itcdSemoventesPautasStore": [
+    {
+      "key": "2015-01",
+      "valores": {
+        "bezerros0a12": 720,
+        "bezerras0a12": 500,
+        "novilhas12a24": 630,
+        "novilhasMais24": 990,
+        "novilhos12a24": 920,
+        "novilhosMais24": 1494,
+        "vacas": 1170,
+        "touros": 1440,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "93525d3d-59bf-4351-b03c-fc4a04aae9df"
+    },
+    {
+      "key": "2015-02",
+      "valores": {
+        "bezerros0a12": 720,
+        "bezerras0a12": 500,
+        "novilhas12a24": 630,
+        "novilhasMais24": 990,
+        "novilhos12a24": 920,
+        "novilhosMais24": 1495,
+        "vacas": 1170,
+        "touros": 1440,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "fec3fc7d-6ada-4fd8-a9d8-b3226214b4a1"
+    },
+    {
+      "key": "2015-03",
+      "valores": {
+        "bezerros0a12": 720,
+        "bezerras0a12": 500,
+        "novilhas12a24": 630,
+        "novilhasMais24": 990,
+        "novilhos12a24": 920,
+        "novilhosMais24": 1380,
+        "vacas": 1170,
+        "touros": 1440,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "2bdde5cd-fea0-4f2f-aeef-821698147cac"
+    },
+    {
+      "key": "2015-04",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 900,
+        "novilhos12a24": 900,
+        "novilhosMais24": 1200,
+        "vacas": 1080,
+        "touros": 1320,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "b67c607c-587d-4243-98a1-0a948dac538c"
+    },
+    {
+      "key": "2015-05",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 900,
+        "novilhos12a24": 900,
+        "novilhosMais24": 1200,
+        "vacas": 1080,
+        "touros": 1320,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "feaed509-b97c-452a-91cf-c6f2273a8166"
+    },
+    {
+      "key": "2015-06",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 720,
+        "novilhas12a24": 880,
+        "novilhasMais24": 1080,
+        "novilhos12a24": 900,
+        "novilhosMais24": 1200,
+        "vacas": 1265,
+        "touros": 1320,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "35335799-491e-45a3-b034-860fa25367c3"
+    },
+    {
+      "key": "2015-07",
+      "valores": {
+        "bezerros0a12": 942,
+        "bezerras0a12": 720,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1485,
+        "novilhosMais24": 1550,
+        "vacas": 1265,
+        "touros": 1690,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "ce8c9ac5-4a3a-4515-92c3-6f4a1f7170c9"
+    },
+    {
+      "key": "2015-08",
+      "valores": {
+        "bezerros0a12": 950,
+        "bezerras0a12": 660,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1350,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1550,
+        "vacas": 1320,
+        "touros": 1650,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "68d48a9e-973a-41b6-ac87-d3d68d7fe23f"
+    },
+    {
+      "key": "2015-09",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 600,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1500,
+        "vacas": 1350,
+        "touros": 1650,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "bcb3e4eb-90f6-49ff-ac28-4017b010bff2"
+    },
+    {
+      "key": "2015-10",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 780,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1550,
+        "vacas": 1400,
+        "touros": 1700,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "9f6019ef-ec8f-4b45-82a1-c1a7f0702436"
+    },
+    {
+      "key": "2015-11",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 810,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1400,
+        "novilhosMais24": 1550,
+        "vacas": 1400,
+        "touros": 1700,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "70e3cc6f-8be1-4fe1-92e0-8b147ce8ec46"
+    },
+    {
+      "key": "2015-12",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 810,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1400,
+        "novilhosMais24": 1550,
+        "vacas": 1500,
+        "touros": 1700,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "786d9e95-a225-4871-a96e-92181d34d3f4"
+    },
+    {
+      "key": "2016-01",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 810,
+        "novilhas12a24": 1300,
+        "novilhasMais24": 1600,
+        "novilhos12a24": 1400,
+        "novilhosMais24": 1680,
+        "vacas": 1680,
+        "touros": 2200,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7a055b44-7c86-4794-a90f-9f48539d3337"
+    },
+    {
+      "key": "2016-02",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 810,
+        "novilhas12a24": 1300,
+        "novilhasMais24": 1600,
+        "novilhos12a24": 1400,
+        "novilhosMais24": 1680,
+        "vacas": 1680,
+        "touros": 2200,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "3cb52a0d-40a1-4111-990a-219a2f4a316f"
+    },
+    {
+      "key": "2016-03",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 780,
+        "novilhas12a24": 960,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1240,
+        "novilhosMais24": 1680,
+        "vacas": 1620,
+        "touros": 1820,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "3f5fc477-17c1-4641-a4d6-48814d9629a0"
+    },
+    {
+      "key": "2016-04",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 780,
+        "novilhas12a24": 960,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1240,
+        "novilhosMais24": 1680,
+        "vacas": 1620,
+        "touros": 1820,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "d45339c1-717b-4609-82b7-15e694195af7"
+    },
+    {
+      "key": "2016-05",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 780,
+        "novilhas12a24": 945,
+        "novilhasMais24": 1430,
+        "novilhos12a24": 1160,
+        "novilhosMais24": 1540,
+        "vacas": 1560,
+        "touros": 1755,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "e7eaeabe-d449-4ac6-ba12-a52b92fe3968"
+    },
+    {
+      "key": "2016-06",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 780,
+        "novilhas12a24": 945,
+        "novilhasMais24": 1430,
+        "novilhos12a24": 1160,
+        "novilhosMais24": 1540,
+        "vacas": 1560,
+        "touros": 1755,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "11fd3d08-3c27-4e2a-87bc-81de4b3ebbd2"
+    },
+    {
+      "key": "2016-07",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 840,
+        "novilhas12a24": 1040,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1120,
+        "novilhosMais24": 1540,
+        "vacas": 1560,
+        "touros": 1755,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "f6930c33-da61-464b-bc2a-f8ba56d87246"
+    },
+    {
+      "key": "2016-08",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 840,
+        "novilhas12a24": 1040,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1120,
+        "novilhosMais24": 1755,
+        "vacas": 1625,
+        "touros": 2000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "d60e4347-7cb8-4fae-a620-c2b54b158a78"
+    },
+    {
+      "key": "2016-09",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 650,
+        "novilhas12a24": 840,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1120,
+        "novilhosMais24": 1755,
+        "vacas": 1625,
+        "touros": 2000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4d571c2e-3677-46ae-83a1-3d8b5fe21596"
+    },
+    {
+      "key": "2016-10",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 650,
+        "novilhas12a24": 840,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1755,
+        "vacas": 1625,
+        "touros": 2000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "8e182444-cb4d-4e9a-9728-3fbdaae57dd4"
+    },
+    {
+      "key": "2016-11",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 650,
+        "novilhas12a24": 840,
+        "novilhasMais24": 1375,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1755,
+        "vacas": 1625,
+        "touros": 2000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4bfceb23-5df2-48de-9ed5-0113ccae1b6a"
+    },
+    {
+      "key": "2016-12",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 780,
+        "novilhas12a24": 960,
+        "novilhasMais24": 1380,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1620,
+        "vacas": 1820,
+        "touros": 2400,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "bf5f41f2-b80b-4107-9ed3-ddc5c8f8d103"
+    },
+    {
+      "key": "2017-01",
+      "valores": {
+        "bezerros0a12": 960,
+        "bezerras0a12": 780,
+        "novilhas12a24": 960,
+        "novilhasMais24": 1380,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1620,
+        "vacas": 1820,
+        "touros": 2400,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "8b2a9533-e990-4d26-bdb9-2663410bb32e"
+    },
+    {
+      "key": "2017-02",
+      "valores": {
+        "bezerros0a12": 970,
+        "bezerras0a12": 800,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1300,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1500,
+        "vacas": 1600,
+        "touros": 2200,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "d7df5329-3621-4517-820d-1f7e357cceb6"
+    },
+    {
+      "key": "2017-03",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 750,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1300,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1500,
+        "vacas": 1600,
+        "touros": 2200,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "269e8f90-f8b1-403d-94cc-e3bb01edeb7a"
+    },
+    {
+      "key": "2017-04",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 750,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1300,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1500,
+        "vacas": 1600,
+        "touros": 2200,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "13c8cedd-f0b7-466e-b766-92caab72f02f"
+    },
+    {
+      "key": "2017-05",
+      "valores": {
+        "bezerros0a12": 900,
+        "bezerras0a12": 750,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1300,
+        "novilhos12a24": 1200,
+        "novilhosMais24": 1500,
+        "vacas": 1600,
+        "touros": 2200,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7cbb169c-8cb1-4ca5-9a74-4a65c0611b58"
+    },
+    {
+      "key": "2017-06",
+      "valores": {
+        "bezerros0a12": 800,
+        "bezerras0a12": 700,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1300,
+        "novilhos12a24": 1100,
+        "novilhosMais24": 1500,
+        "vacas": 1600,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c68ea9a5-a8e2-4cc9-b2d7-114c4581b813"
+    },
+    {
+      "key": "2017-07",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4798f148-4148-41ad-af5a-6f3a40db2cd2"
+    },
+    {
+      "key": "2017-08",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 5000,
+        "novilhosMais36": 0
+      },
+      "id": "8da653e0-a62a-4278-9501-7b0ec92eeb2d"
+    },
+    {
+      "key": "2017-09",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "266c2c6e-20e0-42cf-9aea-26307da4f3fe"
+    },
+    {
+      "key": "2017-10",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "69712aa4-7dd6-4e41-b851-eda1166dfae7"
+    },
+    {
+      "key": "2017-11",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4425b5ea-bcc8-40e2-a061-a986ce56bced"
+    },
+    {
+      "key": "2017-12",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "71c9dae4-bada-4a84-96f6-ed6c9c0663dc"
+    },
+    {
+      "key": "2018-01",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "99512611-ab75-4a53-b198-9ca436d7f0a0"
+    },
+    {
+      "key": "2018-02",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "3e333983-eb40-4603-a319-a4892dcd33aa"
+    },
+    {
+      "key": "2018-03",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "042c3e84-3f06-40ae-87a5-5c7ad2ef2320"
+    },
+    {
+      "key": "2018-04",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "f0673c40-8087-4c5f-ba81-2d96f64f93c1"
+    },
+    {
+      "key": "2018-05",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c3c486f0-7772-4106-acda-c4de3aaf62ed"
+    },
+    {
+      "key": "2018-06",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "de656bcc-d3f7-4bb6-8ce7-9fee1f2bae98"
+    },
+    {
+      "key": "2018-07",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "1a759faa-9e9d-407a-a311-2e3cfd689ff6"
+    },
+    {
+      "key": "2018-08",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "24ae4e35-18c1-4185-a787-eb654aecea7e"
+    },
+    {
+      "key": "2018-09",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "19ccae0f-42ff-425e-acce-7089c7bb6d11"
+    },
+    {
+      "key": "2018-10",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "2ee48e6b-1168-4a66-8b01-70a8921eba99"
+    },
+    {
+      "key": "2018-11",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c79db8f8-eb89-4242-ba75-ed9aac521582"
+    },
+    {
+      "key": "2018-12",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "16b52a23-35ec-44d8-819c-7d5ce4341c40"
+    },
+    {
+      "key": "2019-01",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "0eac25ba-9e11-49b8-931c-3a5996bcc4f1"
+    },
+    {
+      "key": "2019-02",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "a7955c81-f39a-4094-96dc-65ae69d52522"
+    },
+    {
+      "key": "2019-03",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "bb42fc93-99e5-4574-b302-bb95aea54626"
+    },
+    {
+      "key": "2019-04",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "3b489461-b41d-4001-80e8-e93b0a665536"
+    },
+    {
+      "key": "2019-05",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "be2f77b4-8990-4a0d-8878-a12850e1ec2f"
+    },
+    {
+      "key": "2019-06",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "372b98e0-f9a6-4384-bdb8-c2d306bf6d82"
+    },
+    {
+      "key": "2019-07",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c2badf5e-8adb-45d1-9b86-3d09e33013c4"
+    },
+    {
+      "key": "2019-08",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c8b9d95e-b398-441a-ab14-ed476e4c62b2"
+    },
+    {
+      "key": "2019-09",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "a50790c7-e424-4cd2-9e88-25e2f1cd4dca"
+    },
+    {
+      "key": "2019-10",
+      "valores": {
+        "bezerros0a12": 700,
+        "bezerras0a12": 600,
+        "novilhas12a24": 800,
+        "novilhasMais24": 1100,
+        "novilhos12a24": 950,
+        "novilhosMais24": 1300,
+        "vacas": 1300,
+        "touros": 1600,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "35bc4f27-56bb-4e93-8657-57307317433f"
+    },
+    {
+      "key": "2019-11",
+      "valores": {
+        "bezerros0a12": 770,
+        "bezerras0a12": 700,
+        "novilhas12a24": 900,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1050,
+        "novilhosMais24": 1500,
+        "vacas": 1500,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "a1818629-3244-4120-ab18-f6bef0fc30b4"
+    },
+    {
+      "key": "2019-12",
+      "valores": {
+        "bezerros0a12": 770,
+        "bezerras0a12": 700,
+        "novilhas12a24": 900,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1050,
+        "novilhosMais24": 1500,
+        "vacas": 1500,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "76ce2b4b-c296-4177-a617-98765f72ab98"
+    },
+    {
+      "key": "2020-01",
+      "valores": {
+        "bezerros0a12": 850,
+        "bezerras0a12": 770,
+        "novilhas12a24": 990,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1155,
+        "novilhosMais24": 1650,
+        "vacas": 1650,
+        "touros": 1980,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "78b843ec-3063-4b8b-8c36-346c049ca863"
+    },
+    {
+      "key": "2020-02",
+      "valores": {
+        "bezerros0a12": 850,
+        "bezerras0a12": 770,
+        "novilhas12a24": 990,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1155,
+        "novilhosMais24": 1650,
+        "vacas": 1650,
+        "touros": 1980,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "cc54a127-633b-4fc0-8639-4166583d06c2"
+    },
+    {
+      "key": "2020-03",
+      "valores": {
+        "bezerros0a12": 770,
+        "bezerras0a12": 700,
+        "novilhas12a24": 900,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1050,
+        "novilhosMais24": 1500,
+        "vacas": 1500,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7fa6d9d7-ab78-4b3a-b84f-a0b43b3394ff"
+    },
+    {
+      "key": "2020-04",
+      "valores": {
+        "bezerros0a12": 770,
+        "bezerras0a12": 700,
+        "novilhas12a24": 900,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1050,
+        "novilhosMais24": 1500,
+        "vacas": 1500,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "6f5fb722-004a-48d1-b7f9-c523f5321710"
+    },
+    {
+      "key": "2020-05",
+      "valores": {
+        "bezerros0a12": 770,
+        "bezerras0a12": 700,
+        "novilhas12a24": 900,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1050,
+        "novilhosMais24": 1500,
+        "vacas": 1500,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "82d1882b-cde2-4f09-9e33-238d6de4ebb8"
+    },
+    {
+      "key": "2020-06",
+      "valores": {
+        "bezerros0a12": 770,
+        "bezerras0a12": 700,
+        "novilhas12a24": 900,
+        "novilhasMais24": 1200,
+        "novilhos12a24": 1050,
+        "novilhosMais24": 1500,
+        "vacas": 1500,
+        "touros": 1800,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4a94378c-2b03-4ef4-b229-ab16043140d1"
+    },
+    {
+      "key": "2020-07",
+      "valores": {
+        "bezerros0a12": 850,
+        "bezerras0a12": 770,
+        "novilhas12a24": 1000,
+        "novilhasMais24": 1320,
+        "novilhos12a24": 1150,
+        "novilhosMais24": 1650,
+        "vacas": 1650,
+        "touros": 2000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7d01bf0e-c9e0-4146-a6c2-51daf45087aa"
+    },
+    {
+      "key": "2020-08",
+      "valores": {
+        "bezerros0a12": 950,
+        "bezerras0a12": 860,
+        "novilhas12a24": 1120,
+        "novilhasMais24": 1480,
+        "novilhos12a24": 1300,
+        "novilhosMais24": 1850,
+        "vacas": 1850,
+        "touros": 2240,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c6bc782e-c45c-40f4-b0d0-be82d8281f4d"
+    },
+    {
+      "key": "2020-09",
+      "valores": {
+        "bezerros0a12": 950,
+        "bezerras0a12": 860,
+        "novilhas12a24": 1120,
+        "novilhasMais24": 1480,
+        "novilhos12a24": 1300,
+        "novilhosMais24": 1850,
+        "vacas": 1850,
+        "touros": 2240,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "98d3fc74-89e4-45a0-bfa4-be8d73dc1f44"
+    },
+    {
+      "key": "2020-10",
+      "valores": {
+        "bezerros0a12": 1000,
+        "bezerras0a12": 900,
+        "novilhas12a24": 1180,
+        "novilhasMais24": 1555,
+        "novilhos12a24": 1365,
+        "novilhosMais24": 1950,
+        "vacas": 1940,
+        "touros": 2350,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "8a7f3965-913b-48ea-8ddd-32deeb39d945"
+    },
+    {
+      "key": "2020-11",
+      "valores": {
+        "bezerros0a12": 1050,
+        "bezerras0a12": 945,
+        "novilhas12a24": 1240,
+        "novilhasMais24": 1633,
+        "novilhos12a24": 1433,
+        "novilhosMais24": 2050,
+        "vacas": 2040,
+        "touros": 2470,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "37a7917d-7e72-42a1-ac7a-7e2dadb5e8e1"
+    },
+    {
+      "key": "2020-12",
+      "valores": {
+        "bezerros0a12": 1113,
+        "bezerras0a12": 1001.7,
+        "novilhas12a24": 1314.4,
+        "novilhasMais24": 1730.98,
+        "novilhos12a24": 1518.98,
+        "novilhosMais24": 2173,
+        "vacas": 2162.4,
+        "touros": 2618.2,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "1afd604f-6f6f-4e99-a260-c716b16690b1"
+    },
+    {
+      "key": "2021-01",
+      "valores": {
+        "bezerros0a12": 1113,
+        "bezerras0a12": 1001.7,
+        "novilhas12a24": 1314.4,
+        "novilhasMais24": 1730.98,
+        "novilhos12a24": 1518.98,
+        "novilhosMais24": 2173,
+        "vacas": 2162.4,
+        "touros": 2618.2,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "0e9ba259-5b0f-4df8-86a4-b99da7a4d614"
+    },
+    {
+      "key": "2021-02",
+      "valores": {
+        "bezerros0a12": 1113,
+        "bezerras0a12": 1001.7,
+        "novilhas12a24": 1314.4,
+        "novilhasMais24": 1730.98,
+        "novilhos12a24": 1518.98,
+        "novilhosMais24": 2173,
+        "vacas": 2162.4,
+        "touros": 2618.2,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "0f51dfd4-1faf-4c7d-9232-7e5887606965"
+    },
+    {
+      "key": "2021-03",
+      "valores": {
+        "bezerros0a12": 1290,
+        "bezerras0a12": 1160,
+        "novilhas12a24": 1580,
+        "novilhasMais24": 2260,
+        "novilhos12a24": 1750,
+        "novilhosMais24": 2500,
+        "vacas": 2720,
+        "touros": 3000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "ff80c5ef-f1d8-4839-b02e-58c8c2c824c0"
+    },
+    {
+      "key": "2021-04",
+      "valores": {
+        "bezerros0a12": 1290,
+        "bezerras0a12": 1160,
+        "novilhas12a24": 1580,
+        "novilhasMais24": 2260,
+        "novilhos12a24": 1750,
+        "novilhosMais24": 2500,
+        "vacas": 2720,
+        "touros": 3000,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "0b7c8240-acca-47b5-b02e-c66301522c41"
+    },
+    {
+      "key": "2021-05",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "e4cff82e-6c5a-42ee-b0df-3749df051b72"
+    },
+    {
+      "key": "2021-06",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "79922349-4cf6-4383-ba63-ec79aabf032c"
+    },
+    {
+      "key": "2021-07",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "321bb55a-5ee3-44ca-b1a6-7d14318e0c25"
+    },
+    {
+      "key": "2021-08",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "216e4e89-eeb1-4c78-94b0-2207737b990c"
+    },
+    {
+      "key": "2021-09",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "1c827293-f5b4-4c4b-bd76-211cb11eb4a7"
+    },
+    {
+      "key": "2021-10",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4b40906c-b88b-4159-bfac-7f0909fcff78"
+    },
+    {
+      "key": "2021-11",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "b4ba152d-626c-43a6-a775-6aee4110b466"
+    },
+    {
+      "key": "2021-12",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c55c5c17-5522-4174-8c38-98d4ae378a16"
+    },
+    {
+      "key": "2022-01",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "e07888a8-9b93-4365-87d6-f5fa4d692928"
+    },
+    {
+      "key": "2022-02",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "30f5d159-12a2-4467-b250-a06ef5e7c99d"
+    },
+    {
+      "key": "2022-03",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "5e36b192-558e-4773-80d4-8d0378179b0e"
+    },
+    {
+      "key": "2022-04",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "efd84f84-bb2a-4f59-ba1c-c93e0ba0bfe1"
+    },
+    {
+      "key": "2022-05",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "03f98ab0-3ef2-4d41-8b29-df840f4f8587"
+    },
+    {
+      "key": "2022-06",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "68a67e6a-98d7-4584-a44b-29bfe91351ed"
+    },
+    {
+      "key": "2022-07",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c9b11e48-a87f-4e9b-be21-c0dbb8664faa"
+    },
+    {
+      "key": "2022-08",
+      "valores": {
+        "bezerros0a12": 1420,
+        "bezerras0a12": 1280,
+        "novilhas12a24": 1740,
+        "novilhasMais24": 2500,
+        "novilhos12a24": 1930,
+        "novilhosMais24": 2750,
+        "vacas": 3000,
+        "touros": 3300,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "0e525cdb-0bc5-4d54-ac64-9aafb78da720"
+    },
+    {
+      "key": "2022-09",
+      "valores": {
+        "bezerros0a12": 1370,
+        "bezerras0a12": 1320,
+        "novilhas12a24": 1940,
+        "novilhasMais24": 2670,
+        "novilhos12a24": 2080,
+        "novilhosMais24": 2905,
+        "vacas": 3230,
+        "touros": 3555,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "010b4afc-cfce-4556-a33d-5028a1d14dd3"
+    },
+    {
+      "key": "2022-10",
+      "valores": {
+        "bezerros0a12": 1360,
+        "bezerras0a12": 1160,
+        "novilhas12a24": 1670,
+        "novilhasMais24": 2405,
+        "novilhos12a24": 1765,
+        "novilhosMais24": 2530,
+        "vacas": 2940,
+        "touros": 3310,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "1c8aaa2e-0f19-45be-8ea9-3ab093ab071e"
+    },
+    {
+      "key": "2022-11",
+      "valores": {
+        "bezerros0a12": 1360,
+        "bezerras0a12": 1160,
+        "novilhas12a24": 1670,
+        "novilhasMais24": 2405,
+        "novilhos12a24": 1765,
+        "novilhosMais24": 2530,
+        "vacas": 2940,
+        "touros": 3310,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c177084f-9996-4069-9b41-76983340dca7"
+    },
+    {
+      "key": "2022-12",
+      "valores": {
+        "bezerros0a12": 1360,
+        "bezerras0a12": 1160,
+        "novilhas12a24": 1670,
+        "novilhasMais24": 2405,
+        "novilhos12a24": 1765,
+        "novilhosMais24": 2530,
+        "vacas": 2940,
+        "touros": 3310,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "dc90d2b7-5290-4c0e-8e55-151e609019e9"
+    },
+    {
+      "key": "2023-01",
+      "valores": {
+        "bezerros0a12": 1360,
+        "bezerras0a12": 1160,
+        "novilhas12a24": 1670,
+        "novilhasMais24": 2405,
+        "novilhos12a24": 1765,
+        "novilhosMais24": 2530,
+        "vacas": 2940,
+        "touros": 3310,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "e8215a0e-f2e3-4f53-8fb5-c47447b041da"
+    },
+    {
+      "key": "2023-02",
+      "valores": {
+        "bezerros0a12": 1297.33,
+        "bezerras0a12": 1106.54,
+        "novilhas12a24": 1593.04,
+        "novilhasMais24": 2294.17,
+        "novilhos12a24": 1683.66,
+        "novilhosMais24": 2413.41,
+        "vacas": 2804.52,
+        "touros": 3157.47,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "a0eb556b-fda6-4e72-8e5f-bd4f80cfb099"
+    },
+    {
+      "key": "2023-03",
+      "valores": {
+        "bezerros0a12": 1297.33,
+        "bezerras0a12": 1106.54,
+        "novilhas12a24": 1593.04,
+        "novilhasMais24": 2294.17,
+        "novilhos12a24": 1683.66,
+        "novilhosMais24": 2413.41,
+        "vacas": 2804.52,
+        "touros": 3157.47,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "5aeb4f13-c373-4490-85d1-5a8e14cefc5e"
+    },
+    {
+      "key": "2023-04",
+      "valores": {
+        "bezerros0a12": 1194.97,
+        "bezerras0a12": 1019.24,
+        "novilhas12a24": 1467.35,
+        "novilhasMais24": 2113.16,
+        "novilhos12a24": 1550.82,
+        "novilhosMais24": 2222.99,
+        "vacas": 2583.24,
+        "touros": 2908.34,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "e422c869-6609-4e8e-9b15-478027e5f3bb"
+    },
+    {
+      "key": "2023-05",
+      "valores": {
+        "bezerros0a12": 1194.97,
+        "bezerras0a12": 1019.24,
+        "novilhas12a24": 1467.35,
+        "novilhasMais24": 2113.16,
+        "novilhos12a24": 1550.82,
+        "novilhosMais24": 2222.99,
+        "vacas": 2583.24,
+        "touros": 2908.34,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4d2ff792-ba3d-4c21-9139-2b14c06fd74d"
+    },
+    {
+      "key": "2023-06",
+      "valores": {
+        "bezerros0a12": 1015.72,
+        "bezerras0a12": 866.35,
+        "novilhas12a24": 1247.25,
+        "novilhasMais24": 1796.19,
+        "novilhos12a24": 1318.2,
+        "novilhosMais24": 1889.54,
+        "vacas": 2195.75,
+        "touros": 2472.09,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "5ee54b50-02b8-4e1f-aca4-900616c6ec2d"
+    },
+    {
+      "key": "2023-07",
+      "valores": {
+        "bezerros0a12": 1015.72,
+        "bezerras0a12": 866.35,
+        "novilhas12a24": 1247.25,
+        "novilhasMais24": 1796.19,
+        "novilhos12a24": 1318.2,
+        "novilhosMais24": 1889.54,
+        "vacas": 2195.75,
+        "touros": 2472.09,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "f9df4a06-66d5-432b-bb62-84604d529f14"
+    },
+    {
+      "key": "2023-08",
+      "valores": {
+        "bezerros0a12": 1015.72,
+        "bezerras0a12": 866.35,
+        "novilhas12a24": 1247.25,
+        "novilhasMais24": 1796.19,
+        "novilhos12a24": 1318.2,
+        "novilhosMais24": 1889.54,
+        "vacas": 2195.75,
+        "touros": 2472.09,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "67f60a1b-9b46-4944-bfd8-c4f91296dcaf"
+    },
+    {
+      "key": "2023-09",
+      "valores": {
+        "bezerros0a12": 959.35,
+        "bezerras0a12": 818.27,
+        "novilhas12a24": 1178.03,
+        "novilhasMais24": 1696.5,
+        "novilhos12a24": 1245.04,
+        "novilhosMais24": 1784.67,
+        "vacas": 2073.89,
+        "touros": 2334.89,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4faac365-6346-4a95-aa3e-4729b4514cb5"
+    },
+    {
+      "key": "2023-10",
+      "valores": {
+        "bezerros0a12": 1019.48,
+        "bezerras0a12": 914.26,
+        "novilhas12a24": 1269.28,
+        "novilhasMais24": 1776.31,
+        "novilhos12a24": 1377.57,
+        "novilhosMais24": 1985.3,
+        "vacas": 2241.45,
+        "touros": 2646.4,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "fb25e6a7-d9a3-4417-84fa-cd70d563896a"
+    },
+    {
+      "key": "2023-11",
+      "valores": {
+        "bezerros0a12": 1007.79,
+        "bezerras0a12": 929.8,
+        "novilhas12a24": 1227.56,
+        "novilhasMais24": 1747.82,
+        "novilhos12a24": 1321.03,
+        "novilhosMais24": 1924.12,
+        "vacas": 2186.59,
+        "touros": 2610.7,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "6c3e4397-efc6-48a5-972f-1194ebdadc69"
+    },
+    {
+      "key": "2023-12",
+      "valores": {
+        "bezerros0a12": 1007.79,
+        "bezerras0a12": 929.8,
+        "novilhas12a24": 1227.56,
+        "novilhasMais24": 1747.82,
+        "novilhos12a24": 1321.03,
+        "novilhosMais24": 1924.12,
+        "vacas": 2186.59,
+        "touros": 2610.7,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "2bd8651e-508d-49cd-a607-8efd7e2c2ef4"
+    },
+    {
+      "key": "2024-01",
+      "valores": {
+        "bezerros0a12": 1007.79,
+        "bezerras0a12": 929.8,
+        "novilhas12a24": 1227.56,
+        "novilhasMais24": 1747.82,
+        "novilhos12a24": 1321.03,
+        "novilhosMais24": 1924.12,
+        "vacas": 2186.59,
+        "touros": 2610.7,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "6dbca484-36a7-4e81-a6e3-955a0ce969e4"
+    },
+    {
+      "key": "2024-02",
+      "valores": {
+        "bezerros0a12": 1007.79,
+        "bezerras0a12": 929.8,
+        "novilhas12a24": 1227.56,
+        "novilhasMais24": 1747.82,
+        "novilhos12a24": 1321.03,
+        "novilhosMais24": 1924.12,
+        "vacas": 2186.59,
+        "touros": 2610.7,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "acf96c0e-3ac0-4a1f-bfbe-0768a7b83385"
+    },
+    {
+      "key": "2024-03",
+      "valores": {
+        "bezerros0a12": 999.03,
+        "bezerras0a12": 921.71,
+        "novilhas12a24": 1216.89,
+        "novilhasMais24": 1732.62,
+        "novilhos12a24": 1309.54,
+        "novilhosMais24": 1907,
+        "vacas": 2167.57,
+        "touros": 2588,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7f6f50bf-bd3f-460b-8bf2-c760cce2fa0e"
+    },
+    {
+      "key": "2024-04",
+      "valores": {
+        "bezerros0a12": 986.87,
+        "bezerras0a12": 910.5,
+        "novilhas12a24": 1202.08,
+        "novilhasMais24": 1711.54,
+        "novilhos12a24": 1293.61,
+        "novilhosMais24": 1884.18,
+        "vacas": 2141.21,
+        "touros": 2556.51,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "8c290bc1-7f32-4056-8a12-3d26da1c05d9"
+    },
+    {
+      "key": "2024-05",
+      "valores": {
+        "bezerros0a12": 973.45,
+        "bezerras0a12": 898.11,
+        "novilhas12a24": 1185.73,
+        "novilhasMais24": 1688.26,
+        "novilhos12a24": 1276.02,
+        "novilhosMais24": 1858.56,
+        "vacas": 2112.09,
+        "touros": 2521.74,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "c8dc258e-c1e8-4756-9b7f-05b32ec95e0e"
+    },
+    {
+      "key": "2024-06",
+      "valores": {
+        "bezerros0a12": 984.16,
+        "bezerras0a12": 907.99,
+        "novilhas12a24": 1198.78,
+        "novilhasMais24": 1706.83,
+        "novilhos12a24": 1290.05,
+        "novilhosMais24": 1879,
+        "vacas": 2135.32,
+        "touros": 2549.48,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "49f46c5a-8ba8-485d-8fc0-69155e138eef"
+    },
+    {
+      "key": "2024-07",
+      "valores": {
+        "bezerros0a12": 984.16,
+        "bezerras0a12": 907.99,
+        "novilhas12a24": 1198.78,
+        "novilhasMais24": 1706.83,
+        "novilhos12a24": 1290.05,
+        "novilhosMais24": 1879,
+        "vacas": 2135.32,
+        "touros": 2549.48,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4a2193e6-1344-41bf-afbc-4b0d0977796f"
+    },
+    {
+      "key": "2024-08",
+      "valores": {
+        "bezerros0a12": 956.6,
+        "bezerras0a12": 882.57,
+        "novilhas12a24": 1165.21,
+        "novilhasMais24": 1659.04,
+        "novilhos12a24": 1253.93,
+        "novilhosMais24": 1826.39,
+        "vacas": 2075.53,
+        "touros": 2478.1,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "28faa1d9-2e52-427d-8b3b-6e2ce9461c41"
+    },
+    {
+      "key": "2024-09",
+      "valores": {
+        "bezerros0a12": 974.68,
+        "bezerras0a12": 899.25,
+        "novilhas12a24": 1187.23,
+        "novilhasMais24": 1690.4,
+        "novilhos12a24": 1277.63,
+        "novilhosMais24": 1860.91,
+        "vacas": 2114.76,
+        "touros": 2524.93,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "23ecfdc6-defa-44bf-8ccc-a7578583ea53"
+    },
+    {
+      "key": "2024-10",
+      "valores": {
+        "bezerros0a12": 996.78,
+        "bezerras0a12": 919.64,
+        "novilhas12a24": 1214.15,
+        "novilhasMais24": 1728.72,
+        "novilhos12a24": 1306.6,
+        "novilhosMais24": 1903.1,
+        "vacas": 2162.7,
+        "touros": 2582.18,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "4164fbb1-ad17-4ae0-887c-abe545b1cac2"
+    },
+    {
+      "key": "2024-11",
+      "valores": {
+        "bezerros0a12": 1046.02,
+        "bezerras0a12": 965.07,
+        "novilhas12a24": 965.07,
+        "novilhasMais24": 1814.12,
+        "novilhos12a24": 1371.14,
+        "novilhosMais24": 1997.11,
+        "vacas": 2269.54,
+        "touros": 2709.74,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7124c062-1e02-41f4-b16a-238757026de5"
+    },
+    {
+      "key": "2024-12",
+      "valores": {
+        "bezerros0a12": 1149.74,
+        "bezerras0a12": 1056.16,
+        "novilhas12a24": 1394.4,
+        "novilhasMais24": 1985.36,
+        "novilhos12a24": 1507.09,
+        "novilhosMais24": 2195.13,
+        "vacas": 2483.77,
+        "touros": 2978.41,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "92ecd8f6-8f1a-425f-bb46-2d6d05ec4ace"
+    },
+    {
+      "key": "2025-01",
+      "valores": {
+        "bezerros0a12": 1179.91,
+        "bezerras0a12": 1088.6,
+        "novilhas12a24": 1437.22,
+        "novilhasMais24": 2046.33,
+        "novilhos12a24": 1546.65,
+        "novilhosMais24": 2252.74,
+        "vacas": 2560.04,
+        "touros": 3056.58,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "7bd924d9-2b74-46c5-8fc1-91c5fca15976"
+    },
+    {
+      "key": "2025-02",
+      "valores": {
+        "bezerros0a12": 1124.46,
+        "bezerras0a12": 1037.43,
+        "novilhas12a24": 1369.67,
+        "novilhasMais24": 1950.15,
+        "novilhos12a24": 1473.96,
+        "novilhosMais24": 2146.86,
+        "vacas": 2439.72,
+        "touros": 2912.93,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "07adc72b-8f66-4e95-9a9d-d9b3ef573269"
+    },
+    {
+      "key": "2025-03",
+      "valores": {
+        "bezerros0a12": 1124.46,
+        "bezerras0a12": 1037.43,
+        "novilhas12a24": 1369.67,
+        "novilhasMais24": 1950.15,
+        "novilhos12a24": 1473.96,
+        "novilhosMais24": 2146.86,
+        "vacas": 2439.72,
+        "touros": 2912.93,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "08b23aa0-9e8b-4a69-9c28-aa0e275a02f8"
+    },
+    {
+      "key": "2025-04",
+      "valores": {
+        "bezerros0a12": 1070.37,
+        "bezerras0a12": 998.94,
+        "novilhas12a24": 1318.85,
+        "novilhasMais24": 1877.8,
+        "novilhos12a24": 1403.06,
+        "novilhosMais24": 2043.6,
+        "vacas": 2349.21,
+        "touros": 2772.81,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "365fcf85-63a5-4d85-90f1-bc2ceb15e385"
+    },
+    {
+      "key": "2025-05",
+      "valores": {
+        "bezerros0a12": 1018.16,
+        "bezerras0a12": 952.92,
+        "novilhas12a24": 1258.09,
+        "novilhasMais24": 1791.28,
+        "novilhos12a24": 1334.62,
+        "novilhosMais24": 1943.91,
+        "vacas": 2240.96,
+        "touros": 2637.56,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "11738164-2678-44c3-b26c-f23ba0d84273"
+    },
+    {
+      "key": "2025-06",
+      "valores": {
+        "bezerros0a12": 1095.23,
+        "bezerras0a12": 1012.57,
+        "novilhas12a24": 1336.84,
+        "novilhasMais24": 1903.41,
+        "novilhos12a24": 1435.65,
+        "novilhosMais24": 2091.07,
+        "vacas": 2381.25,
+        "touros": 2837.22,
+        "vacaComCria": 0,
+        "burroOuMula": 550,
+        "cavalo": 500,
+        "egua": 500,
+        "novilhosMais36": 0
+      },
+      "id": "d71eee27-3674-45ee-ab5d-5e2082f848d0"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "id": "49966315-6826-4548-a5f2-ab9cdc59ac43",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "\t202.509.241.165-6",
+  "deCujusNome": "Doação de SIMONE CASQUEL LOPES BARBOSA para CELINA MARIA CASQUEL LOPES DA SILVA",
+  "doadores": [
+    {
+      "id": "pessoa_1752519858769",
+      "nome": "SIMONE CASQUEL LOPES BARBOSA"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752519866185",
+      "nome": "CELINA MARIA CASQUEL LOPES DA SILVA"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-14",
+  "dataPagamento": "2025-07-14",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752519880705",
+      "descricao": "saldo bancario mantido na agência 396 conta 04664566 do Banco Bradesco S/A",
+      "valor": 1838.54,
+      "percentualTransmissao": 25,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752519866185": 100
+      }
+    },
+    {
+      "id": "bem_1752519897817",
+      "descricao": "aplicação bancaria mantido na agência 0219 conta 15050-5 do Banco Itau S/A",
+      "valor": 3522956.37,
+      "percentualTransmissao": 25,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752519866185": 100
+      }
+    },
+    {
+      "id": "bem_1752519913609",
+      "descricao": "saldo bancario mantido na agência 0219 conta 15050-5 do Banco Itau S/A",
+      "valor": 10161.8,
+      "percentualTransmissao": 25,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752519866185": 100
+      }
+    },
+    {
+      "id": "bem_1752519930601",
+      "descricao": "Veículo de Placa: PZR2842 RENAVAM: 0111990882-2",
+      "valor": 107000,
+      "percentualTransmissao": 25,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752519866185": 100
+      }
+    },
+    {
+      "id": "bem_1752519957305",
+      "descricao": "AVENIDA BRASIL, 2539, APARTAMENTO 401, GOVERNADOR VALADARES, CENTRO, CEP 35020-070",
+      "valor": 544356.28,
+      "percentualTransmissao": 25,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752519866185": 100
+      }
+    },
+    {
+      "id": "bem_1752519974489",
+      "descricao": "RUA DOM PEDRO II, 207, APARTAMENTO 1601, GOVERNADOR VALADARES, CENTRO, CEP 35010-090",
+      "valor": 1728961.4,
+      "percentualTransmissao": 25,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752519866185": 100
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-14T19:07:29.513Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 73940.929875,
+      "justificativas": []
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 267369.11905622855,
+          "baseCalculoReais": 1478818.5975,
+          "aliquota": 5,
+          "itcdPrincipal": 73940.929875,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 73940.929875
+        },
+        "erros": [],
+        "justificativaCalculo": [],
+        "nome": "CELINA MARIA CASQUEL LOPES DA SILVA",
+        "id": "pessoa_1752519866185"
+      }
+    ]
+  }
+}

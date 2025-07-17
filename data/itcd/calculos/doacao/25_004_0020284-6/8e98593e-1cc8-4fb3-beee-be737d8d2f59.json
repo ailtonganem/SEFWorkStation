@@ -1,0 +1,207 @@
+{
+  "id": "8e98593e-1cc8-4fb3-beee-be737d8d2f59",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.004.0020284-6",
+  "deCujusNome": "Doação de ANALIA DOS SANTOS NEVES, GERINO PINHANO NEVES para DALVA NEVES, IVANI DOS SANTOS NEVES BRENNAN, MARIA APARECIDA NEVES, SILVANDA NEVES PEREIRA, SILVINHA NEVES PEREIRA, ADEILTON DOS SANTOS NEVES",
+  "doadores": [
+    {
+      "id": "pessoa_1752155728635",
+      "nome": "ANALIA DOS SANTOS NEVES"
+    },
+    {
+      "id": "pessoa_1752155737246",
+      "nome": "GERINO PINHANO NEVES"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752155747620",
+      "nome": "DALVA NEVES"
+    },
+    {
+      "id": "pessoa_1752155756243",
+      "nome": "IVANI DOS SANTOS NEVES BRENNAN"
+    },
+    {
+      "id": "pessoa_1752155764485",
+      "nome": "MARIA APARECIDA NEVES"
+    },
+    {
+      "id": "pessoa_1752155775458",
+      "nome": "SILVANDA NEVES PEREIRA"
+    },
+    {
+      "id": "pessoa_1752155784960",
+      "nome": "SILVINHA NEVES PEREIRA"
+    },
+    {
+      "id": "pessoa_1752155794103",
+      "nome": "ADEILTON DOS SANTOS NEVES"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-10",
+  "dataPagamento": "2025-07-10",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752155823570",
+      "descricao": "Rua Isaías Leandro de Abreu 148",
+      "valor": 101981.98,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-10",
+      "partilha": {
+        "pessoa_1752155747620": 16.666666666666668,
+        "pessoa_1752155756243": 16.666666666666668,
+        "pessoa_1752155764485": 16.666666666666668,
+        "pessoa_1752155775458": 16.666666666666668,
+        "pessoa_1752155784960": 16.666666666666668,
+        "pessoa_1752155794103": 16.666666666666668
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-10T13:57:36.759Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 0,
+      "justificativas": [
+        "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 3073.0422467305493,
+          "baseCalculoReais": 16996.996666666666,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "DALVA NEVES",
+        "id": "pessoa_1752155747620"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 3073.0422467305493,
+          "baseCalculoReais": 16996.996666666666,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "IVANI DOS SANTOS NEVES BRENNAN",
+        "id": "pessoa_1752155756243"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 3073.0422467305493,
+          "baseCalculoReais": 16996.996666666666,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "MARIA APARECIDA NEVES",
+        "id": "pessoa_1752155764485"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 3073.0422467305493,
+          "baseCalculoReais": 16996.996666666666,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "SILVANDA NEVES PEREIRA",
+        "id": "pessoa_1752155775458"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 3073.0422467305493,
+          "baseCalculoReais": 16996.996666666666,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "SILVINHA NEVES PEREIRA",
+        "id": "pessoa_1752155784960"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 3073.0422467305493,
+          "baseCalculoReais": 16996.996666666666,
+          "aliquota": 0,
+          "itcdPrincipal": 0,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 0
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Isenção aplicada: Valor da doação/excedente (3.073,0422 UFEMG) não ultrapassa o limite de 10.000,0000 UFEMG (Art. 3º, II, \"a\", da Lei 14.941/03)."
+        ],
+        "nome": "ADEILTON DOS SANTOS NEVES",
+        "id": "pessoa_1752155794103"
+      }
+    ]
+  }
+}

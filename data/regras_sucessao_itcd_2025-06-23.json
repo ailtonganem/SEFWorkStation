@@ -1,0 +1,159 @@
+{
+  "partilhaLegalRegras": [
+    {
+      "id": "53056581-2123-4c3c-8909-327f53010d6f",
+      "estadoCivil": "solteiro",
+      "regimeBens": null,
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares"
+        ],
+        "ascendentes": [
+          "particulares"
+        ],
+        "colaterais": [
+          "particulares"
+        ]
+      }
+    },
+    {
+      "id": "ed9bac26-1445-492c-ad86-0dc241a7c3e9",
+      "estadoCivil": "viuvo",
+      "regimeBens": null,
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares"
+        ],
+        "ascendentes": [
+          "particulares"
+        ],
+        "colaterais": [
+          "particulares"
+        ]
+      }
+    },
+    {
+      "id": "bef15e5b-c1c2-454f-9a5c-e2328e036fe3",
+      "estadoCivil": "separado",
+      "regimeBens": null,
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares"
+        ],
+        "ascendentes": [
+          "particulares"
+        ],
+        "colaterais": [
+          "particulares"
+        ]
+      }
+    },
+    {
+      "id": "afd0a126-e192-4f5d-8f04-671c4729d57a",
+      "estadoCivil": "casado",
+      "regimeBens": "comunhao_universal",
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares"
+        ],
+        "ascendentes": [
+          "particulares"
+        ],
+        "conjuge": [
+          "particulares"
+        ],
+        "colaterais": [
+          "particulares"
+        ]
+      }
+    },
+    {
+      "id": "0708df1a-f83a-4439-9abf-f771ca1b13a3",
+      "estadoCivil": "casado",
+      "regimeBens": "separacao_convencional",
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares"
+        ],
+        "ascendentes": [
+          "particulares"
+        ],
+        "conjuge": [
+          "particulares"
+        ],
+        "colaterais": [
+          "particulares"
+        ]
+      }
+    },
+    {
+      "id": "fa76e4f7-e6bb-4e01-9eb5-2e3cc4e2fb91",
+      "estadoCivil": "casado",
+      "regimeBens": "comunhao_parcial",
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares",
+          "comuns"
+        ],
+        "ascendentes": [
+          "particulares",
+          "comuns"
+        ],
+        "conjuge": [
+          "particulares",
+          "comuns"
+        ],
+        "colaterais": [
+          "particulares",
+          "comuns"
+        ]
+      }
+    },
+    {
+      "id": "117fafbb-54b1-4db9-b9f4-a22b697f9bfd",
+      "estadoCivil": "casado",
+      "regimeBens": "uniao_estavel_parcial",
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares",
+          "comuns"
+        ],
+        "ascendentes": [
+          "particulares",
+          "comuns"
+        ],
+        "conjuge": [
+          "particulares",
+          "comuns"
+        ],
+        "colaterais": [
+          "particulares",
+          "comuns"
+        ]
+      }
+    },
+    {
+      "id": "f401a54f-b2b7-4a09-bbba-3b2bd87690a0",
+      "estadoCivil": "casado",
+      "regimeBens": "uniao_estavel_cc1790",
+      "classesPermitidas": {
+        "descendentes": [
+          "particulares",
+          "comuns"
+        ],
+        "ascendentes": [
+          "particulares",
+          "comuns"
+        ],
+        "conjuge": [
+          "particulares",
+          "comuns"
+        ],
+        "colaterais": [
+          "particulares",
+          "comuns"
+        ]
+      }
+    }
+  ]
+}

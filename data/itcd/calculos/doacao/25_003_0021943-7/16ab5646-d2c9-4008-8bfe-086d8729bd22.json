@@ -1,0 +1,68 @@
+{
+  "id": "16ab5646-d2c9-4008-8bfe-086d8729bd22",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.003.0021943-7",
+  "deCujusNome": "Doação de LEOCADIA MARIA DE FREITAS para BRENO DE LAIA SARNAGLIA",
+  "doadores": [
+    {
+      "id": "pessoa_1752584445650",
+      "nome": "LEOCADIA MARIA DE FREITAS"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752584455394",
+      "nome": "BRENO DE LAIA SARNAGLIA"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-15",
+  "dataPagamento": "2025-07-15",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752584484498",
+      "descricao": "Av Pres. Tancredo Neves",
+      "valor": 308407.62,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-15",
+      "partilha": {
+        "pessoa_1752584455394": 100
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-15T13:01:33.155Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 7710.190500000001,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (55.759,8300 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 55759.83004881577,
+          "baseCalculoReais": 308407.62,
+          "aliquota": 5,
+          "itcdPrincipal": 15420.381000000001,
+          "desconto": 7710.190500000001,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 7710.190500000001
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (55.759,8300 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "BRENO DE LAIA SARNAGLIA",
+        "id": "pessoa_1752584455394"
+      }
+    ]
+  }
+}

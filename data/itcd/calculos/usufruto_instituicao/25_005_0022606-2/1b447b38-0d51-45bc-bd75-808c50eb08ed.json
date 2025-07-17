@@ -1,0 +1,113 @@
+{
+  "id": "1b447b38-0d51-45bc-bd75-808c50eb08ed",
+  "tipoCalculo": "usufruto_instituicao",
+  "deCujusNome": "Usufruto de G&A ELETRICA LTDA para GERALDO DELFINO, VALTERLANA LEAL DELFINO",
+  "declaracaoNumero": "25.005.0022606-2",
+  "dataFatoGerador": null,
+  "dataPagamento": "2025-07-14",
+  "bens": [
+    {
+      "id": "bem_1752516589862",
+      "descricao": "4527",
+      "valor": 671091.81,
+      "percentual": 100,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752516511548": 50,
+        "pessoa_1752516520029": 50
+      }
+    },
+    {
+      "id": "bem_1752516602551",
+      "descricao": "4527-A",
+      "valor": 142275.87,
+      "percentual": 100,
+      "dataAvaliacao": "2025-07-14",
+      "partilha": {
+        "pessoa_1752516511548": 50,
+        "pessoa_1752516520029": 50
+      }
+    }
+  ],
+  "dadosUsufruto": {
+    "instituidores": [
+      {
+        "id": "pessoa_1752516502109",
+        "nome": "G&A ELETRICA LTDA"
+      }
+    ],
+    "beneficiarios": [
+      {
+        "id": "pessoa_1752516511548",
+        "nome": "GERALDO DELFINO"
+      },
+      {
+        "id": "pessoa_1752516520029",
+        "nome": "VALTERLANA LEAL DELFINO"
+      }
+    ],
+    "efetivada": false,
+    "formalizada": null
+  },
+  "dataSalvamento": "2025-07-14T18:10:39.111Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 6778.064000000001,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (24.509,3618 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porBeneficiario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 24509.361779063463,
+          "baseCalculoReais": 135561.28,
+          "aliquota": 5,
+          "itcdPrincipal": 6778.064000000001,
+          "desconto": 3389.0320000000006,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 3389.0320000000006
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (24.509,3618 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "GERALDO DELFINO",
+        "id": "pessoa_1752516511548"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 24509.361779063463,
+          "baseCalculoReais": 135561.28,
+          "aliquota": 5,
+          "itcdPrincipal": 6778.064000000001,
+          "desconto": 3389.0320000000006,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 3389.0320000000006
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (24.509,3618 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "VALTERLANA LEAL DELFINO",
+        "id": "pessoa_1752516520029"
+      }
+    ],
+    "resumo": {
+      "totalBensUfemg": 147056.1706743808,
+      "baseCalculoTotalUfemg": 49018.72355812693,
+      "baseCalculoTotalReais": 271122.56,
+      "valorUfemgDoVencimento": 5.531
+    }
+  }
+}

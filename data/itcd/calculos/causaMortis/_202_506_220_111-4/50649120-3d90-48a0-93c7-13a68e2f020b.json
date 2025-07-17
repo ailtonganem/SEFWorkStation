@@ -1,0 +1,206 @@
+{
+  "id": "50649120-3d90-48a0-93c7-13a68e2f020b",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "\t202.506.220.111-4",
+  "dataFatoGerador": "2015-01-27",
+  "dataPagamento": "2025-07-11",
+  "deCujusNome": "MARILENE PORTO LOPES",
+  "estadoCivil": "viuvo",
+  "regimeBens": "",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": true,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [
+    {
+      "de": "e6c0e738-185e-464c-bf62-71f74a0908c5",
+      "para": "a9a7a0e9-2369-4586-b4ca-083a174c9645",
+      "tipoRenuncia": "total",
+      "percentual": 100
+    },
+    {
+      "de": "0afb08f3-2020-41dc-a12e-c9e6951e7bc4",
+      "para": "a9a7a0e9-2369-4586-b4ca-083a174c9645",
+      "tipoRenuncia": "total",
+      "percentual": 100
+    }
+  ],
+  "houvePagamentoAnterior": true,
+  "pagamentosAnteriores": [
+    {
+      "id": "pag_1752244219785",
+      "valor": 1682.05,
+      "data": "2022-09-30",
+      "tipo": "diferencaPartilha"
+    }
+  ],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "820c7c32-f567-471a-be75-0332681b625e",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Saldo em contas/aplicações bancárias Banco: ITAU Agência: 5243 Tipo da conta: Conta Corrente, Conta: 009676",
+      "valorAvaliacao": 21548.39,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "e6c0e738-185e-464c-bf62-71f74a0908c5": 0,
+        "0afb08f3-2020-41dc-a12e-c9e6951e7bc4": 0,
+        "a9a7a0e9-2369-4586-b4ca-083a174c9645": 100
+      },
+      "anoReferenciaUfemg": 2024,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "55cf2cc2-f701-46a0-8699-150c1cfdb767",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA CLEMENTE MEDRADO, 56",
+      "valorAvaliacao": 201846.46,
+      "percentualTransmissao": 50,
+      "natureza": "particular",
+      "partilha": {
+        "e6c0e738-185e-464c-bf62-71f74a0908c5": 0,
+        "0afb08f3-2020-41dc-a12e-c9e6951e7bc4": 0,
+        "a9a7a0e9-2369-4586-b4ca-083a174c9645": 100
+      },
+      "anoReferenciaUfemg": 2022,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "e6c0e738-185e-464c-bf62-71f74a0908c5",
+      "nome": "MARCOS AURELIO PORTO LOPES",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "0afb08f3-2020-41dc-a12e-c9e6951e7bc4",
+      "nome": "MARCO TULIO PORTO LOPES",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "a9a7a0e9-2369-4586-b4ca-083a174c9645",
+      "nome": "MARCUS VINICIUS PORTO LOPES",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-11T18:37:16.580Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 25237.945616294066,
+      "baseCalculoReais": 68720.40211860712,
+      "aliquota": 5,
+      "itcdPrincipal": 3436.0201059303563,
+      "desconto": 0,
+      "multa": 412.32241271164276,
+      "juros": 3426.801929199639,
+      "percentualJuros": 89.04617800000003,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 7275.144447841638
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 93060.718135815,
+        "baseCalculoUfemg": 16825.29707752938,
+        "itcdPrincipal": 4653.03590679075,
+        "desconto": 2326.517953395375,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 376.2384007466949,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 5,
+        "pagamentoAnterior": 1950.2795526486802
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "e6c0e738-185e-464c-bf62-71f74a0908c5",
+          "nome": "MARCOS AURELIO PORTO LOPES",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 8412.648538764688,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 0,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "0afb08f3-2020-41dc-a12e-c9e6951e7bc4",
+          "nome": "MARCO TULIO PORTO LOPES",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 8412.648538764688,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 0,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "a9a7a0e9-2369-4586-b4ca-083a174c9645",
+          "nome": "MARCUS VINICIUS PORTO LOPES",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 8412.648538764688,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 25237.945616294066,
+          "excedenteUfemg": 16825.29707752938,
+          "excessoLiberalidadeUfemg": 0,
+          "calculoImposto": {
+            "baseCalculoUfemg": 16825.29707752938,
+            "baseCalculoReais": 93060.718135815,
+            "aliquota": 5,
+            "itcdPrincipal": 4653.03590679075,
+            "desconto": 2326.517953395375,
+            "multa": 0,
+            "juros": 0,
+            "percentualJuros": 0,
+            "recolhimentoPrevio": 0,
+            "pagamentoAnterior": 0,
+            "impostoARecolher": 2326.517953395375
+          }
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": [
+        "MARCUS VINICIUS PORTO LOPES: Desconto de 50% aplicado: Valor total (16.825,2971 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Soma dos índices SELIC de set. de 2015 a jul. de 2025, mais 1%. Total da soma SELIC: 88,046178%. Taxa final: 89,046178%."
+    ]
+  }
+}

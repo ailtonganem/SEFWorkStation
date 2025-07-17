@@ -1,0 +1,123 @@
+{
+  "id": "752e0713-acdd-4baa-b958-a726c7243ec6",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.003.0020038-8",
+  "deCujusNome": "Doação de EUFLOSINA LUIZ VIANA, MAGNOLIA ALVES LUIZ VIANA, OSMARIA VIANA LUIZ, JOAO CHARLES VIANA LUIZ, PAULO SERGIO VIANA LUIZ, LIZETE VIANA LUIZ, JUAREZ VIANA LUIZ, CELIA RAIMUNDA VIANA LUIZ para MARIA APARECIDA VIANA LUIZ NOGUEIRA, OSCINEI NOGUEIRA LUIZ",
+  "doadores": [
+    {
+      "id": "pessoa_1752156289690",
+      "nome": "EUFLOSINA LUIZ VIANA"
+    },
+    {
+      "id": "pessoa_1752156298982",
+      "nome": "MAGNOLIA ALVES LUIZ VIANA"
+    },
+    {
+      "id": "pessoa_1752156306699",
+      "nome": "OSMARIA VIANA LUIZ"
+    },
+    {
+      "id": "pessoa_1752156314761",
+      "nome": "JOAO CHARLES VIANA LUIZ"
+    },
+    {
+      "id": "pessoa_1752156322373",
+      "nome": "PAULO SERGIO VIANA LUIZ"
+    },
+    {
+      "id": "pessoa_1752156331614",
+      "nome": "LIZETE VIANA LUIZ"
+    },
+    {
+      "id": "pessoa_1752156341918",
+      "nome": "JUAREZ VIANA LUIZ"
+    },
+    {
+      "id": "pessoa_1752156350267",
+      "nome": "CELIA RAIMUNDA VIANA LUIZ"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752156359311",
+      "nome": "MARIA APARECIDA VIANA LUIZ NOGUEIRA"
+    },
+    {
+      "id": "pessoa_1752156367630",
+      "nome": "OSCINEI NOGUEIRA LUIZ"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-10",
+  "dataPagamento": "2025-07-10",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752156397681",
+      "descricao": "FAZENDA LAGOA GRANDE - OLHO DAGUA",
+      "valor": 407900,
+      "percentualTransmissao": 88.8889,
+      "dataAvaliacao": "2024-12-31",
+      "partilha": {
+        "pessoa_1752156359311": 50,
+        "pessoa_1752156367630": 50
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-10T14:07:26.469Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 9495.889631826147,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (34.336,9721 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 34336.97209121731,
+          "baseCalculoReais": 189917.7926365229,
+          "aliquota": 5,
+          "itcdPrincipal": 4747.944815913073,
+          "desconto": 4747.944815913073,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 4747.944815913073
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (34.336,9721 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "MARIA APARECIDA VIANA LUIZ NOGUEIRA",
+        "id": "pessoa_1752156359311"
+      },
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 34336.97209121731,
+          "baseCalculoReais": 189917.7926365229,
+          "aliquota": 5,
+          "itcdPrincipal": 4747.944815913073,
+          "desconto": 4747.944815913073,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 4747.944815913073
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (34.336,9721 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "OSCINEI NOGUEIRA LUIZ",
+        "id": "pessoa_1752156367630"
+      }
+    ]
+  }
+}

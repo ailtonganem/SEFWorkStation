@@ -1,0 +1,68 @@
+{
+  "id": "b9879f8e-6fb3-4576-b25f-8a8618cfa6b5",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.003.0021939-9",
+  "deCujusNome": "Doação de LEOCADIA MARIA DE FREITAS para MARCIA MARIA SARNAGLIA BOSSANELLI",
+  "doadores": [
+    {
+      "id": "pessoa_1752585524181",
+      "nome": "LEOCADIA MARIA DE FREITAS"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752585535437",
+      "nome": "MARCIA MARIA SARNAGLIA BOSSANELLI"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": false,
+  "dataFatoGerador": "2025-07-15",
+  "dataPagamento": "2025-07-15",
+  "formalizada": "outros",
+  "bens": [
+    {
+      "id": "bem_1752585557117",
+      "descricao": "Av Brasil 461 ap 101",
+      "valor": 238646.74,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-15",
+      "partilha": {
+        "pessoa_1752585535437": 100
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-15T13:19:35.918Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 5966.1685,
+      "justificativas": [
+        "Desconto de 50% aplicado: Valor total (43.147,1235 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+        "valores": {
+          "baseCalculoUfemg": 43147.12348580727,
+          "baseCalculoReais": 238646.74,
+          "aliquota": 5,
+          "itcdPrincipal": 11932.337,
+          "desconto": 5966.1685,
+          "multa": 0,
+          "juros": 0,
+          "percentualJuros": 0,
+          "recolhimentoPrevio": 0,
+          "pagamentoAnterior": 0,
+          "impostoARecolher": 5966.1685
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Desconto de 50% aplicado: Valor total (43.147,1235 UFEMG) não ultrapassa 90.000,0000 UFEMG."
+        ],
+        "nome": "MARCIA MARIA SARNAGLIA BOSSANELLI",
+        "id": "pessoa_1752585535437"
+      }
+    ]
+  }
+}

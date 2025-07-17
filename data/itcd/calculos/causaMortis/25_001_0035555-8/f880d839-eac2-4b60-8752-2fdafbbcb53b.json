@@ -1,0 +1,291 @@
+{
+  "id": "f880d839-eac2-4b60-8752-2fdafbbcb53b",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0035555-8",
+  "dataFatoGerador": "2024-02-25",
+  "dataPagamento": "2025-07-16",
+  "deCujusNome": "ITAMAR NUNES DO AMARAL",
+  "estadoCivil": "viuvo",
+  "regimeBens": "",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": true,
+  "pagamentosAnteriores": [
+    {
+      "id": "pag_1752672476199",
+      "valor": 12794.46,
+      "data": "2024-08-23",
+      "tipo": "causaMortis"
+    }
+  ],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "b7d019c9-9322-48c7-bcfc-fc30a1517051",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Imóvel 253",
+      "valorAvaliacao": 120000,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2024,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "9fde4030-504d-4e42-a7b3-c6fb4566168a",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Banco Bradesco S.A.",
+      "valorAvaliacao": 48736.62,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "e8c02023-59fe-45d9-87a6-ce69ef2b1697",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "BB",
+      "valorAvaliacao": 43560.66,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "16ad6782-2a97-46b1-a63c-4e0c2ffb39a4",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "Itaú",
+      "valorAvaliacao": 16404.99,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "7957fb91-9a70-4014-ab0e-975c7d655db4",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "BB",
+      "valorAvaliacao": 1973.17,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "c80de134-2263-4a61-8650-03d09180315f",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "FGTS",
+      "valorAvaliacao": 30242.36,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2024,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "fb76f5a7-f863-4cd5-884c-51d1b625ef25",
+      "tipo": "movel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "FGTS",
+      "valorAvaliacao": 1439.81,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "64eb1795-36b7-45cc-bf0d-622059807430": 25,
+        "bd39be24-3077-465f-8214-d40c48d18b3d": 25,
+        "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6": 25,
+        "bf0359a1-7075-48fe-bb69-c353e8997847": 25
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "64eb1795-36b7-45cc-bf0d-622059807430",
+      "nome": "JOSIANA NUNES DO AMARAL FERREIRA",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "bd39be24-3077-465f-8214-d40c48d18b3d",
+      "nome": "JONAS LUCAS DO AMARAL",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6",
+      "nome": "JEICIMAR NUNES DO AMARAL",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "bf0359a1-7075-48fe-bb69-c353e8997847",
+      "nome": "JOSIMAR NUNES DO AMARAL",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-16T13:28:38.800Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 48726.94917941073,
+      "baseCalculoReais": 257263.67358253483,
+      "aliquota": 5,
+      "itcdPrincipal": 12863.183679126741,
+      "desconto": 0,
+      "multa": 8.246841495209082,
+      "juros": 8.268016305347954,
+      "percentualJuros": 10.741796,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 12794.46,
+      "impostoARecolher": 85.23853692729939
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "64eb1795-36b7-45cc-bf0d-622059807430",
+          "nome": "JOSIANA NUNES DO AMARAL FERREIRA",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 12181.737294852683,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 12181.737294852683,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "bd39be24-3077-465f-8214-d40c48d18b3d",
+          "nome": "JONAS LUCAS DO AMARAL",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 12181.737294852683,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 12181.737294852683,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "3c2aa34f-da3a-4a2c-a50e-9deafc8557d6",
+          "nome": "JEICIMAR NUNES DO AMARAL",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 12181.737294852683,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 12181.737294852683,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "bf0359a1-7075-48fe-bb69-c353e8997847",
+          "nome": "JOSIMAR NUNES DO AMARAL",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 12181.737294852683,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 12181.737294852683,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Soma dos índices SELIC de out. de 2024 a jul. de 2025, mais 1%. Total da soma SELIC: 9,741796%. Taxa final: 10,741796%."
+    ]
+  }
+}

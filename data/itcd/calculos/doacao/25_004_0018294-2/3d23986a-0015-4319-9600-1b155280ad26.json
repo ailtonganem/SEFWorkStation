@@ -1,0 +1,97 @@
+{
+  "id": "3d23986a-0015-4319-9600-1b155280ad26",
+  "tipoCalculo": "doacao",
+  "declaracaoNumero": "25.004.0018294-2",
+  "deCujusNome": "Doação de FRANCISCO PEREIRA DA CUNHA SOBRINHO, TEREZINHA UMBELINA DA CUNHA para FRANCISCA APARECIDA PEREIRA MAGALHAES, LUCEIR FATIMA PEREIRA DE ABREU",
+  "doadores": [
+    {
+      "id": "pessoa_1752510357489",
+      "nome": "FRANCISCO PEREIRA DA CUNHA SOBRINHO"
+    },
+    {
+      "id": "pessoa_1752510367712",
+      "nome": "TEREZINHA UMBELINA DA CUNHA"
+    }
+  ],
+  "donatarios": [
+    {
+      "id": "pessoa_1752510377745",
+      "nome": "FRANCISCA APARECIDA PEREIRA MAGALHAES"
+    },
+    {
+      "id": "pessoa_1752510388041",
+      "nome": "LUCEIR FATIMA PEREIRA DE ABREU"
+    }
+  ],
+  "tipoDoacaoGlobal": "plena",
+  "efetivada": true,
+  "dataFatoGerador": "2002-01-01",
+  "dataPagamento": "2025-07-14",
+  "formalizada": "escritura",
+  "bens": [
+    {
+      "id": "bem_1752510426929",
+      "descricao": "Av. Levindo Dias",
+      "valor": 164275.51,
+      "percentualTransmissao": 100,
+      "dataAvaliacao": "2025-07-02",
+      "partilha": {
+        "pessoa_1752510377745": 50,
+        "pessoa_1752510388041": 50
+      }
+    }
+  ],
+  "dataSalvamento": "2025-07-14T16:31:25.300Z",
+  "resultadoFinal": {
+    "total": {
+      "impostoARecolher": 1932.371149118514,
+      "justificativas": [
+        "Soma dos índices SELIC de mar. de 2002 a jul. de 2025, mais 1%. Total da soma SELIC: 266,591840%. Taxa final: 267,591840%."
+      ]
+    },
+    "porDonatario": [
+      {
+        "legislacaoAplicada": "Lei 12.426/96",
+        "valores": {
+          "baseCalculoUfemg": 14850.434821912857,
+          "baseCalculoReais": 15802.347693997472,
+          "aliquota": 2,
+          "itcdPrincipal": 262.8419538799494,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 703.3436206793076,
+          "percentualJuros": 267.5918399999998,
+          "recolhimentoPrevio": 0,
+          "impostoARecolher": 966.185574559257
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Soma dos índices SELIC de mar. de 2002 a jul. de 2025, mais 1%. Total da soma SELIC: 266,591840%. Taxa final: 267,591840%."
+        ],
+        "nome": "FRANCISCA APARECIDA PEREIRA MAGALHAES",
+        "id": "pessoa_1752510377745"
+      },
+      {
+        "legislacaoAplicada": "Lei 12.426/96",
+        "valores": {
+          "baseCalculoUfemg": 14850.434821912857,
+          "baseCalculoReais": 15802.347693997472,
+          "aliquota": 2,
+          "itcdPrincipal": 262.8419538799494,
+          "desconto": 0,
+          "multa": 0,
+          "juros": 703.3436206793076,
+          "percentualJuros": 267.5918399999998,
+          "recolhimentoPrevio": 0,
+          "impostoARecolher": 966.185574559257
+        },
+        "erros": [],
+        "justificativaCalculo": [
+          "Soma dos índices SELIC de mar. de 2002 a jul. de 2025, mais 1%. Total da soma SELIC: 266,591840%. Taxa final: 267,591840%."
+        ],
+        "nome": "LUCEIR FATIMA PEREIRA DE ABREU",
+        "id": "pessoa_1752510388041"
+      }
+    ]
+  }
+}

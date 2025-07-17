@@ -1,0 +1,147 @@
+{
+  "id": "7c75d9ee-7fcb-4e35-b4f0-392dff704063",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0049625-9",
+  "dataFatoGerador": "2022-05-02",
+  "dataPagamento": "2025-07-16",
+  "deCujusNome": "KEILAH GOMES DA SILVA",
+  "estadoCivil": "solteiro",
+  "regimeBens": "",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "judicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": true,
+  "pagamentosAnteriores": [
+    {
+      "id": "pag_1752684165269",
+      "valor": 5422.38,
+      "data": "2022-10-29",
+      "tipo": "causaMortis"
+    }
+  ],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "e339ce88-7500-46ad-9e32-aabb24909c15",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA C 38",
+      "valorAvaliacao": 300113.2,
+      "percentualTransmissao": 50,
+      "natureza": "particular",
+      "partilha": {
+        "8d03c8cc-f3b4-4a34-aca2-012c34143ee6": 100
+      },
+      "anoReferenciaUfemg": 2024,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "ed1a208a-d085-419d-b901-99793a7e8098",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "RUA RUBENS AMARAL 101",
+      "valorAvaliacao": 180000,
+      "percentualTransmissao": 50,
+      "natureza": "particular",
+      "partilha": {
+        "8d03c8cc-f3b4-4a34-aca2-012c34143ee6": 100
+      },
+      "anoReferenciaUfemg": 2024,
+      "destinadoTestamento": false
+    },
+    {
+      "id": "0131cfb1-ed6e-4c34-bf9a-c4364d8c14fa",
+      "tipo": "isento_nao_incidencia",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "REMUNERAÇÃO",
+      "valorAvaliacao": 18036.43,
+      "percentualTransmissao": 100,
+      "natureza": "particular",
+      "partilha": {
+        "8d03c8cc-f3b4-4a34-aca2-012c34143ee6": 100
+      },
+      "anoReferenciaUfemg": 2022,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "8d03c8cc-f3b4-4a34-aca2-012c34143ee6",
+      "nome": "DANILO GOMES DA SILVA",
+      "tipo": "irmao_bilateral",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-16T16:43:56.994Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 45467.84855200106,
+      "baseCalculoReais": 216895.27794761062,
+      "aliquota": 5,
+      "itcdPrincipal": 10844.763897380531,
+      "desconto": 0,
+      "multa": 650.6860676856637,
+      "juros": 1948.6795633675117,
+      "percentualJuros": 32.087224,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 5422.38,
+      "impostoARecolher": 8021.749528433707
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "8d03c8cc-f3b4-4a34-aca2-012c34143ee6",
+          "nome": "DANILO GOMES DA SILVA",
+          "tipo": "irmao_bilateral",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 49248.83297646073,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 49248.83297646073,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Soma dos índices SELIC de dez. de 2022 a jul. de 2025, mais 1%. Total da soma SELIC: 31,087224%. Taxa final: 32,087224%."
+    ]
+  }
+}

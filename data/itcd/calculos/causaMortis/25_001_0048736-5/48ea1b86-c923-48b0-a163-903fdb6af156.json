@@ -1,0 +1,231 @@
+{
+  "id": "48ea1b86-c923-48b0-a163-903fdb6af156",
+  "tipoCalculo": "causaMortis",
+  "declaracaoNumero": "25.001.0048736-5",
+  "dataFatoGerador": "2025-02-22",
+  "dataPagamento": "2025-07-16",
+  "deCujusNome": "JOAO BATISTA MONTEIRO",
+  "estadoCivil": "casado",
+  "regimeBens": "comunhao_universal",
+  "concorrenciaUE": "filhos_comuns",
+  "conjugeAscendenteFilhos": null,
+  "tipoInventario": "extrajudicial",
+  "transitoJulgado": false,
+  "dataTransitoJulgado": "",
+  "dataVencimentoPartilha": "2025-12-31",
+  "houveTestamento": false,
+  "haHerdeirosNecessarios": false,
+  "houveRenunciaMonte": false,
+  "houveRenunciaDeterminacao": false,
+  "renunciaFormalizadaAutos": "nao",
+  "renunciasPorDeterminacao": [],
+  "houvePagamentoAnterior": false,
+  "pagamentosAnteriores": [],
+  "houveRecolhimentoPrevio": false,
+  "valorRecolhido": 0,
+  "dataRecolhimentoPrevio": "",
+  "calcularDescontoSobreRecolhido": false,
+  "isencaoImovelAte2007Confirmada": false,
+  "bens": [
+    {
+      "id": "7eccd266-21dc-47cc-b712-2787a6e3b604",
+      "tipo": "imovel",
+      "imovelTipo": "residencial",
+      "foraDeMG": false,
+      "descricao": "WENCESLAU BRAZ 3108 APT A",
+      "valorAvaliacao": 177463.12,
+      "percentualTransmissao": 100,
+      "natureza": "comum",
+      "partilha": {
+        "conjuge-meacao": 50,
+        "1ed0cdce-26e3-4079-82f7-ca857f54e2d9": 8.333333,
+        "fb95345d-a4c7-44d4-817d-2b32f745df09": 8.333333,
+        "1b3a1926-e9c8-4d8f-82d4-4c178c930cc3": 8.333333,
+        "cd3dab80-f0d8-46b7-90f8-04a88f7def1c": 8.333333,
+        "fd1f5bcc-9484-4abc-9630-aeb966a2e944": 8.333333,
+        "9b331f74-d59b-4577-afe1-d1f9e8c9ab04": 8.333333
+      },
+      "anoReferenciaUfemg": 2025,
+      "destinadoTestamento": false
+    }
+  ],
+  "herdeiros": [
+    {
+      "id": "1ed0cdce-26e3-4079-82f7-ca857f54e2d9",
+      "nome": "ADRIANA CRISTINA MONTEIRO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "fb95345d-a4c7-44d4-817d-2b32f745df09",
+      "nome": "REGINA CELI MONTEIRO DOS SANTOS",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "1b3a1926-e9c8-4d8f-82d4-4c178c930cc3",
+      "nome": "PAULO CESAR MONTEIRO",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "cd3dab80-f0d8-46b7-90f8-04a88f7def1c",
+      "nome": "SANDRA LUCIA MONTEIRO LAGE",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "fd1f5bcc-9484-4abc-9630-aeb966a2e944",
+      "nome": "ANA LUCIA DOS SANTOS MONTEIRO AMARAL",
+      "tipo": "filho",
+      "representadoPor": null,
+      "grupo": 0,
+      "renunciouMonte": false
+    },
+    {
+      "id": "9b331f74-d59b-4577-afe1-d1f9e8c9ab04",
+      "nome": "DOUGLAS MONTEIRO DE OLIVEIRA",
+      "tipo": "neto",
+      "representadoPor": "MARCIA MARGARIDA MONTEIRO",
+      "grupo": 0,
+      "renunciouMonte": false
+    }
+  ],
+  "dataSalvamento": "2025-07-16T12:44:35.993Z",
+  "resultadoFinal": {
+    "legislacaoAplicada": "Lei 14.941/03 (após 2008)",
+    "valores": {
+      "baseCalculoUfemg": 16042.58904357259,
+      "baseCalculoReais": 88731.56,
+      "aliquota": 0,
+      "itcdPrincipal": 0,
+      "desconto": 0,
+      "multa": 0,
+      "juros": 0,
+      "percentualJuros": 0,
+      "recolhimentoPrevio": 0,
+      "pagamentoAnterior": 0,
+      "impostoARecolher": 0
+    },
+    "diferencaPartilha": {
+      "valores": {
+        "baseCalculoReais": 0,
+        "baseCalculoUfemg": 0,
+        "itcdPrincipal": 0,
+        "desconto": 0,
+        "multa": 0,
+        "juros": 0,
+        "percentualJuros": 0,
+        "impostoARecolher": 0,
+        "valorAbatidoForaMG": 0,
+        "percentualAbatimentoForaMG": 0,
+        "aliquota": 0,
+        "pagamentoAnterior": 0
+      },
+      "detalhesPorHerdeiro": [
+        {
+          "id": "1ed0cdce-26e3-4079-82f7-ca857f54e2d9",
+          "nome": "ADRIANA CRISTINA MONTEIRO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 2673.764840595432,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 2673.764733644838,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "fb95345d-a4c7-44d4-817d-2b32f745df09",
+          "nome": "REGINA CELI MONTEIRO DOS SANTOS",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 2673.764840595432,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 2673.764733644838,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "1b3a1926-e9c8-4d8f-82d4-4c178c930cc3",
+          "nome": "PAULO CESAR MONTEIRO",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 2673.764840595432,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 2673.764733644838,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "cd3dab80-f0d8-46b7-90f8-04a88f7def1c",
+          "nome": "SANDRA LUCIA MONTEIRO LAGE",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 2673.764840595432,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 2673.764733644838,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "fd1f5bcc-9484-4abc-9630-aeb966a2e944",
+          "nome": "ANA LUCIA DOS SANTOS MONTEIRO AMARAL",
+          "tipo": "filho",
+          "representadoPor": null,
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 2673.764840595432,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 2673.764733644838,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "9b331f74-d59b-4577-afe1-d1f9e8c9ab04",
+          "nome": "DOUGLAS MONTEIRO DE OLIVEIRA",
+          "tipo": "neto",
+          "representadoPor": "MARCIA MARGARIDA MONTEIRO",
+          "grupo": 0,
+          "renunciouMonte": false,
+          "quinhaoDevidoOriginalUfemg": 2673.764840595432,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 2673.764733644838,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        },
+        {
+          "id": "conjuge-meacao",
+          "nome": "Cônjuge (Meeiro)",
+          "tipo": "meeiro",
+          "quinhaoDevidoOriginalUfemg": 16042.58904357259,
+          "legadoDevidoUfemg": 0,
+          "quinhaoRecebidoUfemg": 16042.58904357259,
+          "excedenteUfemg": 0,
+          "excessoLiberalidadeUfemg": 0
+        }
+      ],
+      "erros": [],
+      "justificativaCalculo": []
+    },
+    "erros": [],
+    "justificativaCalculo": [
+      "Isenção parcial aplicada: O valor do imóvel residencial (32.085,1781 UFEMG) foi excluído da base de cálculo (Art. 3º, I, da Lei 14.941/03, c/ redação da Lei 17.272/07). O imposto incidirá sobre os demais bens. (Tetos: 40.000,0000 para o imóvel e 48.000,0000 para o monte-mor)."
+    ]
+  }
+}
