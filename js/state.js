@@ -1,4 +1,5 @@
 // js/state.js - Gerenciador de Estado Global da Aplicação
+// v2.0.0 - REMOVIDO: Gestão de handles do sistema de arquivos (directoryHandle, sharedFolderHandle) para migração para a web.
 // v1.1.0 - Adiciona gestão do sharedFolderHandle para a funcionalidade de compartilhamento.
 // v1.0.0.0 - Criação do módulo a partir da refatoração do app.js. Centraliza o estado da aplicação.
 
@@ -12,8 +13,6 @@ window.SEFWorkStation.State = (function() {
     let currentMainListViewTarget = 'welcome';
     let navigationHistory = [];
     let userPreferencesCache = null;
-    let directoryHandle = null;
-    let sharedFolderHandle = null; // NOVO: Handle para a pasta compartilhada
     let dbRef = null;
 
     /**
@@ -32,7 +31,7 @@ window.SEFWorkStation.State = (function() {
         };
         currentMainListViewTarget = 'welcome';
         navigationHistory = [];
-        console.log("STATE.JS: Módulo de Estado inicializado.");
+        console.log("STATE.JS: Módulo de Estado inicializado (v2.0.0).");
     }
 
     // --- Getters e Setters ---
@@ -83,13 +82,6 @@ window.SEFWorkStation.State = (function() {
     function getUserPreferences() { return userPreferencesCache; }
     function setUserPreferences(prefs) { userPreferencesCache = prefs; }
 
-    function getDirectoryHandle() { return directoryHandle; }
-    function setDirectoryHandle(handle) { directoryHandle = handle; }
-    
-    // NOVAS FUNÇÕES PARA A PASTA COMPARTILHADA
-    function getSharedFolderHandle() { return sharedFolderHandle; }
-    function setSharedFolderHandle(handle) { sharedFolderHandle = handle; }
-
     function getDbRef() { return dbRef; }
     function setDbRef(ref) { dbRef = ref; }
 
@@ -111,10 +103,6 @@ window.SEFWorkStation.State = (function() {
         popFromNavigationHistory,
         getUserPreferences,
         setUserPreferences,
-        getDirectoryHandle,
-        setDirectoryHandle,
-        getSharedFolderHandle, // EXPOSTO
-        setSharedFolderHandle, // EXPOSTO
         getDbRef,
         setDbRef
     };
