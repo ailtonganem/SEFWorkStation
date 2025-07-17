@@ -1,14 +1,10 @@
 // js/app.js - Orquestrador Principal e Inicialização da Aplicação SEFWorkStation
+// v6.0.0 - REATORADO: Removida toda a dependência da File System Access API. A aplicação agora funciona como uma PWA web padrão, usando apenas IndexedDB. Removidas as funções selectAppDirectory, scanAndSyncItcdData, checkAndRunAutoSave e a lógica de verificação de pasta.
 // v5.0.0 - NOVO: Adicionada lógica para escanear e carregar automaticamente dados de ITCD (avaliações, cálculos) do sistema de arquivos ao selecionar a pasta de trabalho.
-// v4.2.0 - CORRIGIDO: Dropdown de Acesso Rápido agora é filtrado corretamente pela busca global.
-// v4.1.0 - CORRIGIDO: Adiciona a chamada de inicialização para o módulo Utils, resolvendo o erro "módulo DB não foi inicializado".
-// v4.0.0 - NOVO: Menu de Acesso Rápido personalizável; Adicionada a função `populateQuickAccessDropdown`.
 // ... (histórico anterior)
 
 const APP_CURRENT_VERSION = "1.4.2"; 
-const LOCAL_STORAGE_DIR_KEY = 'sefWorkstationDirName';
 const LOCAL_STORAGE_LAST_AUTO_BACKUP_KEY = 'sefWorkstationLastAutoBackup';
-const LOCAL_STORAGE_LAST_AUTO_SAVE_KEY = 'sefWorkstationLastAutoSave';
 const NOVA_VERSAO_INFO_KEY = 'sefWorkstationNovaVersaoInfo';
 const LIXEIRA_GLOBAL_MODULE_NAME = 'lixeira-global';
 
@@ -109,11 +105,6 @@ function clearGlobalFeedback(targetArea = feedbackArea) {
 }
 
 function applyAllFiltersAndRefreshViews(targetView = null, isNavigationAction = true, navData = null) {
-    if (!SEFWorkStation.State.getDirectoryHandle() && targetView !== 'welcome' && !(targetView === 'configuracoes' && navData?.primeiroUso)) {
-        renderWelcomePage();
-        return;
-    }
-
     if (!SEFWorkStation.Filtros || !SEFWorkStation.DocumentosListagens) {
         if (quickSelectDocumentEl) updateQuickSelectDropdown();
         return;
@@ -140,121 +131,6 @@ function applyAllFiltersAndRefreshViews(targetView = null, isNavigationAction = 
     }
 }
 
-/**
- * Escaneia o diretório 'data/itcd' em busca de arquivos JSON de avaliações e cálculos
- * e sincroniza-os com o IndexedDB, adicionando apenas os que não existem.
- * @param {FileSystemDirectoryHandle} dirHandle - O handle do diretório raiz da aplicação.
- */
-async function scanAndSyncItcdData(dirHandle) {
-    if (!dirHandle) return;
-
-    showGlobalFeedback("Verificando dados existentes do ITCD...", "info", null, 3000);
-
-    try {
-        const dataDir = await dirHandle.getDirectoryHandle('data', { create: false });
-        const itcdDir = await dataDir.getDirectoryHandle('itcd', { create: false });
-
-        let newItemsFound = 0;
-        const fileCallback = async (itemData) => {
-            if (!itemData || !itemData.id) return;
-
-            let storeName = null;
-            // Determina a store com base nas propriedades do item
-            if (itemData.tipo && ['imovel-urbano', 'imovel-rural', 'semovente'].includes(itemData.tipo)) {
-                storeName = SEFWorkStation.DB.STORES.ITCD_AVALIACOES;
-            } else if (itemData.tipoCalculo) {
-                storeName = SEFWorkStation.DB.STORES.ITCD_CALCULOS;
-            }
-
-            if (storeName) {
-                const wasAdded = await SEFWorkStation.DB.syncFileItemToDB(storeName, itemData);
-                if (wasAdded) {
-                    newItemsFound++;
-                }
-            }
-        };
-
-        await SEFWorkStation.FileStorage.scanAndLoadFromDirectory(itcdDir, fileCallback);
-        
-        if (newItemsFound > 0) {
-            showGlobalFeedback(`${newItemsFound} novo(s) item(ns) de ITCD foram encontrados e sincronizados.`, "success", null, 5000);
-        } else {
-            console.log("APP.JS: Nenhum novo item de ITCD encontrado no disco para sincronizar.");
-        }
-
-    } catch (error) {
-        if (error.name === 'NotFoundError') {
-            console.log("APP.JS: Pasta 'data/itcd' não encontrada. Nenhuma sincronização de dados ITCD a ser feita.");
-        } else {
-            console.error("APP.JS: Erro ao escanear e sincronizar dados do ITCD:", error);
-            showGlobalFeedback("Ocorreu um erro ao verificar os dados existentes do ITCD.", "error");
-        }
-    }
-}
-
-
-async function selectAppDirectory() {
-    try {
-        const dirHandle = await window.showDirectoryPicker();
-        if (dirHandle) {
-            SEFWorkStation.State.setDirectoryHandle(dirHandle);
-            localStorage.setItem(LOCAL_STORAGE_DIR_KEY, dirHandle.name);
-            showGlobalFeedback(`Pasta da aplicação definida para: "${dirHandle.name}". Acesso concedido.`, 'success');
-
-            if (await dirHandle.queryPermission({ mode: 'readwrite' }) !== 'granted') {
-                if (await dirHandle.requestPermission({ mode: 'readwrite' }) !== 'granted') {
-                    showGlobalFeedback("Permissão de escrita na pasta negada. Funcionalidades limitadas.", "error", null, 0);
-                    SEFWorkStation.State.setDirectoryHandle(null);
-                    localStorage.removeItem(LOCAL_STORAGE_DIR_KEY);
-                    SEFWorkStation.Navigation.irParaHome();
-                    return;
-                }
-            }
-
-            // Garante que a estrutura de pastas exista
-            const attachmentsRootSefDir = await dirHandle.getDirectoryHandle('attachments_sef', { create: true });
-            await attachmentsRootSefDir.getDirectoryHandle('documents', { create: true });
-            await attachmentsRootSefDir.getDirectoryHandle('contribuintes', { create: true });
-            await attachmentsRootSefDir.getDirectoryHandle('recursos', { create: true });
-            await attachmentsRootSefDir.getDirectoryHandle('notasRapidas', { create: true });
-            await attachmentsRootSefDir.getDirectoryHandle('tarefas', { create: true });
-            const processosDir = await attachmentsRootSefDir.getDirectoryHandle('processos', { create: true });
-            await processosDir.getDirectoryHandle('protocolos', { create: true });
-            await processosDir.getDirectoryHandle('ptas', { create: true });
-            await processosDir.getDirectoryHandle('autuacoes', { create: true });
-            await attachmentsRootSefDir.getDirectoryHandle('servidores', { create: true });
-            await dirHandle.getDirectoryHandle('backups', { create: true });
-            await dirHandle.getDirectoryHandle('email', { create: true });
-            const dataDir = await dirHandle.getDirectoryHandle('data', { create: true });
-            const itcdDir = await dataDir.getDirectoryHandle('itcd', { create: true });
-            await itcdDir.getDirectoryHandle('avaliacoes', { create: true });
-            await itcdDir.getDirectoryHandle('calculos', { create: true });
-
-            if (!SEFWorkStation.State.getDbRef()) SEFWorkStation.State.setDbRef(SEFWorkStation.DB);
-            
-            await SEFWorkStation.State.getDbRef().initDB();
-
-            // Roda a nova lógica de sincronização ANTES de carregar a base de dados principal
-            await scanAndSyncItcdData(dirHandle);
-
-            await loadAndPrepareAllDocuments(true);
-
-            localStorage.setItem(LOCAL_STORAGE_LAST_AUTO_BACKUP_KEY, Date.now().toString());
-            await checkAndRunAutoBackup();
-
-            SEFWorkStation.Navigation.irParaHome();
-        }
-    } catch (err) {
-        if (err.name !== 'AbortError') {
-            showGlobalFeedback("Erro ao selecionar o diretório.", "error", null, 0);
-            console.error("Erro em selectAppDirectory:", err);
-        } else {
-            showGlobalFeedback("Seleção de diretório cancelada.", "info");
-        }
-        if (SEFWorkStation.Navigation.irParaHome) SEFWorkStation.Navigation.irParaHome();
-    }
-}
-
 async function loadAndPrepareAllDocuments(attemptLoadBaseJson = false) {
     const dbRef = SEFWorkStation.State.getDbRef();
     if (!dbRef || typeof db === 'undefined' || !db) {
@@ -264,34 +140,6 @@ async function loadAndPrepareAllDocuments(attemptLoadBaseJson = false) {
     try {
         let allDocs = await dbRef.getAllItems(dbRef.STORES.DOCUMENTS);
         if (!Array.isArray(allDocs)) allDocs = [];
-
-        const dirHandle = SEFWorkStation.State.getDirectoryHandle();
-        if (attemptLoadBaseJson && allDocs.length === 0 && dirHandle) {
-            try {
-                const fileHandle = await dirHandle.getFileHandle(dbRef.APP_DATA_FILE_NAME, { create: false });
-                const file = await fileHandle.getFile();
-                const jsonDataString = await file.text();
-                const jsonData = JSON.parse(jsonDataString);
-
-                if (jsonData && typeof jsonData === 'object') {
-                    const importResult = await dbRef.importAllDataFromJson(jsonData);
-                    if (importResult.success) {
-                        showGlobalFeedback(`Base de dados "${dbRef.APP_DATA_FILE_NAME}" carregada.`, "success", null, 5000);
-                        allDocs = await dbRef.getAllItems(dbRef.STORES.DOCUMENTS);
-                    } else {
-                        showGlobalFeedback(`Falha ao importar dados de "${dbRef.APP_DATA_FILE_NAME}".`, "error", null, 0);
-                        console.error("Erros na importação:", importResult.errors);
-                    }
-                } else {
-                    showGlobalFeedback(`Arquivo "${dbRef.APP_DATA_FILE_NAME}" vazio ou corrompido.`, "warning", null, 5000);
-                }
-            } catch (fileError) {
-                if (fileError.name !== 'NotFoundError') {
-                     showGlobalFeedback(`Erro ao ler "${dbRef.APP_DATA_FILE_NAME}".`, "error", null, 0);
-                     console.error("Erro ao ler arquivo de base de dados:", fileError);
-                }
-            }
-        }
         
         SEFWorkStation.State.setRawDocs(allDocs);
 
@@ -388,151 +236,23 @@ function updateQuickSelectDropdown() {
 
 async function updateBackupStatusDisplay() {
     if (!infoBackupStatusEl) return;
-    if (!SEFWorkStation.State.getDirectoryHandle()) {
-        infoBackupStatusEl.textContent = "Backup ZIP: Pasta não definida";
-        infoBackupStatusEl.title = "Selecione uma pasta para a aplicação para habilitar backups.";
-        infoBackupStatusEl.style.color = "orange";
-        return;
-    }
-    const dbRef = SEFWorkStation.State.getDbRef();
-    if (!dbRef || typeof db === 'undefined' || !db) {
-        infoBackupStatusEl.textContent = "Backup ZIP: DB não pronto";
-        return;
-    }
-    try {
-        const backups = await dbRef.getAllItems(dbRef.STORES.BACKUPS);
-        const lastSuccessfulBackup = backups
-            .filter(b => b.status === 'success' && b.type === 'automatic_zip')
-            .sort((a, b) => new Date(b.backupDate) - new Date(a, b.backupDate))[0];
-
-        const lastDataModTime = localStorage.getItem(dbRef.LOCAL_STORAGE_LAST_DATA_MODIFICATION_KEY);
-
-        if (lastSuccessfulBackup) {
-            const lastBackupDate = new Date(lastSuccessfulBackup.backupDate);
-            infoBackupStatusEl.textContent = `Backup ZIP: ${lastBackupDate.toLocaleDateString()} ${lastBackupDate.toLocaleTimeString()}`;
-            infoBackupStatusEl.title = `Último backup ZIP automático: ${lastSuccessfulBackup.fileName || 'Detalhes indisponíveis'}`;
-            if (lastDataModTime && lastBackupDate.getTime() < parseInt(lastDataModTime)) {
-                infoBackupStatusEl.textContent += " (Dados alterados)";
-                infoBackupStatusEl.style.color = "orange";
-            } else {
-                infoBackupStatusEl.style.color = "";
-            }
-        } else {
-            infoBackupStatusEl.textContent = "Backup ZIP: Nenhum realizado";
-            infoBackupStatusEl.title = "Nenhum backup ZIP automático encontrado.";
-            if (lastDataModTime) {
-                infoBackupStatusEl.textContent += " (Dados pendentes)";
-                infoBackupStatusEl.style.color = "orange";
-            }
-        }
-    } catch (error) {
-        infoBackupStatusEl.textContent = "Backup ZIP: Erro ao verificar";
-        infoBackupStatusEl.style.color = "red";
-        console.error("Erro ao atualizar status do backup:", error);
-    }
-}
-
-function updateSyncStatusDisplay() {
-    if (!infoSyncStatusEl) return;
-    if (!SEFWorkStation.State.getDirectoryHandle()) {
-        infoSyncStatusEl.textContent = "Sincronização: N/A";
-        infoSyncStatusEl.style.color = "";
-        return;
-    }
-
-    const lastModTime = parseInt(localStorage.getItem(SEFWorkStation.DB.LOCAL_STORAGE_LAST_DATA_MODIFICATION_KEY) || '0');
-    const lastSaveTime = parseInt(localStorage.getItem(LOCAL_STORAGE_LAST_AUTO_SAVE_KEY) || '0');
-
-    if (lastModTime > lastSaveTime) {
-        infoSyncStatusEl.textContent = "Sincronização: Pendente";
-        infoSyncStatusEl.style.color = "orange";
-        infoSyncStatusEl.title = "Existem alterações não salvas no arquivo de dados principal.";
-    } else {
-        infoSyncStatusEl.textContent = "Sincronizado";
-        infoSyncStatusEl.style.color = "lightgreen";
-        const lastSaveDate = lastSaveTime > 0 ? new Date(lastSaveTime).toLocaleString() : 'Nunca';
-        infoSyncStatusEl.title = `Dados sincronizados com o arquivo. Último salvamento: ${lastSaveDate}`;
-    }
+    
+    // Na versão web, o backup é manual e não persistente no sistema de arquivos.
+    // A lógica de verificação de "dados alterados" não se aplica da mesma forma.
+    infoBackupStatusEl.textContent = "Backup: Manual via Utilidades";
+    infoBackupStatusEl.title = "Acesse Utilidades > Backup / Restauração para criar ou restaurar backups.";
+    infoBackupStatusEl.style.color = "";
 }
 
 async function checkAndRunAutoBackup() {
-    const dirHandle = SEFWorkStation.State.getDirectoryHandle();
-    const dbRef = SEFWorkStation.State.getDbRef();
-
-    if (!dirHandle || !dbRef || !dbRef.performAutoZipBackup || typeof db === 'undefined' || !db) {
-        await updateBackupStatusDisplay(); return;
-    }
-    if (!SEFWorkStation.Configuracoes?.carregarUserPreferences) {
-        await updateBackupStatusDisplay(); return;
-    }
-
-    const userPrefs = await SEFWorkStation.Configuracoes.carregarUserPreferences();
-    if (!userPrefs.autoBackupInterval || userPrefs.autoBackupInterval === 0) {
-        await updateBackupStatusDisplay(); return;
-    }
-
-    const lastAutoBackupTime = parseInt(localStorage.getItem(LOCAL_STORAGE_LAST_AUTO_BACKUP_KEY) || '0');
-    if ((Date.now() - lastAutoBackupTime) > userPrefs.autoBackupInterval) {
-        showGlobalFeedback("Realizando backup automático...", "info", null, 5000);
-        try {
-            const backupFileName = await dbRef.performAutoZipBackup(dirHandle, userPrefs.autoBackupStores, userPrefs.autoBackupIncludeAttachments);
-            if (backupFileName) {
-                localStorage.setItem(LOCAL_STORAGE_LAST_AUTO_BACKUP_KEY, Date.now().toString());
-                showGlobalFeedback(`Backup automático "${backupFileName}" concluído.`, "success", null, 5000);
-            } else {
-                showGlobalFeedback("Falha no backup automático.", "error", null, 0);
-            }
-        } catch (error) {
-            showGlobalFeedback("Erro crítico no backup automático.", "error", null, 0);
-            console.error("Erro crítico no backup automático:", error);
-        }
-    }
-    await updateBackupStatusDisplay();
-}
-
-async function checkAndRunAutoSave() {
-    const dirHandle = SEFWorkStation.State.getDirectoryHandle();
-    const dbRef = SEFWorkStation.State.getDbRef();
-
-    if (!dirHandle || !dbRef || !dbRef.saveDatabaseToFile || typeof db === 'undefined' || !db) {
-        updateSyncStatusDisplay();
-        return; 
-    }
-    if (!SEFWorkStation.Configuracoes?.carregarUserPreferences) {
-        updateSyncStatusDisplay();
-        return;
-    }
-
-    const userPrefs = await SEFWorkStation.Configuracoes.carregarUserPreferences();
-    const autoSaveInterval = userPrefs.autoSaveInterval || (15 * 60 * 1000);
-
-    if (autoSaveInterval === 0) {
-        updateSyncStatusDisplay();
-        return;
-    }
-    
-    const lastModTime = parseInt(localStorage.getItem(SEFWorkStation.DB.LOCAL_STORAGE_LAST_DATA_MODIFICATION_KEY) || '0');
-    const lastAutoSaveTime = parseInt(localStorage.getItem(LOCAL_STORAGE_LAST_AUTO_SAVE_KEY) || '0');
-
-    if (lastModTime > lastAutoSaveTime && (Date.now() - lastAutoSaveTime) > autoSaveInterval) {
-        console.log("APP.JS: Realizando salvamento automático para o arquivo base...");
-        try {
-            const fileName = await dbRef.saveDatabaseToFile(dirHandle, null); // null para não mostrar feedback
-            if (fileName) {
-                localStorage.setItem(LOCAL_STORAGE_LAST_AUTO_SAVE_KEY, Date.now().toString());
-                console.log(`APP.JS: Salvamento automático para "${fileName}" concluído.`);
-            }
-        } catch (error) {
-            console.error("APP.JS: Erro no salvamento automático:", error);
-        }
-    }
-    updateSyncStatusDisplay();
+    // A funcionalidade de backup automático é desativada na versão web, conforme plano.
+    // Esta função é mantida vazia para evitar erros, mas pode ser removida no futuro.
+    await updateBackupStatusDisplay(); 
 }
 
 async function refreshApplicationState(fullReload = false) {
     await loadAndPrepareAllDocuments();
     await updateBackupStatusDisplay();
-    updateSyncStatusDisplay();
     updateStorageStatusIndicators();
     updateVersionRepositoryLink();
     await populateQuickAccessDropdown(); 
@@ -615,9 +335,6 @@ async function handleGlobalSearch() {
 }
 
 async function handleQuickRestoreDb() {
-    if (!SEFWorkStation.State.getDirectoryHandle()) {
-        showGlobalFeedback("Por favor, selecione a pasta da aplicação primeiro.", "warning"); return;
-    }
     const userConfirmed = await SEFWorkStation.UI.showConfirmationModal(
         'Confirmar Restauração de Base de Dados',
         '<strong>AVISO:</strong> Esta ação substituirá <strong>TODOS</strong> os dados atuais da aplicação. Esta ação é irreversível.',
@@ -773,15 +490,11 @@ function initEventListeners() {
     }
     
     if (btnQuickSaveDbEl) btnQuickSaveDbEl.addEventListener('click', () => {
-        const dirHandle = SEFWorkStation.State.getDirectoryHandle();
-        if (dirHandle) SEFWorkStation.State.getDbRef().saveDatabaseToFile(dirHandle, showGlobalFeedback);
-        else showGlobalFeedback("Selecione a pasta da aplicação primeiro.", "warning");
+        SEFWorkStation.State.getDbRef().saveDatabaseToFile(showGlobalFeedback);
     });
     if (btnQuickRestoreDbEl) btnQuickRestoreDbEl.addEventListener('click', handleQuickRestoreDb);
 
     window.addEventListener('popstate', () => SEFWorkStation.Navigation.navigateBack());
-    setInterval(checkAndRunAutoBackup, 60 * 1000);
-    setInterval(checkAndRunAutoSave, 60 * 1000); // Check every minute
     
     initGlobalKeydownListener();
 }
@@ -789,25 +502,6 @@ function initEventListeners() {
 function renderWelcomePage() {
     if (!mainContentWrapperRef) return;
     mainContentWrapperRef.innerHTML = '';
-
-    if (!SEFWorkStation.State.getDirectoryHandle()) {
-        mainContentWrapperRef.innerHTML = `
-            <div class="welcome-message-container p-6 md:p-8 text-center">
-                <div class="bg-white dark:bg-slate-700 p-6 rounded-lg shadow">
-                     <h1 class="text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-100 flex items-center justify-center">
-                        <div class="red-triangle mr-2"></div><span class="text-red-600 font-bold">SEF</span>WorkStation!
-                    </h1>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">Sua estação de trabalho digital para gestão eficiente.</p>
-                    <div class="p-4 bg-yellow-100 dark:bg-yellow-700 border-l-4 border-yellow-500 rounded-r-lg">
-                        <p class="font-semibold text-yellow-800 dark:text-yellow-200">Atenção: Pasta da Aplicação Não Definida</p>
-                        <p class="text-sm text-yellow-700 dark:text-yellow-300 mt-1">Para começar, selecione uma pasta onde a aplicação poderá armazenar seus dados.</p>
-                        <button id="btn-selecionar-pasta-app-dashboard" class="btn-primary text-base px-5 py-2.5 mt-4">Selecionar Pasta</button>
-                    </div>
-                </div>
-            </div>`;
-        document.getElementById('btn-selecionar-pasta-app-dashboard').addEventListener('click', selectAppDirectory);
-        return;
-    }
 
     if (dashboardModuleRef?.renderDashboard) {
         dashboardModuleRef.renderDashboard();
@@ -958,8 +652,6 @@ async function initApp() {
     document.getElementById('app-version-display').textContent = `v${APP_CURRENT_VERSION}`;
 
     updateStorageStatusIndicators();
-    updateSyncStatusDisplay();
-    if (!('showDirectoryPicker' in window)) showGlobalFeedback("API File System Access não suportada.", "warning", null, 0);
 
     try {
         SEFWorkStation.State.init();
@@ -1123,9 +815,8 @@ async function initApp() {
             getModuleRef: (name) => moduleMap[name]
         });
 
-        if (dbRef) await loadAndPrepareAllDocuments(true);
-        await checkAndRunAutoBackup();
-        await checkAndRunAutoSave();
+        if (dbRef) await loadAndPrepareAllDocuments();
+        
         SEFWorkStation.Navigation.irParaHome();
         initEventListeners();
         
@@ -1155,13 +846,11 @@ async function getUserPreference(key) {
 
 window.SEFWorkStation.App = {
     refreshApplicationState,
-    selectAppDirectory,
     showGlobalFeedback,
     clearGlobalFeedback,
     updateBackupStatusDisplay,
     updateTotalDocumentsDisplay,
     updateQuickSelectDropdown,
-    updateSyncStatusDisplay,
     populateQuickAccessDropdown,
     getUserPreference,
     checkUserIdentity,
