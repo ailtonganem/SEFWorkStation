@@ -1,6 +1,6 @@
-// js/db.js - Lógica de interação com o IndexedDB e File System
+// js/db.js - Lógica de interação com o IndexedDB
+// v65.0 - REATORADO: Removida toda a lógica de armazenamento em sistema de arquivos (File System Access API). A aplicação agora utiliza exclusivamente o IndexedDB para persistência de dados, alinhado com a migração para a web.
 // v64.0 - CORRIGIDO: A função getItemById agora carrega o conteúdo completo do arquivo .json para stores baseadas em arquivo, em vez de retornar apenas o registro de índice.
-// v63.0 - ALTERADO: Avaliações de ITCD agora são salvas como arquivos .json individuais, assim como os cálculos.
 // ... (histórico anterior omitido)
 
 const DB_NAME = 'SEFWorkStationDB';
@@ -52,50 +52,6 @@ const FALLBACK_MAX_AUTO_BACKUPS = 5;
 
 let db;
 let dbInitializationPromise = null;
-
-// --- NOVAS FUNÇÕES HELPER PARA ARMAZENAMENTO HÍBRIDO ---
-
-function _isStoreFileBacked(storeName) {
-    return [ITCD_AVALIACOES_STORE_NAME, ITCD_CALCULOS_STORE_NAME].includes(storeName);
-}
-
-function _getFilePath(storeName, item) {
-    const dbd = item.declaracaoNumero || item.declaracao || 'sem_dbd';
-    const sanitizedDbd = dbd.replace(/[^a-zA-Z0-9_-]/g, '_'); 
-
-    if (storeName === ITCD_AVALIACOES_STORE_NAME) {
-        return `data/itcd/avaliacoes/${sanitizedDbd}/${item.id}.json`;
-    }
-    if (storeName === ITCD_CALCULOS_STORE_NAME) {
-        const subtipo = item.tipoCalculo || 'geral';
-        return `data/itcd/calculos/${subtipo}/${sanitizedDbd}/${item.id}.json`;
-    }
-    return `data/unknown/${item.id}.json`;
-}
-
-function _createIndexRecord(storeName, fullItem, filePath) {
-    const indexRecord = {
-        id: fullItem.id,
-        filePath: filePath,
-        modificationDate: fullItem.modificationDate || new Date().toISOString(),
-        creationDate: fullItem.creationDate || new Date().toISOString()
-    };
-
-    if (storeName === ITCD_AVALIACOES_STORE_NAME) {
-        indexRecord.declaracao = fullItem.declaracao;
-        indexRecord.tipo = fullItem.tipo;
-        indexRecord.dataAvaliacao = fullItem.dataAvaliacao;
-        indexRecord.responsavelMasp = fullItem.responsavelMasp;
-    } else if (storeName === ITCD_CALCULOS_STORE_NAME) {
-        indexRecord.declaracaoNumero = fullItem.declaracaoNumero;
-        indexRecord.tipoCalculo = fullItem.tipoCalculo;
-        indexRecord.dataFatoGerador = fullItem.dataFatoGerador;
-        indexRecord.deCujusNome = fullItem.deCujusNome;
-    }
-
-    return indexRecord;
-}
-
 
 // --- LÓGICA EXISTENTE DO DB (MODIFICADA E MANTIDA) ---
 
@@ -183,7 +139,7 @@ function initDB() {
             } else {
                 avaliacoesStore = transaction.objectStore(ITCD_AVALIACOES_STORE_NAME);
             }
-            const avaliacoesIndices = [{ name: 'declaracao', unique: false }, { name: 'dataAvaliacao', unique: false }, { name: 'municipio', unique: false }, { name: 'responsavelMasp', unique: false }, { name: 'vinculosAvaliacoesIds', unique: false, multiEntry: true }, { name: 'documentosVinculadosIds', unique: false, multiEntry: true }, { name: 'contribuintesVinculadosIds', unique: false, multiEntry: true }, { name: 'recursosVinculadosIds', unique: false, multiEntry: true }, { name: 'filePath', unique: true }];
+            const avaliacoesIndices = [{ name: 'declaracao', unique: false }, { name: 'dataAvaliacao', unique: false }, { name: 'municipio', unique: false }, { name: 'responsavelMasp', unique: false }, { name: 'vinculosAvaliacoesIds', unique: false, multiEntry: true }, { name: 'documentosVinculadosIds', unique: false, multiEntry: true }, { name: 'contribuintesVinculadosIds', unique: false, multiEntry: true }, { name: 'recursosVinculadosIds', unique: false, multiEntry: true }];
             avaliacoesIndices.forEach(idx => { if (!avaliacoesStore.indexNames.contains(idx.name)) avaliacoesStore.createIndex(idx.name, idx.name, { unique: idx.unique, multiEntry: !!idx.multiEntry }); });
 
             let calculosStore;
@@ -192,7 +148,7 @@ function initDB() {
             } else {
                 calculosStore = transaction.objectStore(ITCD_CALCULOS_STORE_NAME);
             }
-            const calculosIndices = [{ name: 'tipoCalculo', unique: false }, { name: 'declaracaoNumero', unique: false }, { name: 'deCujusNome', unique: false }, { name: 'dataFatoGerador', unique: false }, { name: 'dataSalvamento', unique: false }, { name: 'filePath', unique: true }];
+            const calculosIndices = [{ name: 'tipoCalculo', unique: false }, { name: 'declaracaoNumero', unique: false }, { name: 'deCujusNome', unique: false }, { name: 'dataFatoGerador', unique: false }, { name: 'dataSalvamento', unique: false }];
             calculosIndices.forEach(idx => { if (!calculosStore.indexNames.contains(idx.name)) calculosStore.createIndex(idx.name, idx.name, { unique: idx.unique }); });
 
             if (db.objectStoreNames.contains(SHARING_HISTORY_STORE_NAME)) {
@@ -300,177 +256,66 @@ function initDB() {
 
 async function addItem(storeName, item) {
     if (!db) await initDB();
-    
-    if (_isStoreFileBacked(storeName)) {
-        const filePath = _getFilePath(storeName, item);
-        const indexRecord = _createIndexRecord(storeName, item, filePath);
-        
-        await window.SEFWorkStation.FileStorage.saveItem(filePath, item);
-        
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        try {
             const transaction = db.transaction([storeName], 'readwrite');
             const store = transaction.objectStore(storeName);
-            const request = store.add(indexRecord);
+            const request = store.add(item);
             request.onsuccess = async () => {
                 await updateLastDataModificationTimestamp();
                 resolve(request.result);
             };
             request.onerror = (event) => reject(event.target.error);
-        });
-    } else {
-        return new Promise((resolve, reject) => {
-            try {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                const request = store.add(item);
-                request.onsuccess = async () => {
-                    await updateLastDataModificationTimestamp();
-                    resolve(request.result);
-                };
-                request.onerror = (event) => reject(event.target.error);
-            } catch (e) { reject(e); }
-        });
-    }
-}
-
-async function syncFileItemToDB(storeName, itemData) {
-    if (!db) await initDB();
-    if (!_isStoreFileBacked(storeName) || !itemData || !itemData.id) {
-        return false;
-    }
-
-    const existingRecord = await getItemById(storeName, itemData.id);
-    if (existingRecord) {
-        return false;
-    }
-
-    console.log(`DB.JS: Sincronizando novo item do arquivo para a store '${storeName}', ID: ${itemData.id}`);
-    const filePath = _getFilePath(storeName, itemData);
-    const indexRecord = _createIndexRecord(storeName, itemData, filePath);
-
-    return new Promise((resolve, reject) => {
-        try {
-            const transaction = db.transaction([storeName], 'readwrite');
-            const store = transaction.objectStore(storeName);
-            const request = store.add(indexRecord);
-            request.onsuccess = async () => {
-                await updateLastDataModificationTimestamp();
-                resolve(true); 
-            };
-            request.onerror = (event) => reject(event.target.error);
-        } catch (e) {
-            reject(e);
-        }
+        } catch (e) { reject(e); }
     });
 }
 
 async function getItemById(storeName, id) {
     if (!db) await initDB();
-
-    if (_isStoreFileBacked(storeName)) {
-        const indexRecord = await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        try {
             const transaction = db.transaction([storeName], 'readonly');
             const store = transaction.objectStore(storeName);
             const request = store.get(id);
             request.onsuccess = () => resolve(request.result);
             request.onerror = (event) => reject(event.target.error);
-        });
-
-        if (indexRecord && indexRecord.filePath) {
-            return await window.SEFWorkStation.FileStorage.loadItem(indexRecord.filePath);
-        }
-        return null;
-    } else {
-        return new Promise((resolve, reject) => {
-            try {
-                const transaction = db.transaction([storeName], 'readonly');
-                const store = transaction.objectStore(storeName);
-                const request = store.get(id);
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = (event) => reject(event.target.error);
-            } catch (e) { reject(e); }
-        });
-    }
+        } catch (e) { reject(e); }
+    });
 }
 
 async function getAllItems(storeName) {
     if (!db) await initDB();
-
-    if (_isStoreFileBacked(storeName)) {
-        const indexRecords = await new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        try {
             const transaction = db.transaction([storeName], 'readonly');
             const store = transaction.objectStore(storeName);
             const request = store.getAll();
             request.onsuccess = () => resolve(request.result);
             request.onerror = (event) => reject(event.target.error);
-        });
-
-        if (indexRecords && indexRecords.length > 0) {
-            const loadPromises = indexRecords.map(record => 
-                window.SEFWorkStation.FileStorage.loadItem(record.filePath)
-            );
-            return (await Promise.all(loadPromises)).filter(item => item !== null);
-        }
-        return [];
-    } else {
-        return new Promise((resolve, reject) => {
-            try {
-                const transaction = db.transaction([storeName], 'readonly');
-                const store = transaction.objectStore(storeName);
-                const request = store.getAll();
-                request.onsuccess = () => resolve(request.result);
-                request.onerror = (event) => reject(event.target.error);
-            } catch (e) { reject(e); }
-        });
-    }
+        } catch (e) { reject(e); }
+    });
 }
 
 async function updateItem(storeName, item) {
     if (!db) await initDB();
-    
-    if (_isStoreFileBacked(storeName)) {
-        const filePath = _getFilePath(storeName, item);
-        const indexRecord = _createIndexRecord(storeName, item, filePath);
-        
-        await window.SEFWorkStation.FileStorage.saveItem(filePath, item);
-        
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        try {
             const transaction = db.transaction([storeName], 'readwrite');
             const store = transaction.objectStore(storeName);
-            const request = store.put(indexRecord);
+            const request = store.put(item);
             request.onsuccess = async () => {
                 await updateLastDataModificationTimestamp();
                 resolve(request.result);
             };
             request.onerror = (event) => reject(event.target.error);
-        });
-    } else {
-        return new Promise((resolve, reject) => {
-            try {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                const request = store.put(item);
-                request.onsuccess = async () => {
-                    await updateLastDataModificationTimestamp();
-                    resolve(request.result);
-                };
-                request.onerror = (event) => reject(event.target.error);
-            } catch (e) { reject(e); }
-        });
-    }
+        } catch (e) { reject(e); }
+    });
 }
 
 async function deleteItem(storeName, id) {
     if (!db) await initDB();
-
-    if (_isStoreFileBacked(storeName)) {
-        const indexRecord = await getItemById(storeName, id);
-
-        if (indexRecord && indexRecord.filePath) {
-            await window.SEFWorkStation.FileStorage.deleteItem(indexRecord.filePath);
-        }
-
-        return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
+        try {
             const transaction = db.transaction([storeName], 'readwrite');
             const store = transaction.objectStore(storeName);
             const request = store.delete(id);
@@ -479,30 +324,12 @@ async function deleteItem(storeName, id) {
                 resolve(); 
             };
             request.onerror = (event) => reject(event.target.error);
-        });
-    } else {
-        return new Promise((resolve, reject) => {
-            try {
-                const transaction = db.transaction([storeName], 'readwrite');
-                const store = transaction.objectStore(storeName);
-                const request = store.delete(id);
-                request.onsuccess = async () => {
-                    await updateLastDataModificationTimestamp();
-                    resolve(); 
-                };
-                request.onerror = (event) => reject(event.target.error);
-            } catch (e) { reject(e); }
-        });
-    }
+        } catch (e) { reject(e); }
+    });
 }
 
 async function getItemsByIndex(storeName, indexName, query) {
     if (!db) await initDB();
-
-    if (_isStoreFileBacked(storeName)) {
-        console.warn(`DB.JS: getItemsByIndex em store com arquivos ('${storeName}') retorna apenas registros de índice.`);
-    }
-
     return new Promise((resolve, reject) => {
         try {
             const transaction = db.transaction([storeName], "readonly");
@@ -522,12 +349,6 @@ async function getItemsByIndex(storeName, indexName, query) {
 
 async function clearStore(storeName) {
     if (!db) await initDB();
-
-    if (_isStoreFileBacked(storeName)) {
-        const storeSubDir = storeName === ITCD_AVALIACOES_STORE_NAME ? 'itcd/avaliacoes' : 'itcd/calculos';
-        await window.SEFWorkStation.FileStorage.clearStore(storeSubDir);
-    }
-    
     return new Promise((resolve, reject) => {
         try {
             const transaction = db.transaction([storeName], 'readwrite');
@@ -545,8 +366,6 @@ async function clearStore(storeName) {
 async function clearAllStores() {
     if (!db) await initDB();
     const storeNames = Array.from(db.objectStoreNames);
-
-    await window.SEFWorkStation.FileStorage.clearAllStores();
 
     return new Promise((resolve, reject) => {
         if (storeNames.length === 0) {
@@ -605,12 +424,6 @@ async function exportAllDataToJson(storeNamesToInclude = null) {
                 request.onsuccess = async () => {
                     try {
                         let items = request.result;
-                        if (_isStoreFileBacked(storeName)) {
-                            const fullItems = await Promise.all(
-                                items.map(record => window.SEFWorkStation.FileStorage.loadItem(record.filePath))
-                            );
-                            items = fullItems.filter(Boolean);
-                        }
                         resolve({ storeName, data: items });
                     } catch (e) {
                         console.error(`DB.JS: Erro ao processar dados de '${storeName}' após sucesso da leitura.`, e);
@@ -670,17 +483,12 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
 
             if (mode === 'replace') {
                 await new Promise((resolveClear, rejectClear) => {
-                    if (_isStoreFileBacked(storeName)) {
-                        const storeSubDir = storeName === ITCD_AVALIACOES_STORE_NAME ? 'itcd/avaliacoes' : 'itcd/calculos';
-                        window.SEFWorkStation.FileStorage.clearStore(storeSubDir).then(resolveClear).catch(rejectClear);
-                    } else {
-                        const clearRequest = store.clear();
-                        clearRequest.onsuccess = () => resolveClear();
-                        clearRequest.onerror = (event) => {
-                            importErrors.push({ store: storeName, action: 'clear', error: event.target.error.name });
-                            rejectClear(event.target.error); 
-                        };
-                    }
+                    const clearRequest = store.clear();
+                    clearRequest.onsuccess = () => resolveClear();
+                    clearRequest.onerror = (event) => {
+                        importErrors.push({ store: storeName, action: 'clear', error: event.target.error.name });
+                        rejectClear(event.target.error); 
+                    };
                 });
             }
 
@@ -696,12 +504,7 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
                         }
                         
                         let itemToStore = item;
-                        if (_isStoreFileBacked(storeName)) {
-                            const filePath = _getFilePath(storeName, item);
-                            await window.SEFWorkStation.FileStorage.saveItem(filePath, item);
-                            itemToStore = _createIndexRecord(storeName, item, filePath);
-                        }
-
+                        
                         if (mode === 'merge') {
                             try {
                                 const putRequest = store.put(itemToStore);
@@ -750,34 +553,37 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
 }
 
 
-async function saveDatabaseToFile(appDirectoryHandle, showFeedbackCallback) {
-    if (!appDirectoryHandle) {
-        if (showFeedbackCallback) showFeedbackCallback("Pasta da aplicação não selecionada.", "error");
-        return null;
-    }
-   if (!db) await initDB();
+async function saveDatabaseToFile(showFeedbackCallback) {
+    if (!db) await initDB();
     try {
         const dataToSave = await exportAllDataToJson(); 
         const jsonDataString = JSON.stringify(dataToSave, null, 2); 
-        const fileHandle = await appDirectoryHandle.getFileHandle(APP_DATA_FILE_NAME, { create: true });
-        const writable = await fileHandle.createWritable();
-        await writable.write(jsonDataString);
-        await writable.close();
-        if (showFeedbackCallback) showFeedbackCallback(`Base de dados salva como "${APP_DATA_FILE_NAME}".`, "success");
+        const blob = new Blob([jsonDataString], { type: 'application/json' });
+        
+        const triggerDownload = (blob, fileName) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        };
+        
+        triggerDownload(blob, APP_DATA_FILE_NAME);
+
+        if (showFeedbackCallback) showFeedbackCallback(`Download da base de dados "${APP_DATA_FILE_NAME}" iniciado.`, "success");
         return APP_DATA_FILE_NAME;
     } catch (error) {
-        if (showFeedbackCallback) showFeedbackCallback(`Erro ao salvar base de dados: ${error.message}`, "error");
+        if (showFeedbackCallback) showFeedbackCallback(`Erro ao exportar base de dados: ${error.message}`, "error");
         return null;
     }
 }
 
-async function performSelectiveZipBackup(appDirectoryHandle, storeNamesToExport, includePhysicalAttachments = true) {
-     if (!appDirectoryHandle) {
-        console.error("Backup.JS: Pasta da aplicação não fornecida para backup seletivo.");
-        return null;
-    }
+async function performSelectiveZipBackup(storeNamesToExport, includePhysicalAttachments = true) {
     if (typeof JSZip === 'undefined') {
-        console.error("Backup.JS: Biblioteca JSZip não está carregada.");
+        console.error("DB.JS: Biblioteca JSZip não está carregada.");
         return null;
     }
     if (!db) await initDB();
@@ -787,82 +593,35 @@ async function performSelectiveZipBackup(appDirectoryHandle, storeNamesToExport,
         const zip = new JSZip();
         zip.file("sefworkstation_data.json", JSON.stringify(data));
 
-        const attachmentOwnerStoresMap = {
-            [DOCUMENTS_STORE_NAME]: 'documents',
-            [CONTRIBUINTES_STORE_NAME]: 'contribuintes',
-            [RECURSOS_STORE_NAME]: 'recursos',
-            [NOTAS_RAPIDAS_STORE_NAME]: 'notasRapidas',
-            [TAREFAS_STORE_NAME]: 'tarefas',
-            [PROTOCOLOS_STORE_NAME]: 'processos/protocolos',
-            [PTAS_STORE_NAME]: 'processos/ptas',
-            [AUTUACOES_STORE_NAME]: 'processos/autuacoes',
-        };
-
         if (includePhysicalAttachments) {
-            let shouldIncludeAnyAttachments = storeNamesToExport.some(storeName => attachmentOwnerStoresMap[storeName]);
-            if (shouldIncludeAnyAttachments) {
-                try {
-                    const attachmentsRootSefDir = await appDirectoryHandle.getDirectoryHandle('attachments_sef', { create: false });
-                    const attachmentsZipFolder = zip.folder('attachments_sef');
-
-                    for (const storeKeyToBackup in attachmentOwnerStoresMap) {
-                        if (storeNamesToExport.includes(storeKeyToBackup)) { 
-                            const subFolderPath = attachmentOwnerStoresMap[storeKeyToBackup];
-                            try {
-                                let currentDirHandle = attachmentsRootSefDir;
-                                const pathParts = subFolderPath.split('/');
-                                for (const part of pathParts) {
-                                     currentDirHandle = await currentDirHandle.getDirectoryHandle(part, { create: false });
-                                }
-                                
-                                let zipTargetFolder = attachmentsZipFolder;
-                                pathParts.forEach(part => zipTargetFolder = zipTargetFolder.folder(part));
-                                
-                                for await (const entry of currentDirHandle.values()) {
-                                     if (entry.kind === 'directory') { 
-                                        const idFolderInZip = zipTargetFolder.folder(entry.name);
-                                        for await (const fileEntry of entry.values()) { 
-                                            if (fileEntry.kind === 'file') {
-                                                try { idFolderInZip.file(fileEntry.name, await fileEntry.getFile()); } 
-                                                catch (fileError) { console.warn(`DB.JS: Erro ao adicionar arquivo ${fileEntry.name} ao ZIP seletivo:`, fileError); }
-                                            }
-                                        }
-                                    } else if (entry.kind === 'file') { 
-                                         try { zipTargetFolder.file(entry.name, await entry.getFile()); } 
-                                         catch (fileError) { console.warn(`DB.JS: Erro ao adicionar arquivo ${entry.name} ao ZIP seletivo:`, fileError); }
-                                    }
-                                }
-                            } catch (dirError) {
-                                if (dirError.name !== 'NotFoundError') console.warn(`DB.JS: Erro ao acessar subpasta de anexos '${subFolderPath}' para backup seletivo:`, dirError);
-                            }
-                        }
-                    }
-                } catch (e) {
-                    if (e.name !== 'NotFoundError') console.warn("DB.JS: Erro ao acessar pasta 'attachments_sef' para backup seletivo:", e);
-                }
-            }
+            console.warn("DB.JS: A inclusão de anexos físicos no backup ZIP não é suportada na versão web. Apenas os metadados dos anexos (no JSON) serão incluídos.");
         }
-
 
         const zipBlob = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 6 } });
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
         const zipFileName = `sefworkstation_manual_selective_backup_${timestamp}.zip`;
 
-        const backupsDirHandle = await appDirectoryHandle.getDirectoryHandle('backups', { create: true });
-        const fileHandle = await backupsDirHandle.getFileHandle(zipFileName, { create: true });
-        const writable = await fileHandle.createWritable();
-        await writable.write(zipBlob);
-        await writable.close();
+        const triggerDownload = (blob, fileName) => {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        };
+        triggerDownload(zipBlob, zipFileName);
 
         await addItem(BACKUPS_STORE_NAME, { 
             backupDate: new Date().toISOString(),
             type: 'manual_zip_selective',
-            fileName: `backups/${zipFileName}`,
-            description: `Backup manual seletivo contendo: ${storeNamesToExport.join(', ')}. Anexos físicos: ${includePhysicalAttachments ? 'Sim' : 'Não'}.`,
+            fileName: zipFileName,
+            description: `Backup manual seletivo contendo: ${storeNamesToExport.join(', ')}. Anexos físicos: Não (Versão Web).`,
             status: 'success'
         });
 
-        return `backups/${zipFileName}`;
+        return zipFileName;
     } catch (error) {
         console.error("DB.JS: Erro crítico durante o backup manual seletivo:", error);
         await addItem(BACKUPS_STORE_NAME, { 
@@ -876,156 +635,15 @@ async function performSelectiveZipBackup(appDirectoryHandle, storeNamesToExport,
     }
 }
 
-async function performAutoZipBackup(appDirectoryHandle, storeValuesToInclude = null, includePhysicalAttachments = true) {
-    if (!appDirectoryHandle) return null;
-    if (typeof JSZip === 'undefined') {
-        console.error("DB.JS: JSZip não está carregado para backup automático.");
-        return null;
-    }
-    if (!db) await initDB();
-
-    let maxBackupsToKeep = FALLBACK_MAX_AUTO_BACKUPS; 
-    if (window.SEFWorkStation && SEFWorkStation.Configuracoes && typeof SEFWorkStation.Configuracoes.carregarUserPreferences === 'function') {
-        const userPrefs = await SEFWorkStation.Configuracoes.carregarUserPreferences();
-        if (userPrefs && typeof userPrefs.maxAutoBackups === 'number' && userPrefs.maxAutoBackups >= 0) {
-            maxBackupsToKeep = userPrefs.maxAutoBackups;
-        }
-    }
-    
-    const storeNamesForBackup = (Array.isArray(storeValuesToInclude) && storeValuesToInclude.length > 0)
-        ? storeValuesToInclude.map(val => (window.SEFWorkStation.DB.STORES[val] || val) ).filter(name => name && db.objectStoreNames.contains(name))
-        : Array.from(db.objectStoreNames).filter(name => name !== SEQUENCES_STORE_NAME);
-
-
-    try {
-        const data = await exportAllDataToJson(storeNamesForBackup); 
-        const zip = new JSZip();
-        zip.file("sefworkstation_data.json", JSON.stringify(data));
-
-        const attachmentOwnerStoresMap = {
-            [DOCUMENTS_STORE_NAME]: 'documents',
-            [CONTRIBUINTES_STORE_NAME]: 'contribuintes',
-            [RECURSOS_STORE_NAME]: 'recursos',
-            [NOTAS_RAPIDAS_STORE_NAME]: 'notasRapidas',
-            [TAREFAS_STORE_NAME]: 'tarefas',
-            [PROTOCOLOS_STORE_NAME]: 'processos/protocolos',
-            [PTAS_STORE_NAME]: 'processos/ptas',
-            [AUTUACOES_STORE_NAME]: 'processos/autuacoes',
-        };
-
-        if (includePhysicalAttachments) {
-            let shouldIncludeAnyAttachments = storeNamesForBackup.some(storeName => attachmentOwnerStoresMap[storeName]);
-            if (shouldIncludeAnyAttachments) {
-                try {
-                    const attachmentsRootSefDir = await appDirectoryHandle.getDirectoryHandle('attachments_sef', { create: false });
-                    const attachmentsZipFolder = zip.folder('attachments_sef');
-
-                    for (const storeKeyToBackup in attachmentOwnerStoresMap) {
-                        if (storeNamesForBackup.includes(storeKeyToBackup)) {
-                            const subFolderPath = attachmentOwnerStoresMap[storeKeyToBackup];
-                            try {
-                                let currentDirHandle = attachmentsRootSefDir;
-                                const pathParts = subFolderPath.split('/');
-                                for (const part of pathParts) {
-                                     currentDirHandle = await currentDirHandle.getDirectoryHandle(part, { create: false });
-                                }
-                                
-                                let zipTargetFolder = attachmentsZipFolder;
-                                pathParts.forEach(part => zipTargetFolder = zipTargetFolder.folder(part));
-                                
-                                for await (const entry of currentDirHandle.values()) {
-                                     if (entry.kind === 'directory') { 
-                                        const idFolderInZip = zipTargetFolder.folder(entry.name);
-                                        for await (const fileEntry of entry.values()) { 
-                                            if (fileEntry.kind === 'file') {
-                                                try { idFolderInZip.file(fileEntry.name, await fileEntry.getFile()); } 
-                                                catch (fileError) { console.warn(`DB.JS: Erro ao adicionar arquivo ${fileEntry.name} ao ZIP automático:`, fileError); }
-                                            }
-                                        }
-                                    } else if (entry.kind === 'file') { 
-                                         try { zipTargetFolder.file(entry.name, await entry.getFile()); } 
-                                         catch (fileError) { console.warn(`DB.JS: Erro ao adicionar arquivo ${entry.name} ao ZIP automático:`, fileError); }
-                                    }
-                                }
-                            } catch (dirError) {
-                                if (dirError.name !== 'NotFoundError') console.warn(`DB.JS: Erro ao acessar subpasta de anexos '${subFolderPath}' para backup automático:`, dirError);
-                            }
-                        }
-                    }
-                } catch (e) {
-                    if (e.name !== 'NotFoundError') console.warn("DB.JS: Erro ao acessar pasta 'attachments_sef' para backup automático:", e);
-                }
-            }
-        }
-
-
-        const zipBlob = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 6 } });
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const zipFileName = `sefworkstation_autobackup_${timestamp}.zip`;
-
-        const backupsDirHandle = await appDirectoryHandle.getDirectoryHandle('backups', { create: true });
-        const fileHandle = await backupsDirHandle.getFileHandle(zipFileName, { create: true });
-        const writable = await fileHandle.createWritable();
-        await writable.write(zipBlob);
-        await writable.close();
-
-        const includedStoresFriendlyNames = storeValuesToInclude && storeValuesToInclude.length > 0 
-            ? storeValuesToInclude.join(', ') 
-            : 'Todas';
-
-        await addItem(BACKUPS_STORE_NAME, { 
-            backupDate: new Date().toISOString(),
-            type: 'automatic_zip',
-            fileName: `backups/${zipFileName}`, 
-            description: `Backup automático ZIP. Stores incluídas: ${includedStoresFriendlyNames}. Anexos: ${includePhysicalAttachments ? 'Sim' : 'Não'}.`,
-            status: 'success'
-        });
-
-        if (maxBackupsToKeep > 0) {
-            const allBackups = await getAllItems(BACKUPS_STORE_NAME); 
-            const autoZips = allBackups
-                .filter(b => b.type === 'automatic_zip' && b.status === 'success' && b.fileName && b.fileName.endsWith('.zip'))
-                .sort((a, b) => new Date(b.backupDate) - new Date(a, b.backupDate)); 
-
-            if (autoZips.length > maxBackupsToKeep) {
-                const backupsToDelete = autoZips.slice(maxBackupsToKeep);
-                for (const oldBackup of backupsToDelete) {
-                    try {
-                        if (oldBackup.fileName) {
-                            const actualFileName = oldBackup.fileName.startsWith('backups/') ? oldBackup.fileName.substring(8) : oldBackup.fileName;
-                            if (actualFileName.endsWith('.zip')) { 
-                                await backupsDirHandle.removeEntry(actualFileName);
-                                console.log(`DB.JS: Backup físico antigo "${actualFileName}" excluído da pasta.`);
-                            }
-                        }
-                    } catch (fileError) {
-                        if (fileError.name !== 'NotFoundError') {
-                            console.warn(`DB.JS: Não foi possível excluir arquivo de backup físico antigo "${oldBackup.fileName}" da pasta:`, fileError.name, fileError.message);
-                        }
-                    }
-                    await deleteItem(BACKUPS_STORE_NAME, oldBackup.id);
-                }
-            }
-        }
-        return `backups/${zipFileName}`;
-    } catch (error) {
-        console.error("Erro crítico durante o backup automático:", error);
-        await addItem(BACKUPS_STORE_NAME, {
-            backupDate: new Date().toISOString(),
-            type: 'automatic_zip',
-            fileName: null,
-            status: 'failed',
-            description: `Falha no backup automático ZIP: ${error.message || error}`
-        });
-        return null;
-    }
+async function performAutoZipBackup() {
+    console.warn("DB.JS: O backup automático em ZIP foi desativado na versão web da aplicação.");
+    return null;
 }
 
 window.SEFWorkStation = window.SEFWorkStation || {};
 window.SEFWorkStation.DB = {
     initDB,
     addItem,
-    syncFileItemToDB,
     getItemById,
     getAllItems,
     updateItem,
