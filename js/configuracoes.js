@@ -1,9 +1,7 @@
 // js/configuracoes.js
+// v18.0.0 - REATORADO PARA WEB: Removida a seção de configuração de Backup Automático, pois a funcionalidade não é mais suportada.
 // v17.0.1 - ADICIONADO: Inclusão da store 'ITCD_SELIC_INDICES' na configuração do backup automático.
 // v17.0.0 - ADICIONADO: Seção para personalizar os itens do menu de Acesso Rápido.
-// v16.0.0 - ADICIONADO: Seção 'Identidade' para permitir a seleção do servidor que será o usuário atual da aplicação. Esta seleção é salva como preferência e usada globalmente.
-// v15.1.0 - CORRIGIDO: Adiciona verificações de segurança para garantir que o dbModuleRef esteja inicializado antes de ser usado, prevenindo o erro 'Cannot read properties of undefined'.
-// v15.0.0 - REFATORADO: As preferências do usuário e temas agora são lidas e salvas no IndexedDB ('userPreferencesStore') em vez do localStorage, para permitir o backup completo.
 // ... (histórico anterior omitido)
 
 window.SEFWorkStation = window.SEFWorkStation || {};
@@ -17,10 +15,6 @@ window.SEFWorkStation.Configuracoes = (function() {
     let uiModuleRef;
     let ajudaModuleRef;
 
-    const DEFAULT_MAX_AUTO_BACKUPS = 5;
-    const DEFAULT_AUTO_BACKUP_INTERVAL = 3600000; // 1 hora em ms
-    const DEFAULT_AUTO_BACKUP_INCLUDE_ATTACHMENTS = true;
-    
     // Lista mestre de todas as ações que podem ser adicionadas ao Acesso Rápido
     const QUICK_ACCESS_OPTIONS = [
         { action: 'novo-documento', label: 'Novo Documento' },
@@ -38,39 +32,6 @@ window.SEFWorkStation.Configuracoes = (function() {
     const DEFAULT_QUICK_ACCESS_ITEMS = [
         'novo-documento', 'nova-tarefa', 'novo-contribuinte', 'nova-nota-rapida', 'cadastrar-protocolo', 'escrever-email'
     ];
-
-    const EXPORTABLE_STORES_CONFIG = [
-        { value: 'DOCUMENTS', label: 'Documentos (metadados)' },
-        { value: 'CONTRIBUINTES', label: 'Contribuintes (metadados)' },
-        { value: 'RECURSOS', label: 'Recursos (metadados)' },
-        { value: 'TAREFAS', label: 'Tarefas (metadados)' },
-        { value: 'NOTAS_RAPIDAS', label: 'Notas Rápidas' },
-        { value: 'LOTES_DE_DOCUMENTOS', label: 'Registros de Lotes de Documentos' },
-        { value: 'PROTOCOLOS', label: 'Protocolos (metadados)' },
-        { value: 'PTAS', label: 'PTAs (metadados)' },
-        { value: 'AUTUACOES', label: 'Autuações (metadados)' },
-        { value: 'SERVIDORES', label: 'Servidores (metadados)' },
-        { value: 'SERVIDORES_GRUPOS', label: 'Grupos de Servidores' },
-        { value: 'ITCD_AVALIACOES', label: 'Avaliações de ITCD (dados)' },
-        { value: 'ITCD_CALCULOS', label: 'Cálculos de ITCD (dados)' },
-        { value: 'ITCD_SEMOVENTES_PAUTAS', label: 'Pautas de Valores de Semoventes (ITCD)' },
-        { value: 'ITCD_SELIC_INDICES', label: 'Índices da Taxa SELIC (ITCD)' },
-        { value: 'DOCUMENT_TYPES', label: 'Tipos de Documento (Configuração)' },
-        { value: 'DOCUMENT_CATEGORIES', label: 'Categorias de Documento (Configuração)' },
-        { value: 'DOCUMENT_TAGS', label: 'Tags de Documento (Configuração)' },
-        { value: 'CONTRIBUINTE_CATEGORIES', label: 'Categorias de Contribuinte (Configuração)' },
-        { value: 'CONTRIBUINTE_TAGS', label: 'Tags de Contribuinte (Configuração)' },
-        { value: 'CONTRIBUINTES_PLACEHOLDERS', label: 'Placeholders de Contribuinte (Configuração)' },
-        { value: 'NOTAS_RAPIDAS_TAGS', label: 'Tags de Notas Rápidas (Configuração)' },
-        { value: 'PROTOCOL_TYPES', label: 'Tipos de Protocolo (Configuração)' },
-        { value: 'PTA_TYPES', label: 'Tipos de PTA (Configuração)' },
-        { value: 'AUTUACAO_TYPES', label: 'Tipos de Autuação (Configuração)' },
-        { value: 'COMUNICACAO_DESTINATARIOS', label: 'Destinatários de E-mail (Comunicação)' },
-        { value: 'COMUNICACAO_GRUPOS', label: 'Grupos de Destinatários (Comunicação)' },
-        { value: 'COMUNICACAO_EMAILS_GERADOS', label: 'Registros de E-mails Gerados (Comunicação)'},
-        { value: 'ITCD_CONFIGURACOES', label: 'Configurações de Avaliação ITCD' }
-    ];
-
 
     const DEFAULT_THEME_COLORS = {
         light: {
@@ -150,16 +111,12 @@ window.SEFWorkStation.Configuracoes = (function() {
 
     async function carregarUserPreferences() {
         let prefs = {
-            maxAutoBackups: DEFAULT_MAX_AUTO_BACKUPS,
             documentColumnVisibility: { ...DEFAULT_DOCUMENT_COLUMN_VISIBILITY },
             userDefaultEmail: '',
-            autoBackupInterval: DEFAULT_AUTO_BACKUP_INTERVAL,
-            autoBackupStores: EXPORTABLE_STORES_CONFIG.map(s => s.value),
-            autoBackupIncludeAttachments: DEFAULT_AUTO_BACKUP_INCLUDE_ATTACHMENTS,
             currentUserServerId: null,
             lastUsedSrfId: null,
             lastUsedUfId: null,
-            quickAccessItems: [...DEFAULT_QUICK_ACCESS_ITEMS] // Adicionado valor padrão
+            quickAccessItems: [...DEFAULT_QUICK_ACCESS_ITEMS]
         };
         if (!dbModuleRef || typeof dbModuleRef.getItemById !== 'function') {
             console.error("Configuracoes.JS: Módulo de DB não inicializado ao tentar carregar preferências do usuário.");
@@ -169,27 +126,11 @@ window.SEFWorkStation.Configuracoes = (function() {
             const prefsConfig = await dbModuleRef.getItemById('userPreferencesStore', 'general');
             if (prefsConfig && prefsConfig.value) {
                 const storedPrefs = prefsConfig.value;
-                if (storedPrefs.hasOwnProperty('maxAutoBackups')) {
-                    let numBackups = parseInt(storedPrefs.maxAutoBackups, 10);
-                    prefs.maxAutoBackups = (isNaN(numBackups) || numBackups < 0) ? DEFAULT_MAX_AUTO_BACKUPS : numBackups;
-                }
                 if (storedPrefs.hasOwnProperty('documentColumnVisibility')) {
                     prefs.documentColumnVisibility = { ...DEFAULT_DOCUMENT_COLUMN_VISIBILITY, ...storedPrefs.documentColumnVisibility };
                 }
                 if (storedPrefs.hasOwnProperty('userDefaultEmail')) {
                     prefs.userDefaultEmail = typeof storedPrefs.userDefaultEmail === 'string' ? storedPrefs.userDefaultEmail : '';
-                }
-                if (storedPrefs.hasOwnProperty('autoBackupInterval')) {
-                    const interval = parseInt(storedPrefs.autoBackupInterval, 10);
-                    prefs.autoBackupInterval = (typeof interval === 'number' && !isNaN(interval)) ? interval : DEFAULT_AUTO_BACKUP_INTERVAL;
-                }
-                if (storedPrefs.hasOwnProperty('autoBackupStores') && Array.isArray(storedPrefs.autoBackupStores)) {
-                    prefs.autoBackupStores = storedPrefs.autoBackupStores;
-                } else {
-                    prefs.autoBackupStores = EXPORTABLE_STORES_CONFIG.map(s => s.value);
-                }
-                if (storedPrefs.hasOwnProperty('autoBackupIncludeAttachments')) {
-                    prefs.autoBackupIncludeAttachments = typeof storedPrefs.autoBackupIncludeAttachments === 'boolean' ? storedPrefs.autoBackupIncludeAttachments : DEFAULT_AUTO_BACKUP_INCLUDE_ATTACHMENTS;
                 }
                 if (storedPrefs.hasOwnProperty('currentUserServerId')) {
                     prefs.currentUserServerId = storedPrefs.currentUserServerId;
@@ -200,7 +141,6 @@ window.SEFWorkStation.Configuracoes = (function() {
                  if (storedPrefs.hasOwnProperty('lastUsedUfId')) {
                     prefs.lastUsedUfId = storedPrefs.lastUsedUfId;
                 }
-                // Adicionado: Carregar preferências de acesso rápido
                 if (storedPrefs.hasOwnProperty('quickAccessItems') && Array.isArray(storedPrefs.quickAccessItems)) {
                     prefs.quickAccessItems = storedPrefs.quickAccessItems;
                 }
@@ -251,18 +191,6 @@ window.SEFWorkStation.Configuracoes = (function() {
             servidoresOptionsHtml = '<option value="">Erro ao carregar servidores</option>';
         }
 
-        let storesCheckboxesHtml = '';
-        EXPORTABLE_STORES_CONFIG.forEach(storeInfo => {
-            const isChecked = userPrefs.autoBackupStores.includes(storeInfo.value);
-            storesCheckboxesHtml += `
-                <label class="checkbox-label inline-flex items-center w-full sm:w-1/2 md:w-full lg:w-1/2">
-                    <input type="checkbox" name="autoBackupStores" value="${storeInfo.value}" class="form-checkbox auto-backup-store-checkbox rounded text-blue-600" ${isChecked ? 'checked' : ''}>
-                    <span class="ml-2 text-sm">${storeInfo.label}</span>
-                </label>
-            `;
-        });
-
-        // NOVO: HTML para os checkboxes do Acesso Rápido
         const quickAccessCheckboxesHtml = QUICK_ACCESS_OPTIONS.map(opt => `
             <label class="inline-flex items-center">
                 <input type="checkbox" name="quickAccessItems" value="${opt.action}" class="form-checkbox quick-access-checkbox rounded text-blue-600" 
@@ -296,17 +224,8 @@ window.SEFWorkStation.Configuracoes = (function() {
                                 </select>
                                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Define quem você é no sistema para compartilhamento e rastreabilidade.</p>
                             </div>
-                            <div class="mb-2">
-                                <label class="block text-sm font-medium">Pasta Compartilhada (OneDrive):</label>
-                                <div class="mt-1 flex items-center gap-2">
-                                    <input type="text" id="config-shared-folder-name" class="form-input-text bg-gray-100 dark:bg-slate-700 flex-grow text-sm" readonly placeholder="Nenhuma pasta selecionada">
-                                    <button type="button" id="btn-config-select-shared-folder" class="btn-secondary btn-sm text-xs">Selecionar</button>
-                                </div>
-                                <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Selecione sua pasta 'SEFWorkStation_Compartilhado' sincronizada.</p>
-                            </div>
                         </div>
 
-                        <!-- NOVO: Seção de Acesso Rápido -->
                         <div class="section-box p-4 border dark:border-slate-700 rounded-lg" id="acesso-rapido-section">
                             <h3>Menu de Acesso Rápido</h3>
                             <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Selecione os atalhos que aparecerão no botão <code class="text-xs p-1 bg-gray-200 dark:bg-slate-600 rounded">+</code> no cabeçalho.</p>
@@ -315,33 +234,13 @@ window.SEFWorkStation.Configuracoes = (function() {
                             </div>
                         </div>
 
-                        <div class="section-box p-4 border dark:border-slate-700 rounded-lg" id="gerenciamento-backups-section">
-                            <h3>Backup Automático</h3>
-                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">Backup e restauração manual estão em "Utilidades".</p>
-                            <div class="mb-4">
-                                <label for="max-auto-backups" class="block text-sm font-medium">Máx. de Backups Automáticos:</label>
-                                <input type="number" id="max-auto-backups" value="${userPrefs.maxAutoBackups}" min="0" max="100" class="form-input-text mt-1 block w-full sm:w-1/2 text-sm">
-                                <p id="feedback-max-auto-backups" class="text-xs mt-1"></p> 
-                            </div>
-                            <div class="mb-4">
-                                <label for="auto-backup-interval" class="block text-sm font-medium">Intervalo:</label>
-                                <select id="auto-backup-interval" class="form-input-text mt-1 block w-full text-sm">
-                                    <option value="0" ${userPrefs.autoBackupInterval === 0 ? 'selected' : ''}>Desativado</option>
-                                    <option value="3600000" ${userPrefs.autoBackupInterval === 3600000 ? 'selected' : ''}>A cada 1 hora</option>
-                                    <option value="10800000" ${userPrefs.autoBackupInterval === 10800000 ? 'selected' : ''}>A cada 3 horas</option>
-                                    <option value="21600000" ${userPrefs.autoBackupInterval === 21600000 ? 'selected' : ''}>A cada 6 horas</option>
-                                    <option value="43200000" ${userPrefs.autoBackupInterval === 43200000 ? 'selected' : ''}>A cada 12 horas</option>
-                                    <option value="86400000" ${userPrefs.autoBackupInterval === 86400000 ? 'selected' : ''}>Diariamente (24h)</option>
-                                </select>
-                            </div>
-                            <div class="mb-4 mt-3">
-                                <label class="checkbox-label inline-flex items-center">
-                                    <input type="checkbox" id="auto-backup-include-attachments" class="form-checkbox rounded text-blue-600" ${userPrefs.autoBackupIncludeAttachments ? 'checked' : ''}>
-                                    <span class="ml-2 text-sm font-medium">Incluir Anexos</span>
-                                </label>
-                            </div>
+                         <div class="section-box p-4 border dark:border-slate-700 rounded-lg" id="privacidade-dados-section">
+                            <h3>Privacidade e Dados</h3>
+                            <button type="button" id="btn-limpar-dados-app" class="btn-delete text-sm py-2 px-4">Limpar Todos os Dados</button>
+                            <p class="text-xs text-red-500 dark:text-red-400 mt-1">
+                                <strong>Atenção:</strong> Ação irreversível. Apaga todos os dados do navegador.
+                            </p>
                         </div>
-
                     </div>
 
                     <!-- Coluna 2 -->
@@ -371,28 +270,6 @@ window.SEFWorkStation.Configuracoes = (function() {
 
                         <div id="preferencias-listagem-section-placeholder"></div>
                     </div>
-                    
-                    <!-- Coluna 3 (e outras seções) -->
-                    <div class="flex flex-col gap-6 lg:col-span-2 xl:col-span-1">
-                         <div class="section-box p-4 border dark:border-slate-700 rounded-lg" id="dados-backup-section">
-                            <h3>Dados do Backup Automático</h3>
-                            <div class="form-checkbox-group flex flex-wrap gap-x-4 gap-y-2 max-h-60 overflow-y-auto p-2 border dark:border-slate-600 rounded" id="auto-backup-stores-selection">
-                                ${storesCheckboxesHtml}
-                            </div>
-                            <label class="inline-flex items-center mt-2">
-                                <input type="checkbox" id="select-all-auto-backup-stores" class="form-checkbox rounded text-blue-600">
-                                <span class="ml-2 text-sm font-medium">Selecionar/Desmarcar Tudo</span>
-                            </label>
-                        </div>
-
-                        <div class="section-box p-4 border dark:border-slate-700 rounded-lg" id="privacidade-dados-section">
-                            <h3>Privacidade e Dados</h3>
-                            <button type="button" id="btn-limpar-dados-app" class="btn-delete text-sm py-2 px-4">Limpar Todos os Dados</button>
-                            <p class="text-xs text-red-500 dark:text-red-400 mt-1">
-                                <strong>Atenção:</strong> Ação irreversível.
-                            </p>
-                        </div>
-                    </div>
                 </div> <!-- Fim do Grid Principal -->
 
                 <div class="mt-8 flex justify-end">
@@ -419,15 +296,6 @@ window.SEFWorkStation.Configuracoes = (function() {
                 addEventListenersPersonalizacaoCores(colorsSection);
             }
         }
-
-        document.getElementById('btn-config-select-shared-folder')?.addEventListener('click', async () => {
-            const sharedFolderHandle = await window.SEFWorkStation.SharedUtils.getSharedFolderHandle(true);
-            if (sharedFolderHandle) {
-                const nameInput = document.getElementById('config-shared-folder-name');
-                if(nameInput) nameInput.value = sharedFolderHandle.name;
-                if(globalShowFeedbackRef) globalShowFeedbackRef('Pasta compartilhada definida para esta sessão.', 'success');
-            }
-        });
 
         addEventListenersConfiguracoesGerais(userPrefs);
     }
@@ -577,27 +445,16 @@ window.SEFWorkStation.Configuracoes = (function() {
         if (btnSalvarTodasPrefs) {
             btnSalvarTodasPrefs.addEventListener('click', async () => {
                 const feedbackGeralConfig = document.getElementById('feedback-config-geral');
-                const feedbackMaxAutoBackupsEl = document.getElementById('feedback-max-auto-backups');
                 const feedbackUserDefaultEmailEl = document.getElementById('feedback-user-default-email');
 
                 if(globalClearFeedbackRef && feedbackGeralConfig) globalClearFeedbackRef(feedbackGeralConfig);
-                if(feedbackMaxAutoBackupsEl) {
-                    feedbackMaxAutoBackupsEl.textContent = '';
-                    feedbackMaxAutoBackupsEl.className = 'text-xs mt-1';
-                }
                 if(feedbackUserDefaultEmailEl) {
                     feedbackUserDefaultEmailEl.textContent = '';
                     feedbackUserDefaultEmailEl.className = 'text-xs mt-1';
                 }
 
-                const maxBackupsInput = document.getElementById('max-auto-backups');
                 const userDefaultEmailInput = document.getElementById('user-default-email'); 
-                const autoBackupIntervalInput = document.getElementById('auto-backup-interval');
-                const autoBackupIncludeAttachmentsInput = document.getElementById('auto-backup-include-attachments');
                 const currentUserServerSelect = document.getElementById('config-current-user-server');
-
-                const autoBackupStoresSelecionadas = Array.from(document.querySelectorAll('input[name="autoBackupStores"]:checked')).map(cb => cb.value);
-                // NOVO: Coletar preferências de Acesso Rápido
                 const quickAccessItemsSelecionados = Array.from(document.querySelectorAll('input[name="quickAccessItems"]:checked')).map(cb => cb.value);
 
                 const docColVisibilityPrefs = {};
@@ -611,23 +468,7 @@ window.SEFWorkStation.Configuracoes = (function() {
                 let allValidationsPass = true;
                 let successMessages = [];
                 let warningMessages = [];
-
-                const numBackupsValor = parseInt(maxBackupsInput.value, 10);
-                if (isNaN(numBackupsValor) || numBackupsValor < 0) {
-                    const errorMsg = "Quantidade de backups deve ser um número >= 0.";
-                    if (feedbackMaxAutoBackupsEl) { 
-                        feedbackMaxAutoBackupsEl.textContent = errorMsg;
-                        feedbackMaxAutoBackupsEl.className = 'text-xs mt-1 text-red-500 dark:text-red-400';
-                    }
-                    maxBackupsInput.focus();
-                    maxBackupsInput.classList.add('border-red-500', 'dark:border-red-400');
-                    warningMessages.push("Preferência de quantidade de backups não salva (inválida).");
-                    allValidationsPass = false; 
-                } else {
-                     maxBackupsInput.classList.remove('border-red-500', 'dark:border-red-400');
-                     if(feedbackMaxAutoBackupsEl) feedbackMaxAutoBackupsEl.textContent = ''; 
-                }
-
+                
                 const emailValor = userDefaultEmailInput.value.trim();
                 let existingEmailFeedback = feedbackUserDefaultEmailEl;
                 if (existingEmailFeedback) existingEmailFeedback.textContent = ''; 
@@ -650,15 +491,9 @@ window.SEFWorkStation.Configuracoes = (function() {
                 if (allValidationsPass) {
                     const prefsParaSalvar = {
                         documentColumnVisibility: docColVisibilityPrefs,
-                        autoBackupInterval: parseInt(autoBackupIntervalInput.value, 10),
-                        autoBackupStores: autoBackupStoresSelecionadas,
-                        autoBackupIncludeAttachments: autoBackupIncludeAttachmentsInput.checked,
                         currentUserServerId: currentUserServerSelect.value || null,
-                        quickAccessItems: quickAccessItemsSelecionados // Adicionado para salvar
+                        quickAccessItems: quickAccessItemsSelecionados
                     };
-                    if (!(isNaN(numBackupsValor) || numBackupsValor < 0)) {
-                        prefsParaSalvar.maxAutoBackups = numBackupsValor;
-                    }
                     if (!emailValor || /.+@.+\..+/.test(emailValor)) {
                          prefsParaSalvar.userDefaultEmail = emailValor;
                     }
@@ -670,7 +505,6 @@ window.SEFWorkStation.Configuracoes = (function() {
                         window.SEFWorkStation.State.setUserPreferences(await carregarUserPreferences());
                     }
 
-                    // NOVO: Chama a função para atualizar o dropdown imediatamente
                     if (window.SEFWorkStation.App && typeof window.SEFWorkStation.App.populateQuickAccessDropdown === 'function') {
                         await window.SEFWorkStation.App.populateQuickAccessDropdown();
                     }
@@ -725,25 +559,6 @@ window.SEFWorkStation.Configuracoes = (function() {
             });
         }
         
-        const selectAllAutoBackupStoresCheckbox = document.getElementById('select-all-auto-backup-stores');
-        if (selectAllAutoBackupStoresCheckbox) {
-            const allStoresCheckboxes = document.querySelectorAll('input[name="autoBackupStores"]');
-            selectAllAutoBackupStoresCheckbox.addEventListener('change', (event) => {
-                allStoresCheckboxes.forEach(checkbox => {
-                    checkbox.checked = event.target.checked;
-                });
-            });
-            const allChecked = Array.from(allStoresCheckboxes).every(cb => cb.checked);
-            selectAllAutoBackupStoresCheckbox.checked = allChecked;
-            
-            allStoresCheckboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', () => {
-                    const allCurrentlyChecked = Array.from(allStoresCheckboxes).every(cb => cb.checked);
-                    selectAllAutoBackupStoresCheckbox.checked = allCurrentlyChecked;
-                });
-            });
-        }
-        
         const btnLimparDadosApp = document.getElementById('btn-limpar-dados-app');
         const feedbackGeralArea = document.getElementById('feedback-config-geral');
         if (btnLimparDadosApp) {
@@ -758,7 +573,6 @@ window.SEFWorkStation.Configuracoes = (function() {
                     'Confirmar Limpeza Total de Dados',
                     `<p class="text-base">Tem certeza absoluta que deseja apagar <strong>TODOS OS DADOS</strong> da aplicação (documentos, contribuintes, tarefas, notas, etc.)?</p>
                      <p class="text-red-600 dark:text-red-400 mt-3 font-semibold">ESTA AÇÃO É IRREVERSÍVEL E NÃO PODERÁ SER DESFEITA.</p>
-                     <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Preferências de interface e pasta da aplicação serão mantidas.</p>
                      <p class="text-sm text-gray-600 dark:text-gray-300 mt-2">Recomenda-se fazer um backup completo antes de prosseguir.</p>`,
                     [
                         { text: 'Cancelar', class: 'btn-secondary', callback: () => { return true; } },
@@ -775,12 +589,6 @@ window.SEFWorkStation.Configuracoes = (function() {
                 );
             });
         }
-
-        const sharedFolderHandle = window.SEFWorkStation.State.getSharedFolderHandle();
-        if (sharedFolderHandle && sharedFolderHandle.name) {
-            const nameInput = document.getElementById('config-shared-folder-name');
-            if(nameInput) nameInput.value = sharedFolderHandle.name;
-        }
     }
 
 
@@ -792,12 +600,8 @@ window.SEFWorkStation.Configuracoes = (function() {
             }
             await dbModuleRef.clearAllStores();
 
-            const dirName = localStorage.getItem('sefWorkstationDirName');
             localStorage.clear();
-            if (dirName) {
-                localStorage.setItem('sefWorkstationDirName', dirName);
-            }
-
+            
             if (uiModuleRef && uiModuleRef.showToastNotification) uiModuleRef.showToastNotification("Dados da aplicação limpos. A página será recarregada.", "success", 7000);
 
             setTimeout(() => {
