@@ -1,6 +1,6 @@
 // js/db.js - Lógica de interação com o IndexedDB
+// v66.0 - NOVO: Backup agora inclui um bloco de metadados com versão, data e hash SHA-256 para validação de integridade. A exportação de dados agora é dinâmica, lendo todas as stores do DB por padrão.
 // v65.0 - REATORADO: Removida toda a lógica de armazenamento em sistema de arquivos (File System Access API). A aplicação agora utiliza exclusivamente o IndexedDB para persistência de dados, alinhado com a migração para a web.
-// v64.0 - CORRIGIDO: A função getItemById agora carrega o conteúdo completo do arquivo .json para stores baseadas em arquivo, em vez de retornar apenas o registro de índice.
 // ... (histórico anterior omitido)
 
 const DB_NAME = 'SEFWorkStationDB';
@@ -53,7 +53,26 @@ const FALLBACK_MAX_AUTO_BACKUPS = 5;
 let db;
 let dbInitializationPromise = null;
 
-// --- LÓGICA EXISTENTE DO DB (MODIFICADA E MANTIDA) ---
+// --- FUNÇÕES HELPER ---
+
+/**
+ * Calcula o hash SHA-256 de uma string de dados.
+ * @param {string} dataString - A string a ser hasheada.
+ * @returns {Promise<string>} O hash em formato hexadecimal.
+ */
+async function _calculateDataHash(dataString) {
+    if (!crypto.subtle) {
+        console.warn("Crypto API não disponível. Não foi possível gerar o hash de integridade.");
+        return null;
+    }
+    const encoder = new TextEncoder();
+    const data = encoder.encode(dataString);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashHex;
+}
+
 
 async function updateLastDataModificationTimestamp() {
     try {
@@ -396,68 +415,43 @@ async function clearAllStores() {
 async function exportAllDataToJson(storeNamesToInclude = null) {
     if (!db) await initDB();
 
-    const exportData = {};
-    let storesToProcess = Array.from(db.objectStoreNames);
+    const dataToExport = {};
+    let storesToProcess = (storeNamesToInclude && storeNamesToInclude.length > 0)
+        ? storeNamesToInclude.filter(name => db.objectStoreNames.contains(name))
+        : Array.from(db.objectStoreNames);
 
-    if (Array.isArray(storeNamesToInclude) && storeNamesToInclude.length > 0) {
-        storesToProcess = storeNamesToInclude.filter(name => db.objectStoreNames.contains(name));
-    }
-    
-    if (!(Array.isArray(storeNamesToInclude) && storeNamesToInclude.includes(SEQUENCES_STORE_NAME))) {
-        storesToProcess = storesToProcess.filter(name => name !== SEQUENCES_STORE_NAME);
-    }
-    
     if (storesToProcess.length === 0) {
         console.warn("DB.JS: exportAllDataToJson - Nenhuma store válida para exportar.");
-        return {};
+        return {}; // Retorna um objeto vazio se não houver stores a processar
     }
 
     const transaction = db.transaction(storesToProcess, 'readonly');
-    const promises = [];
-
-    for (const storeName of storesToProcess) {
-        const promise = new Promise((resolve, reject) => {
-            try {
-                const store = transaction.objectStore(storeName);
-                const request = store.getAll();
-                
-                request.onsuccess = async () => {
-                    try {
-                        let items = request.result;
-                        resolve({ storeName, data: items });
-                    } catch (e) {
-                        console.error(`DB.JS: Erro ao processar dados de '${storeName}' após sucesso da leitura.`, e);
-                        reject({ storeName, error: e });
-                    }
-                };
-
-                request.onerror = (event) => {
-                    console.error(`DB.JS: Erro na request para store '${storeName}':`, event.target.error);
-                    reject({ storeName, error: event.target.error });
-                };
-            } catch (e) {
-                console.error(`DB.JS: Erro ao iniciar a leitura da store '${storeName}':`, e);
-                reject({ storeName, error: e });
-            }
+    const promises = storesToProcess.map(storeName => {
+        return new Promise((resolve, reject) => {
+            const request = transaction.objectStore(storeName).getAll();
+            request.onsuccess = () => resolve({ storeName, data: request.result });
+            request.onerror = (event) => reject({ storeName, error: event.target.error });
         });
-        promises.push(promise);
-    }
-    
-    try {
-        const results = await Promise.all(promises);
-        results.forEach(result => {
-            if (result && result.storeName) {
-                exportData[result.storeName] = result.data || [];
-            }
-        });
-    } catch (error) {
-        console.error("DB.JS: Um ou mais stores falharam na exportação.", error);
-        if (error.storeName) {
-            exportData[error.storeName] = [];
-        }
-    }
+    });
 
-    return exportData;
+    const results = await Promise.all(promises);
+    results.forEach(result => {
+        dataToExport[result.storeName] = result.data;
+    });
+
+    const dataString = JSON.stringify(dataToExport);
+    const dataHash = await _calculateDataHash(dataString);
+
+    const fullExportObject = {
+        metadata: {
+            appVersion: window.SEFWorkStation.App.APP_VERSION_DISPLAY || "N/A",
+            exportDate: new Date().toISOString(),
+            dataHash: dataHash
+        },
+        data: dataToExport
+    };
+
+    return fullExportObject;
 }
 
 
@@ -581,7 +575,7 @@ async function saveDatabaseToFile(showFeedbackCallback) {
     }
 }
 
-async function performSelectiveZipBackup(storeNamesToExport, includePhysicalAttachments = true) {
+async function performSelectiveZipBackup(storeNamesToExport) {
     if (typeof JSZip === 'undefined') {
         console.error("DB.JS: Biblioteca JSZip não está carregada.");
         return null;
@@ -589,17 +583,15 @@ async function performSelectiveZipBackup(storeNamesToExport, includePhysicalAtta
     if (!db) await initDB();
 
     try {
-        const data = await exportAllDataToJson(storeNamesToExport); 
+        const data = await exportAllDataToJson(storeNamesToExport);
         const zip = new JSZip();
-        zip.file("sefworkstation_data.json", JSON.stringify(data));
+        zip.file("sefworkstation_data.json", JSON.stringify(data, null, 2));
 
-        if (includePhysicalAttachments) {
-            console.warn("DB.JS: A inclusão de anexos físicos no backup ZIP não é suportada na versão web. Apenas os metadados dos anexos (no JSON) serão incluídos.");
-        }
+        console.warn("DB.JS: A inclusão de anexos físicos no backup ZIP não é suportada na versão web. Apenas os metadados dos anexos (no JSON) serão incluídos.");
 
         const zipBlob = await zip.generateAsync({ type: "blob", compression: "DEFLATE", compressionOptions: { level: 6 } });
         const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-        const zipFileName = `sefworkstation_manual_selective_backup_${timestamp}.zip`;
+        const zipFileName = `sefworkstation_manual_backup_${timestamp}.zip`;
 
         const triggerDownload = (blob, fileName) => {
             const url = URL.createObjectURL(blob);
@@ -617,7 +609,7 @@ async function performSelectiveZipBackup(storeNamesToExport, includePhysicalAtta
             backupDate: new Date().toISOString(),
             type: 'manual_zip_selective',
             fileName: zipFileName,
-            description: `Backup manual seletivo contendo: ${storeNamesToExport.join(', ')}. Anexos físicos: Não (Versão Web).`,
+            description: `Backup manual seletivo contendo: ${(storeNamesToExport && storeNamesToExport.length > 0) ? storeNamesToExport.join(', ') : 'Todas as stores'}. Anexos físicos: Não (Versão Web).`,
             status: 'success'
         });
 
