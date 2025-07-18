@@ -1,10 +1,11 @@
 // js/app.js - Orquestrador Principal e Inicialização da Aplicação SEFWorkStation
+// v7.0.0 - NOVO: Implementado backup "inteligente". O sistema agora calcula um hash dos dados e compara com o do último backup, notificando visualmente o usuário se o backup estiver desatualizado.
 // v6.0.0 - REATORADO: Removida toda a dependência da File System Access API. A aplicação agora funciona como uma PWA web padrão, usando apenas IndexedDB. Removidas as funções selectAppDirectory, scanAndSyncItcdData, checkAndRunAutoSave e a lógica de verificação de pasta.
-// v5.0.0 - NOVO: Adicionada lógica para escanear e carregar automaticamente dados de ITCD (avaliações, cálculos) do sistema de arquivos ao selecionar a pasta de trabalho.
 // ... (histórico anterior)
 
-const APP_CURRENT_VERSION = "1.4.2"; 
+const APP_CURRENT_VERSION = "1.5.0"; // Versão incrementada
 const LOCAL_STORAGE_LAST_AUTO_BACKUP_KEY = 'sefWorkstationLastAutoBackup';
+const LOCAL_STORAGE_LAST_BACKUP_HASH_KEY = 'sefWorkstationLastBackupHash'; // NOVA CHAVE
 const NOVA_VERSAO_INFO_KEY = 'sefWorkstationNovaVersaoInfo';
 const LIXEIRA_GLOBAL_MODULE_NAME = 'lixeira-global';
 
@@ -234,15 +235,50 @@ function updateQuickSelectDropdown() {
     }
 }
 
+/**
+ * NOVO: Calcula um hash de todo o banco de dados e compara com o do último backup.
+ * Atualiza o indicador visual no cabeçalho da aplicação.
+ */
 async function updateBackupStatusDisplay() {
     if (!infoBackupStatusEl) return;
-    
-    // Na versão web, o backup é manual e não persistente no sistema de arquivos.
-    // A lógica de verificação de "dados alterados" não se aplica da mesma forma.
-    infoBackupStatusEl.textContent = "Backup: Manual via Utilidades";
-    infoBackupStatusEl.title = "Acesse Utilidades > Backup / Restauração para criar ou restaurar backups.";
-    infoBackupStatusEl.style.color = "";
+
+    try {
+        const dbRef = SEFWorkStation.State.getDbRef();
+        if (!dbRef) {
+            infoBackupStatusEl.textContent = "Backup: DB não disponível";
+            infoBackupStatusEl.style.color = "orange";
+            return;
+        }
+
+        // Esta função agora está em db.js e retorna o objeto completo com metadata e data.
+        const fullDbData = await dbRef.exportAllDataToJson(); 
+        
+        // O hash é calculado sobre o bloco 'data'.
+        const currentDataString = JSON.stringify(fullDbData.data);
+        const currentHash = await dbRef._calculateDataHash(currentDataString);
+        
+        const lastBackupHash = localStorage.getItem(LOCAL_STORAGE_LAST_BACKUP_HASH_KEY);
+
+        if (!lastBackupHash) {
+            infoBackupStatusEl.textContent = "Backup: Nunca realizado";
+            infoBackupStatusEl.style.color = "orange";
+            infoBackupStatusEl.title = "Nenhum backup foi realizado nesta sessão. É recomendável criar um.";
+        } else if (currentHash === lastBackupHash) {
+            infoBackupStatusEl.textContent = "Backup: Atualizado";
+            infoBackupStatusEl.style.color = "lightgreen";
+            infoBackupStatusEl.title = "Seus dados estão sincronizados com o último backup.";
+        } else {
+            infoBackupStatusEl.textContent = "Backup: Desatualizado";
+            infoBackupStatusEl.style.color = "yellow";
+            infoBackupStatusEl.title = "Existem alterações não salvas. Crie um novo backup.";
+        }
+    } catch (error) {
+        console.error("Erro ao verificar status do backup:", error);
+        infoBackupStatusEl.textContent = "Backup: Erro na verificação";
+        infoBackupStatusEl.style.color = "red";
+    }
 }
+
 
 async function checkAndRunAutoBackup() {
     // A funcionalidade de backup automático é desativada na versão web, conforme plano.
@@ -855,6 +891,7 @@ window.SEFWorkStation.App = {
     getUserPreference,
     checkUserIdentity,
     APP_VERSION_DISPLAY: APP_CURRENT_VERSION,
+    LOCAL_STORAGE_LAST_BACKUP_HASH_KEY, // Expondo a chave para o db.js
     
     handleMenuAction: (...args) => SEFWorkStation.Navigation.handleMenuAction(...args),
     irParaHome: () => SEFWorkStation.Navigation.irParaHome(),
