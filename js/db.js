@@ -1,4 +1,5 @@
 // js/db.js - Lógica de interação com o IndexedDB
+// v67.0 - NOVO: A função de importação agora valida a integridade do backup. Ela verifica o hash SHA-256 dos dados antes de restaurar, prevenindo a importação de arquivos corrompidos.
 // v66.0 - NOVO: Backup agora inclui um bloco de metadados com versão, data e hash SHA-256 para validação de integridade. A exportação de dados agora é dinâmica, lendo todas as stores do DB por padrão.
 // v65.0 - REATORADO: Removida toda a lógica de armazenamento em sistema de arquivos (File System Access API). A aplicação agora utiliza exclusivamente o IndexedDB para persistência de dados, alinhado com a migração para a web.
 // ... (histórico anterior omitido)
@@ -454,11 +455,31 @@ async function exportAllDataToJson(storeNamesToInclude = null) {
     return fullExportObject;
 }
 
-
-async function importAllDataFromJson(jsonData, mode = 'replace') { 
+async function importAllDataFromJson(jsonData, mode = 'replace') {
     if (!db) await initDB();
 
-    const storeNamesInJson = Object.keys(jsonData);
+    let dataToImport;
+    let backupMetadata = {};
+
+    // Verifica se o JSON está no novo formato com metadados
+    if (jsonData.metadata && jsonData.data) {
+        console.log("DB.JS: Restaurando backup com metadados de validação.");
+        backupMetadata = jsonData.metadata;
+        const dataString = JSON.stringify(jsonData.data);
+        const calculatedHash = await _calculateDataHash(dataString);
+
+        if (calculatedHash && backupMetadata.dataHash && calculatedHash !== backupMetadata.dataHash) {
+            console.error("DB.JS: FALHA NA VERIFICAÇÃO DE INTEGRIDADE DO BACKUP! Hash calculado:", calculatedHash, "Hash esperado:", backupMetadata.dataHash);
+            return { success: false, message: "Falha na verificação de integridade. O arquivo de backup pode estar corrompido ou ter sido alterado. A restauração foi abortada." };
+        }
+        console.log("DB.JS: Verificação de integridade do backup bem-sucedida.");
+        dataToImport = jsonData.data;
+    } else {
+        console.warn("DB.JS: Restaurando um backup de formato antigo (sem metadados de validação).");
+        dataToImport = jsonData;
+    }
+
+    const storeNamesInJson = Object.keys(dataToImport);
     const validStoreNames = storeNamesInJson.filter(name => db.objectStoreNames.contains(name));
 
     if (validStoreNames.length === 0) {
@@ -468,12 +489,12 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
     const transaction = db.transaction(validStoreNames, 'readwrite');
     let importErrors = [];
     let itemsAdded = 0;
-    let itemsUpdated = 0; 
+    let itemsUpdated = 0;
 
     for (const storeName of validStoreNames) {
         try {
             const store = transaction.objectStore(storeName);
-            const itemsToImport = jsonData[storeName];
+            const itemsToImport = dataToImport[storeName];
 
             if (mode === 'replace') {
                 await new Promise((resolveClear, rejectClear) => {
@@ -481,42 +502,42 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
                     clearRequest.onsuccess = () => resolveClear();
                     clearRequest.onerror = (event) => {
                         importErrors.push({ store: storeName, action: 'clear', error: event.target.error.name });
-                        rejectClear(event.target.error); 
+                        rejectClear(event.target.error);
                     };
                 });
             }
 
             if (Array.isArray(itemsToImport)) {
                 for (const item of itemsToImport) {
-                    await new Promise(async (resolveOp) => { 
+                    await new Promise(async (resolveOp) => {
                         if (store.autoIncrement === false && storeName !== SEQUENCES_STORE_NAME && typeof item.id !== 'string') {
-                             if (typeof item.id === 'number') { 
+                            if (typeof item.id === 'number') {
                                 item.id = window.SEFWorkStation.App.generateUUID();
-                            } else if (item.id === undefined || item.id === null) { 
+                            } else if (item.id === undefined || item.id === null) {
                                 item.id = window.SEFWorkStation.App.generateUUID();
                             }
                         }
-                        
+
                         let itemToStore = item;
-                        
+
                         if (mode === 'merge') {
                             try {
                                 const putRequest = store.put(itemToStore);
                                 putRequest.onsuccess = () => { itemsUpdated++; resolveOp(); };
                                 putRequest.onerror = (event) => {
                                     importErrors.push({ store: storeName, action: 'merge_put', itemId: item.id || item.sequenceName || item.key, error: event.target.error.name });
-                                    resolveOp(); 
+                                    resolveOp();
                                 };
-                            } catch (e) { 
+                            } catch (e) {
                                 importErrors.push({ store: storeName, action: 'merge_put_exception', itemId: item.id || item.sequenceName || item.key, error: e.name || e.message });
                                 resolveOp();
                             }
-                        } else { 
+                        } else {
                             const addRequest = store.add(itemToStore);
                             addRequest.onsuccess = () => { itemsAdded++; resolveOp(); };
                             addRequest.onerror = (event) => {
                                 importErrors.push({ store: storeName, action: 'add', itemId: item.id || item.sequenceName || item.key, error: event.target.error.name });
-                                resolveOp(); 
+                                resolveOp();
                             };
                         }
                     });
@@ -527,8 +548,8 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
         }
     }
 
-    return new Promise(async (resolve, reject) => { 
-        transaction.oncomplete = async () => { 
+    return new Promise(async (resolve, reject) => {
+        transaction.oncomplete = async () => {
             await updateLastDataModificationTimestamp();
             const message = mode === 'merge' ?
                 `Mesclagem concluída. Itens processados/atualizados: ${itemsUpdated}.` :
