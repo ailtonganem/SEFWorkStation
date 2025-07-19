@@ -1,5 +1,5 @@
 // js/itcd/configuracoes/semoventes.js - Módulo para a aba de Configurações de Semoventes (ITCD)
-// v7.0.0 - UNIFICADO: Adicionada funcionalidade específica para importar e exportar apenas os dados das pautas de semoventes.
+// v7.0.0 - UNIFICADO: Adicionada funcionalidade específica para importar e exportar apenas os dados das pautas de semoventes. Lógica de armazenamento corrigida para usar a store 'itcdSemoventesPautasStore'.
 // v6.0.0 - ALTERADO: Conteúdo da aba não é mais afetado pelo bloqueio de administrador, permanecendo sempre editável.
 // v5.3.0 - CORRIGIDO: Adiciona classes de cor para texto no tema escuro, resolvendo problemas de contraste.
 // ... (histórico anterior omitido)
@@ -13,7 +13,6 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
     let dbRef;
     let uiModuleRef;
     let appModuleRef;
-    const PAUTAS_STORE_KEY = 'pautasSemoventes';
     const PAUTAS_STORE_DB_NAME = 'itcdSemoventesPautasStore';
     const PAUTAS_FILENAME = 'sefworkstation_itcd_pautas_semoventes.json';
 
@@ -64,7 +63,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         const tabHtml = `
             <div class="space-y-6">
                 <div class="section-box p-4 border dark:border-slate-700 rounded-lg">
-                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Gerenciar Pautas de Semoventes</h3>
+                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Gerenciar Dados das Pautas</h3>
                      <div class="flex flex-wrap gap-4 mb-4">
                         <button id="btn-exportar-pautas" class="btn-secondary">Exportar Pautas (.json)</button>
                         <div>
