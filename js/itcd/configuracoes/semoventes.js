@@ -1,16 +1,8 @@
 // js/itcd/configuracoes/semoventes.js - Módulo para a aba de Configurações de Semoventes (ITCD)
+// v7.0.0 - UNIFICADO: Adicionada funcionalidade específica para importar e exportar apenas os dados das pautas de semoventes.
 // v6.0.0 - ALTERADO: Conteúdo da aba não é mais afetado pelo bloqueio de administrador, permanecendo sempre editável.
 // v5.3.0 - CORRIGIDO: Adiciona classes de cor para texto no tema escuro, resolvendo problemas de contraste.
-// v5.2.0 - CORRIGIDO: Garante contraste de texto em todo o card de pauta (título e corpo) no tema escuro.
-// v5.1.0 - CORRIGIDO: Garante contraste de texto na visualização de detalhes da pauta no tema escuro.
-// v5.0.0 - REFATORADO: Simplifica a gestão para uma pauta estadual única por período. Remove a dependência de SRF. Carrega dados do novo arquivo JSON simplificado.
-// v4.1.0 - CORRIGIDO: Garante que o campo 'id' e 'srf' sejam salvos ao criar/editar pautas, eliminando o erro 'localeCompare of undefined'.
-// v4.0.0 - REFATORADO: Interface redesenhada para exibir, adicionar, editar e excluir pautas regionalizadas por SRF. Carrega dados do novo JSON `pautas_semoventes_por_srf.json` para o DB.
-// v3.1.0 - CORRIGIDO: Garante que os valores da pauta sejam carregados do JSON caso não sejam encontrados no DB, resolvendo a condição de corrida do seeding.
-// v3.0.0 - REFATORADO: Remove dados fixos da pauta (hardcoded) e passa a carregar de um arquivo JSON externo (data/pautas_semoventes.json) para popular o banco de dados na primeira execução.
-// v2.1.0 - Adiciona seeding (pré-carregamento) de dados históricos da pauta.
-// v2.0.0 - Implementação completa da interface de gerenciamento de pautas de valores para semoventes.
-// v1.0.0 - Criação do módulo a partir da refatoração de configuracoes.js. Estrutura inicial com placeholder.
+// ... (histórico anterior omitido)
 
 window.SEFWorkStation = window.SEFWorkStation || {};
 window.SEFWorkStation.ITCD = window.SEFWorkStation.ITCD || {};
@@ -21,8 +13,9 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
     let dbRef;
     let uiModuleRef;
     let appModuleRef;
-    const PAUTAS_STORE = 'itcdSemoventesPautasStore';
-    const SRF_CIDADES_KEY = 'srfCidades';
+    const PAUTAS_STORE_KEY = 'pautasSemoventes';
+    const PAUTAS_STORE_DB_NAME = 'itcdSemoventesPautasStore';
+    const PAUTAS_FILENAME = 'sefworkstation_itcd_pautas_semoventes.json';
 
     const CATEGORIAS_SEMOVENTES = [
         { key: 'bezerros0a12', label: 'Bezerros 0 a 12 meses' },
@@ -57,7 +50,6 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         return parseFloat(value.replace('R$', '').replace(/\./g, '').replace(',', '.').trim()) || 0;
     }
 
-    // A assinatura da função foi mantida para consistência, mas o parâmetro 'isLocked' não é utilizado aqui.
     async function renderTabContent(containerEl, isLocked = true) {
         const hoje = new Date();
         const anoAtual = hoje.getFullYear();
@@ -72,7 +64,18 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         const tabHtml = `
             <div class="space-y-6">
                 <div class="section-box p-4 border dark:border-slate-700 rounded-lg">
-                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Adicionar Nova Pauta de Semoventes</h3>
+                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Gerenciar Pautas de Semoventes</h3>
+                     <div class="flex flex-wrap gap-4 mb-4">
+                        <button id="btn-exportar-pautas" class="btn-secondary">Exportar Pautas (.json)</button>
+                        <div>
+                            <input type="file" id="input-importar-pautas" class="hidden" accept=".json">
+                            <button onclick="document.getElementById('input-importar-pautas').click()" class="btn-primary">Importar Pautas (.json)</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-box p-4 border dark:border-slate-700 rounded-lg">
+                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Adicionar Nova Pauta</h3>
                      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end">
                         <div>
                             <label for="pauta-mes-select" class="block text-sm font-medium dark:text-gray-300">Mês:</label>
@@ -108,7 +111,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         const container = document.getElementById('lista-pautas-existentes');
         if (!container) return;
         
-        const todasPautas = await dbRef.getAllItems(PAUTAS_STORE);
+        const todasPautas = await dbRef.getAllItems(PAUTAS_STORE_DB_NAME);
         
         todasPautas.sort((a,b) => b.key.localeCompare(a.key));
 
@@ -182,7 +185,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         const ano = document.getElementById('pauta-ano-input').value;
         const pautaKey = `${ano}-${mes}`;
         
-        const pautaExistente = await dbRef.getItemById(PAUTAS_STORE, pautaKey);
+        const pautaExistente = await dbRef.getItemById(PAUTAS_STORE_DB_NAME, pautaKey);
         if (pautaExistente) {
             uiModuleRef.showToastNotification(`Pauta para ${mes}/${ano} já existe. Edite a pauta na lista abaixo.`, "warning", 0);
             return;
@@ -199,7 +202,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         };
         
         try {
-            await dbRef.updateItem(PAUTAS_STORE, pautaData);
+            await dbRef.updateItem(PAUTAS_STORE_DB_NAME, pautaData);
             uiModuleRef.showToastNotification(`Nova pauta para ${mes}/${ano} salva com sucesso!`, 'success');
             await carregarERenderizarPautasExistentes();
             document.getElementById('container-nova-pauta-valores').classList.add('hidden');
@@ -209,7 +212,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
     }
 
     async function handleEditarPauta(pautaKey) {
-        const pautaParaEditar = await dbRef.getItemById(PAUTAS_STORE, pautaKey);
+        const pautaParaEditar = await dbRef.getItemById(PAUTAS_STORE_DB_NAME, pautaKey);
         if (!pautaParaEditar) {
             uiModuleRef.showToastNotification("Pauta não encontrada para edição.", "error");
             return;
@@ -234,7 +237,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
                     valoresEditados[input.dataset.key] = parseFromBRL(input.value);
                 });
                 pautaParaEditar.valores = valoresEditados;
-                await dbRef.updateItem(PAUTAS_STORE, pautaParaEditar);
+                await dbRef.updateItem(PAUTAS_STORE_DB_NAME, pautaParaEditar);
                 uiModuleRef.showToastNotification("Pauta atualizada com sucesso!", "success");
                 await carregarERenderizarPautasExistentes();
             }}
@@ -252,7 +255,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
     async function handleExcluirPauta(pautaKey) {
         const confirmou = await uiModuleRef.showConfirmationModal('Confirmar Exclusão', `Tem certeza que deseja excluir permanentemente a pauta "${pautaKey}"?`);
         if (confirmou) {
-            await dbRef.deleteItem(PAUTAS_STORE, pautaKey);
+            await dbRef.deleteItem(PAUTAS_STORE_DB_NAME, pautaKey);
             uiModuleRef.showToastNotification("Pauta excluída com sucesso.", "success");
             await carregarERenderizarPautasExistentes();
         }
@@ -260,12 +263,12 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
     
     async function seedPautasIniciaisSeNecessario() {
         try {
-            const pautasDb = await dbRef.getAllItems(PAUTAS_STORE);
+            const pautasDb = await dbRef.getAllItems(PAUTAS_STORE_DB_NAME);
             if (pautasDb && pautasDb.length > 0) return;
             
             uiModuleRef.showLoading(true, "Carregando pautas iniciais de semoventes...");
             
-            const response = await fetch('data/pautas_semoventes.json');
+            const response = await fetch('./data/pautas_semoventes.json');
             if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
             const pautasParaSalvar = await response.json();
 
@@ -275,7 +278,7 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
             }
 
             for(const pauta of pautasParaSalvar) {
-                await dbRef.addItem(PAUTAS_STORE, pauta);
+                await dbRef.addItem(PAUTAS_STORE_DB_NAME, pauta);
             }
             
             uiModuleRef.showToastNotification(`${pautasParaSalvar.length} pautas iniciais foram carregadas e salvas no banco de dados.`, "success");
@@ -288,15 +291,89 @@ window.SEFWorkStation.ITCD.Configuracoes.Semoventes = (function() {
         }
     }
 
+    async function _exportarPautas() {
+        uiModuleRef.showLoading(true, "Exportando pautas de semoventes...");
+        try {
+            const pautas = await dbRef.getAllItems(PAUTAS_STORE_DB_NAME);
+            const exportData = { [PAUTAS_STORE_DB_NAME]: pautas };
+            
+            const jsonDataString = JSON.stringify(exportData, null, 2);
+            const blob = new Blob([jsonDataString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = PAUTAS_FILENAME;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            uiModuleRef.showToastNotification("Arquivo de pautas exportado com sucesso!", "success");
+        } catch (error) {
+            console.error("Erro ao exportar pautas:", error);
+            uiModuleRef.showToastNotification(`Falha na exportação: ${error.message}`, "error");
+        } finally {
+            uiModuleRef.showLoading(false);
+        }
+    }
+
+    async function _importarPautas(file) {
+        if (!file) return;
+        const userConfirmed = await uiModuleRef.showConfirmationModal(
+            'Confirmar Importação de Pautas',
+            'Isto irá <strong>substituir TODAS as pautas de semoventes atuais</strong>. Deseja continuar?',
+            'Sim, Importar e Substituir', 'Cancelar'
+        );
+        if (!userConfirmed) return;
+
+        uiModuleRef.showLoading(true, "Importando pautas...");
+        const reader = new FileReader();
+        reader.onload = async (event) => {
+            try {
+                const jsonData = JSON.parse(event.target.result);
+                const pautasParaImportar = jsonData[PAUTAS_STORE_DB_NAME];
+                if (!pautasParaImportar || !Array.isArray(pautasParaImportar)) {
+                    throw new Error(`Arquivo JSON inválido. A chave '${PAUTAS_STORE_DB_NAME}' contendo um array de pautas não foi encontrada.`);
+                }
+
+                await dbRef.clearStore(PAUTAS_STORE_DB_NAME);
+                for (const pauta of pautasParaImportar) {
+                    if (pauta.key && pauta.valores) {
+                       await dbRef.addItem(PAUTAS_STORE_DB_NAME, pauta);
+                    }
+                }
+                
+                uiModuleRef.showToastNotification("Pautas de semoventes importadas com sucesso!", "success");
+                await carregarERenderizarPautasExistentes();
+            } catch(err) {
+                uiModuleRef.showToastNotification(`Falha na importação: ${err.message}`, "error", 0);
+            } finally {
+                uiModuleRef.showLoading(false);
+            }
+        };
+        reader.readAsText(file);
+    }
+
     function addEventListeners(containerEl) {
         containerEl.addEventListener('click', (e) => {
             const target = e.target;
             if (target.id === 'btn-show-add-form') renderFormularioNovaPauta();
+            if (target.id === 'btn-exportar-pautas') _exportarPautas();
+            
             const editBtn = target.closest('.btn-editar-pauta');
             if (editBtn) handleEditarPauta(editBtn.dataset.pautaKey);
+            
             const deleteBtn = target.closest('.btn-excluir-pauta');
             if (deleteBtn) handleExcluirPauta(deleteBtn.dataset.pautaKey);
         });
+
+        const importInput = containerEl.querySelector('#input-importar-pautas');
+        if (importInput) {
+            importInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    _importarPautas(e.target.files[0]);
+                }
+            });
+        }
     }
 
     return {
