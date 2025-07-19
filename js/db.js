@@ -1,8 +1,6 @@
 // js/db.js - Lógica de interação com o IndexedDB
-// v68.0 - NOVO: Funções de backup agora salvam o hash dos dados no localStorage após a exportação bem-sucedida, permitindo o funcionamento do backup "inteligente".
-// v67.0 - NOVO: A função de importação agora valida a integridade do backup. Ela verifica o hash SHA-256 dos dados antes de restaurar, prevenindo a importação de arquivos corrompidos.
-// v66.0 - NOVO: Backup agora inclui um bloco de metadados com versão, data e hash SHA-256 para validação de integridade. A exportação de dados agora é dinâmica, lendo todas as stores do DB por padrão.
 // v65.0 - REATORADO: Removida toda a lógica de armazenamento em sistema de arquivos (File System Access API). A aplicação agora utiliza exclusivamente o IndexedDB para persistência de dados, alinhado com a migração para a web.
+// v64.0 - CORRIGIDO: A função getItemById agora carrega o conteúdo completo do arquivo .json para stores baseadas em arquivo, em vez de retornar apenas o registro de índice.
 // ... (histórico anterior omitido)
 
 const DB_NAME = 'SEFWorkStationDB';
@@ -55,26 +53,7 @@ const FALLBACK_MAX_AUTO_BACKUPS = 5;
 let db;
 let dbInitializationPromise = null;
 
-// --- FUNÇÕES HELPER ---
-
-/**
- * Calcula o hash SHA-256 de uma string de dados.
- * @param {string} dataString - A string a ser hasheada.
- * @returns {Promise<string>} O hash em formato hexadecimal.
- */
-async function _calculateDataHash(dataString) {
-    if (!crypto.subtle) {
-        console.warn("Crypto API não disponível. Não foi possível gerar o hash de integridade.");
-        return null;
-    }
-    const encoder = new TextEncoder();
-    const data = encoder.encode(dataString);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-    return hashHex;
-}
-
+// --- LÓGICA EXISTENTE DO DB (MODIFICADA E MANTIDA) ---
 
 async function updateLastDataModificationTimestamp() {
     try {
@@ -126,13 +105,8 @@ function initDB() {
                 console.log("DB.JS: Criando a object store 'itcdConfiguracoesStore'.");
                 db.createObjectStore(ITCD_CONFIGURACOES_STORE_NAME, { keyPath: 'key' });
             }
-            if (!db.objectStoreNames.contains(ITCD_SELIC_INDICES_STORE_NAME)) {
-                console.log("DB.JS: Criando a object store 'itcdSelicIndicesStore'.");
-                db.createObjectStore(ITCD_SELIC_INDICES_STORE_NAME, { keyPath: 'key' });
-            }
-            if (!db.objectStoreNames.contains(ITCD_SEMOVENTES_PAUTAS_STORE_NAME)) {
-                db.createObjectStore(ITCD_SEMOVENTES_PAUTAS_STORE_NAME, { keyPath: 'key' });
-            }
+            // As stores de SELIC e Pautas foram removidas daqui para voltarem para dentro de itcdConfiguracoesStore
+            
             if (!db.objectStoreNames.contains(ITCD_VEICULOS_FIPE_MARCAS_STORE_NAME)) {
                 const marcasStore = db.createObjectStore(ITCD_VEICULOS_FIPE_MARCAS_STORE_NAME, { keyPath: 'codigo' });
                 marcasStore.createIndex('nome', 'nome', { unique: false });
@@ -207,30 +181,7 @@ function initDB() {
             if (!db.objectStoreNames.contains(SERVIDORES_GRUPOS_STORE_NAME)) { const servidoresGruposStore = db.createObjectStore(SERVIDORES_GRUPOS_STORE_NAME, { keyPath: 'id', autoIncrement: false }); servidoresGruposStore.createIndex('nomeGrupo', 'nomeGrupo', { unique: true }); servidoresGruposStore.createIndex('idsServidoresMembros', 'idsServidoresMembros', { unique: false, multiEntry: true }); servidoresGruposStore.createIndex('isDeleted', 'isDeleted', { unique: false }); }
             if (!db.objectStoreNames.contains(COMUNICACAO_DESTINATARIOS_STORE_NAME)) { const destinatariosStore = db.createObjectStore(COMUNICACAO_DESTINATARIOS_STORE_NAME, { keyPath: 'id', autoIncrement: false }); destinatariosStore.createIndex('nome', 'nome', { unique: false }); destinatariosStore.createIndex('email', 'email', { unique: true }); destinatariosStore.createIndex('empresa', 'empresa', { unique: false }); destinatariosStore.createIndex('isDeleted', 'isDeleted', { unique: false }); } if (!db.objectStoreNames.contains(COMUNICACAO_GRUPOS_STORE_NAME)) { const gruposComStore = db.createObjectStore(COMUNICACAO_GRUPOS_STORE_NAME, { keyPath: 'id', autoIncrement: false }); gruposComStore.createIndex('nomeGrupo', 'nomeGrupo', { unique: true }); gruposComStore.createIndex('idsDestinatariosMembros', 'idsDestinatariosMembros', { unique: false, multiEntry: true }); gruposComStore.createIndex('emailsAvulsosMembros', 'emailsAvulsosMembros', { unique: false, multiEntry: true }); gruposComStore.createIndex('isDeleted', 'isDeleted', { unique: false }); } if (!db.objectStoreNames.contains(COMUNICACAO_EMAILS_GERADOS_STORE_NAME)) { const emailsGeradosStore = db.createObjectStore(COMUNICACAO_EMAILS_GERADOS_STORE_NAME, { keyPath: 'id', autoIncrement: false }); emailsGeradosStore.createIndex('assunto', 'assunto', { unique: false }); emailsGeradosStore.createIndex('dataGeracao', 'dataGeracao', { unique: false }); emailsGeradosStore.createIndex('status', 'status', { unique: false }); emailsGeradosStore.createIndex('nomeArquivoEML', 'nomeArquivoEML', { unique: false }); emailsGeradosStore.createIndex('idEntidadeOrigem', 'idEntidadeOrigem', { unique: false }); emailsGeradosStore.createIndex('tipoEntidadeOrigem', 'tipoEntidadeOrigem', { unique: false }); emailsGeradosStore.createIndex('isDeleted', 'isDeleted', { unique: false }); }
             
-            // --- LÓGICA DE MIGRAÇÃO ---
-            const configStoreSelic = transaction.objectStore(ITCD_CONFIGURACOES_STORE_NAME);
-            const selicStoreNew = transaction.objectStore(ITCD_SELIC_INDICES_STORE_NAME);
-            const getReqSelic = configStoreSelic.get('selicIndices');
-            getReqSelic.onsuccess = () => {
-                const oldSelicData = getReqSelic.result;
-                if (oldSelicData && oldSelicData.value && typeof oldSelicData.value === 'object') {
-                    console.log("DB.JS: Migrando dados da SELIC para a nova estrutura...");
-                    const mesesMap = {"jan": 1, "fev": 2, "mar": 3, "abr": 4, "mai": 5, "jun": 6, "jul": 7, "ago": 8, "set": 9, "out": 10, "nov": 11, "dez": 12};
-                    for (const ano in oldSelicData.value) {
-                        for (const mesAbrev in oldSelicData.value[ano]) {
-                            const mesNum = mesesMap[mesAbrev];
-                            if (mesNum) {
-                                const key = `${ano}-${String(mesNum).padStart(2, '0')}`;
-                                const valor = oldSelicData.value[ano][mesAbrev];
-                                selicStoreNew.put({ key: key, valor: valor });
-                            }
-                        }
-                    }
-                    console.log("DB.JS: Migração da SELIC concluída.");
-                }
-            };
-            getReqSelic.onerror = (e) => console.error("DB.JS: Erro ao ler dados antigos da SELIC para migração.", e);
-
+            // --- LÓGICA DE MIGRAÇÃO (REVERTIDA/REMOVIDA) ---
             const prefsStoreNew = transaction.objectStore(USER_PREFERENCES_STORE_NAME);
             const USER_PREFERENCES_KEY_LS = 'sefWorkstationUserPreferences';
             const USER_THEME_COLORS_KEY_LS = 'sefWorkstationUserThemeColors';
@@ -518,9 +469,7 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
                                 item.id = window.SEFWorkStation.App.generateUUID();
                             }
                         }
-
                         let itemToStore = item;
-
                         if (mode === 'merge') {
                             try {
                                 const putRequest = store.put(itemToStore);
@@ -680,7 +629,7 @@ window.SEFWorkStation.DB = {
     performAutoZipBackup,
     performSelectiveZipBackup,
     saveDatabaseToFile,
-    _calculateDataHash, // Expondo para o app.js
+    _calculateDataHash,
     APP_DATA_FILE_NAME, 
     LOCAL_STORAGE_LAST_DATA_MODIFICATION_KEY,
     STORES: { 
