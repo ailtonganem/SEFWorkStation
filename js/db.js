@@ -1,4 +1,5 @@
 // js/db.js - Lógica de interação com o IndexedDB
+// v68.0 - NOVO: Funções de backup agora salvam o hash dos dados no localStorage após a exportação bem-sucedida, permitindo o funcionamento do backup "inteligente".
 // v67.0 - NOVO: A função de importação agora valida a integridade do backup. Ela verifica o hash SHA-256 dos dados antes de restaurar, prevenindo a importação de arquivos corrompidos.
 // v66.0 - NOVO: Backup agora inclui um bloco de metadados com versão, data e hash SHA-256 para validação de integridade. A exportação de dados agora é dinâmica, lendo todas as stores do DB por padrão.
 // v65.0 - REATORADO: Removida toda a lógica de armazenamento em sistema de arquivos (File System Access API). A aplicação agora utiliza exclusivamente o IndexedDB para persistência de dados, alinhado com a migração para a web.
@@ -571,10 +572,10 @@ async function importAllDataFromJson(jsonData, mode = 'replace') {
 async function saveDatabaseToFile(showFeedbackCallback) {
     if (!db) await initDB();
     try {
-        const dataToSave = await exportAllDataToJson(); 
-        const jsonDataString = JSON.stringify(dataToSave, null, 2); 
+        const dataToSave = await exportAllDataToJson();
+        const jsonDataString = JSON.stringify(dataToSave, null, 2);
         const blob = new Blob([jsonDataString], { type: 'application/json' });
-        
+
         const triggerDownload = (blob, fileName) => {
             const url = URL.createObjectURL(blob);
             const a = document.createElement('a');
@@ -585,8 +586,13 @@ async function saveDatabaseToFile(showFeedbackCallback) {
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
         };
-        
+
         triggerDownload(blob, APP_DATA_FILE_NAME);
+
+        if (dataToSave.metadata && dataToSave.metadata.dataHash) {
+            localStorage.setItem(window.SEFWorkStation.App.LOCAL_STORAGE_LAST_BACKUP_HASH_KEY, dataToSave.metadata.dataHash);
+            await window.SEFWorkStation.App.updateBackupStatusDisplay();
+        }
 
         if (showFeedbackCallback) showFeedbackCallback(`Download da base de dados "${APP_DATA_FILE_NAME}" iniciado.`, "success");
         return APP_DATA_FILE_NAME;
@@ -625,8 +631,13 @@ async function performSelectiveZipBackup(storeNamesToExport) {
             URL.revokeObjectURL(url);
         };
         triggerDownload(zipBlob, zipFileName);
+        
+        if (data.metadata && data.metadata.dataHash) {
+            localStorage.setItem(window.SEFWorkStation.App.LOCAL_STORAGE_LAST_BACKUP_HASH_KEY, data.metadata.dataHash);
+            await window.SEFWorkStation.App.updateBackupStatusDisplay();
+        }
 
-        await addItem(BACKUPS_STORE_NAME, { 
+        await addItem(BACKUPS_STORE_NAME, {
             backupDate: new Date().toISOString(),
             type: 'manual_zip_selective',
             fileName: zipFileName,
@@ -637,7 +648,7 @@ async function performSelectiveZipBackup(storeNamesToExport) {
         return zipFileName;
     } catch (error) {
         console.error("DB.JS: Erro crítico durante o backup manual seletivo:", error);
-        await addItem(BACKUPS_STORE_NAME, { 
+        await addItem(BACKUPS_STORE_NAME, {
             backupDate: new Date().toISOString(),
             type: 'manual_zip_selective',
             fileName: null,
@@ -669,6 +680,7 @@ window.SEFWorkStation.DB = {
     performAutoZipBackup,
     performSelectiveZipBackup,
     saveDatabaseToFile,
+    _calculateDataHash, // Expondo para o app.js
     APP_DATA_FILE_NAME, 
     LOCAL_STORAGE_LAST_DATA_MODIFICATION_KEY,
     STORES: { 
