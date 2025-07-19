@@ -1,6 +1,6 @@
 // js/backup.js - Lógica para Backup e Restauração
+// v21.0.0 - NOVO: Implementada a pré-visualização de restauração. Ao selecionar um arquivo, um modal exibe os metadados (versão, data) e a contagem de itens antes da confirmação final, aumentando a segurança da operação.
 // v20.0.0 - REATORADO PARA WEB: Removida a lógica de acesso ao sistema de arquivos. O backup agora gera um ZIP em memória com TODOS os dados do IndexedDB e o oferece para download. A interface foi simplificada para um backup completo. O backup automático foi desativado.
-// v19.12.1 - ADICIONADO: Inclusão da store 'itcdSelicIndicesStore' no backup manual.
 // ... (histórico anterior omitido)
 
 window.SEFWorkStation = window.SEFWorkStation || {};
@@ -10,6 +10,7 @@ window.SEFWorkStation.Backup = (function() {
     let showGlobalFeedbackRef;
     let dbRef;
     let ajudaModuleRef;
+    let uiModuleRef; // Adicionando referência ao módulo de UI
 
     // Lista agora é usada internamente para garantir que todas as stores sejam incluídas.
     const ALL_STORES_FOR_BACKUP = [
@@ -33,29 +34,13 @@ window.SEFWorkStation.Backup = (function() {
         showGlobalFeedbackRef = showFeedbackFunc;
         dbRef = dbModule;
         ajudaModuleRef = window.SEFWorkStation.Ajuda; 
+        uiModuleRef = window.SEFWorkStation.UI;
         
-        if (!dbRef) {
-            console.error("Backup.JS: init - ERRO CRÍTICO: Referência ao módulo DB (dbRef) não fornecida ou é inválida!");
-        }
-        if (!ajudaModuleRef) {
-            console.warn("Backup.JS: init - Módulo de Ajuda não encontrado.");
-        }
-        console.log("Backup.JS: Módulo de Backup inicializado (v20.0.0).");
-    }
+        if (!dbRef) console.error("Backup.JS: init - ERRO CRÍTICO: Referência ao módulo DB (dbRef) não fornecida ou é inválida!");
+        if (!uiModuleRef) console.warn("Backup.JS: init - Módulo de UI não encontrado.");
+        if (!ajudaModuleRef) console.warn("Backup.JS: init - Módulo de Ajuda não encontrado.");
 
-    /**
-     * Função utilitária para disparar o download de um Blob.
-     */
-    function triggerDownload(blob, fileName) {
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fileName;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-        console.log(`Backup.JS: Download do arquivo "${fileName}" disparado.`);
+        console.log("Backup.JS: Módulo de Backup inicializado (v21.0.0).");
     }
 
     /**
@@ -103,31 +88,12 @@ window.SEFWorkStation.Backup = (function() {
                     <!-- Coluna de Restauração -->
                     <div class="section-box p-4 border dark:border-slate-700 rounded-lg flex flex-col">
                         <h3 class="text-lg font-medium mb-2 text-gray-800 dark:text-gray-100">Restaurar Dados de Backup</h3>
-                        <div class="mb-3">
-                            <label for="backup-file-input" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                Selecione o arquivo de backup (.zip):
-                            </label>
-                            <input type="file" id="backup-file-input" accept=".zip" class="form-input-file w-full max-w-md">
-                            <p id="selected-backup-file-name" class="text-sm text-gray-500 dark:text-gray-400 mt-1"></p>
-                        </div>
-                        <div class="mb-3">
-                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Modo de Importação:</label>
-                            <div class="flex items-center gap-4">
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="import-mode" value="replace" class="form-radio" checked>
-                                    <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Substituir Tudo</span>
-                                </label>
-                                <label class="inline-flex items-center">
-                                    <input type="radio" name="import-mode" value="merge" class="form-radio">
-                                    <span class="ml-2 text-sm text-gray-700 dark:text-gray-300">Mesclar</span>
-                                </label>
-                            </div>
-                        </div>
-                        <p class="text-xs text-red-600 dark:text-red-400 mb-3">
-                            <strong>Atenção:</strong> No modo "Substituir", dados atuais serão <strong>apagados</strong>. No modo "Mesclar", itens existentes com o mesmo ID serão <strong>sobrescritos</strong>.
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-3">
+                            Selecione um arquivo de backup (.zip ou .json) para iniciar o processo de restauração.
                         </p>
+                        <input type="file" id="backup-file-input" class="hidden" accept=".zip,.json">
                         <div class="mt-auto">
-                            <button id="btn-restore-from-file" class="btn-delete" disabled>Restaurar Dados do Arquivo</button>
+                           <button id="btn-select-restore-file" class="btn-primary bg-green-600 hover:bg-green-700">Selecionar Arquivo de Backup</button>
                         </div>
                     </div>
                 </div>
@@ -140,8 +106,7 @@ window.SEFWorkStation.Backup = (function() {
     function addBackupPageEventListeners(feedbackDisplayArea) {
         const btnExportFullZip = document.getElementById('btn-export-full-zip');
         const backupFileInput = document.getElementById('backup-file-input');
-        const selectedFileNameEl = document.getElementById('selected-backup-file-name');
-        const btnRestoreFromFile = document.getElementById('btn-restore-from-file');
+        const btnSelectRestoreFile = document.getElementById('btn-select-restore-file');
         const btnAjuda = document.getElementById('ajuda-backup-restore');
 
         if (btnExportFullZip) {
@@ -155,8 +120,7 @@ window.SEFWorkStation.Backup = (function() {
                 if (showGlobalFeedbackRef) showGlobalFeedbackRef("Iniciando exportação completa...", "info", feedbackDisplayArea);
                 
                 try {
-                    // Passando false para 'includePhysicalAttachments', pois não é mais suportado
-                    const zipFileName = await dbRef.performSelectiveZipBackup(ALL_STORES_FOR_BACKUP, false, showGlobalFeedbackRef, feedbackDisplayArea);
+                    const zipFileName = await dbRef.performSelectiveZipBackup(null); // Passar null para usar todas as stores dinamicamente
                     
                     if (zipFileName) {
                          if (showGlobalFeedbackRef) showGlobalFeedbackRef(`Backup "${zipFileName}" gerado e download iniciado.`, "success", feedbackDisplayArea);
@@ -169,86 +133,40 @@ window.SEFWorkStation.Backup = (function() {
                 }
             });
         }
-
-        if (backupFileInput) {
-            backupFileInput.addEventListener('change', (event) => {
+        
+        if (btnSelectRestoreFile && backupFileInput) {
+            btnSelectRestoreFile.addEventListener('click', () => backupFileInput.click());
+            
+            backupFileInput.addEventListener('change', async (event) => {
                 const file = event.target.files[0];
-                if (file) {
-                    selectedFileNameEl.textContent = `Arquivo: ${file.name}`;
-                    btnRestoreFromFile.disabled = false;
-                } else {
-                    selectedFileNameEl.textContent = '';
-                    btnRestoreFromFile.disabled = true;
-                }
-            });
-        }
+                if (!file) return;
 
-        if (btnRestoreFromFile) {
-            btnRestoreFromFile.addEventListener('click', async () => {
-                const file = backupFileInput.files[0];
-                const importModeRadio = document.querySelector('input[name="import-mode"]:checked');
-                const importMode = importModeRadio ? importModeRadio.value : 'replace';
-
-                if (!file) {
-                    if (showGlobalFeedbackRef) showGlobalFeedbackRef("Nenhum arquivo selecionado.", "warning", feedbackDisplayArea);
-                    return;
-                }
-
-                if (!dbRef || typeof dbRef.importAllDataFromJson !== 'function') {
-                     if (showGlobalFeedbackRef) showGlobalFeedbackRef("ERRO CRÍTICO: Função de importação não disponível.", "error", feedbackDisplayArea);
-                     return;
-                }
-
-                let confirmMessage = `ATENÇÃO: Você selecionou o modo "${importMode === 'replace' ? 'Substituir Tudo' : 'Mesclar com Existentes'}".\n`;
-                if (importMode === 'replace') {
-                    confirmMessage += "TODOS OS DADOS ATUAIS nas stores afetadas pelo backup serão APAGADOS e substituídos. ";
-                } else {
-                    confirmMessage += "Os dados do backup serão adicionados. Se itens com o mesmo ID existirem, os do backup SOBRESCREVERÃO os atuais. ";
-                }
-                confirmMessage += `Continuar com a restauração de "${file.name}"?`;
-
-                if (!confirm(confirmMessage)) {
-                    return;
-                }
-
-                if (showGlobalFeedbackRef) showGlobalFeedbackRef(`Iniciando restauração de "${file.name}" (Modo: ${importMode})...`, "info", feedbackDisplayArea);
-
+                uiModuleRef.showLoading(true, "Analisando arquivo de backup...");
                 try {
                     let jsonData;
                     if (file.name.endsWith('.zip')) {
                         if (typeof JSZip === 'undefined') throw new Error("JSZip não carregado.");
                         const jszip = new JSZip();
                         const zipContent = await jszip.loadAsync(file);
-                        const jsonFileInZip = zipContent.file('sefworkstation_data.json') || Object.values(zipContent.files).find(f => f.name.endsWith('.json') && !f.dir);
-                        if (!jsonFileInZip) throw new Error("Arquivo JSON de dados ('sefworkstation_data.json') não encontrado no ZIP.");
+                        const jsonFileInZip = zipContent.file('sefworkstation_data.json');
+                        if (!jsonFileInZip) throw new Error("Arquivo 'sefworkstation_data.json' não encontrado no ZIP.");
                         jsonData = JSON.parse(await jsonFileInZip.async('string'));
-                        if (showGlobalFeedbackRef) showGlobalFeedbackRef(`Anexos físicos no ZIP não são restaurados na versão web. Apenas os dados do JSON serão importados.`, "info", feedbackDisplayArea);
+                    } else if (file.name.endsWith('.json')) {
+                        jsonData = JSON.parse(await file.text());
                     } else {
-                        throw new Error("Formato de arquivo não suportado. Selecione um arquivo .zip.");
+                        throw new Error("Formato de arquivo não suportado. Selecione um .zip ou .json.");
                     }
 
-                    if (!jsonData) throw new Error("Não foi possível obter dados JSON do backup.");
+                    if (!jsonData) throw new Error("Não foi possível obter dados do backup.");
 
-                    const importResult = await dbRef.importAllDataFromJson(jsonData, importMode);
+                    _showRestorePreviewModal(jsonData, file.name);
 
-                    if (importResult && importResult.success) {
-                        if (showGlobalFeedbackRef) showGlobalFeedbackRef(`Restauração (Modo: ${importMode}) concluída! ${importResult.message || ''} Atualizando aplicação...`, "success", feedbackDisplayArea);
-                        if (window.SEFWorkStation && window.SEFWorkStation.App) {
-                            await window.SEFWorkStation.App.refreshApplicationState();
-                            window.SEFWorkStation.App.handleMenuAction('gerir-documentos');
-                        } else { window.location.reload(); }
-                    } else {
-                        const errorMsg = importResult && importResult.message ? importResult.message : (importResult && importResult.errors && importResult.errors.length > 0
-                                        ? `Restauração (Modo: ${importMode}) com ${importResult.errors.length} erro(s). Ver console.`
-                                        : `Falha na restauração (Modo: ${importMode}). Ver console.`);
-                        if (showGlobalFeedbackRef) showGlobalFeedbackRef(errorMsg, "error", feedbackDisplayArea);
-                    }
-                    backupFileInput.value = '';
-                    selectedFileNameEl.textContent = '';
-                    btnRestoreFromFile.disabled = true;
                 } catch (error) {
-                    console.error("Backup.JS: Erro CRÍTICO ao restaurar dados:", error);
-                    if (showGlobalFeedbackRef) showGlobalFeedbackRef(`Erro CRÍTICO: ${error.message}. Ver console.`, "error", feedbackDisplayArea);
+                    console.error("Backup.JS: Erro ao analisar o arquivo de backup:", error);
+                    showGlobalFeedbackRef(`Erro ao analisar o arquivo: ${error.message}`, 'error', feedbackDisplayArea, 0);
+                } finally {
+                    uiModuleRef.showLoading(false);
+                    event.target.value = ''; // Limpa o input para permitir selecionar o mesmo arquivo novamente
                 }
             });
         }
@@ -263,22 +181,94 @@ window.SEFWorkStation.Backup = (function() {
         }
     }
 
-    async function renderGerenciarBackupsPage() {
-        if (!mainContentWrapperRef) {
-            console.error("Backup.JS: renderGerenciarBackupsPage - mainContentWrapperRef não definido.");
-            if (showGlobalFeedbackRef) showGlobalFeedbackRef("Erro crítico ao tentar renderizar a página de gerenciamento de backups.", "error");
-            return;
-        }
-        const feedbackAreaId = "feedback-gerenciar-backups";
-        mainContentWrapperRef.innerHTML = `<div class="page-section max-w-none px-4 sm:px-6 lg:px-8" id="gerenciar-backups-container"><p class="loading-text p-4">Carregando lista de backups...</p></div>`;
-        const container = document.getElementById('gerenciar-backups-container');
-        
-        let contentHtml = `<h2 class="text-2xl font-semibold mb-6">Gerenciar Registros de Backup</h2>`;
-        contentHtml += `<p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Esta página lista os registros de backups manuais que foram gerados. Na versão web, os arquivos físicos são baixados por você. Esta lista serve apenas como um histórico das operações.</p>`;
-        
-        container.innerHTML = contentHtml;
+    async function _showRestorePreviewModal(jsonData, fileName) {
+        const metadata = jsonData.metadata || {};
+        const data = jsonData.data || jsonData; // Compatibilidade com formato antigo
+
+        const counts = {
+            Documentos: data.documents?.length || 0,
+            Contribuintes: data.contribuintes?.length || 0,
+            Tarefas: data.tarefasStore?.length || 0,
+            Notas: data.notasRapidasStore?.length || 0,
+            Avaliações: data.itcdAvaliacoesStore?.length || 0,
+            Cálculos: data.itcdCalculosStore?.length || 0
+        };
+
+        const countsHtml = Object.entries(counts)
+            .filter(([, count]) => count > 0)
+            .map(([name, count]) => `<div class="info-item"><dt>${name}:</dt><dd>${count}</dd></div>`)
+            .join('');
+
+        const modalContentHtml = `
+            <div id="feedback-restore-modal"></div>
+            <div class="mb-4">
+                <p class="text-sm text-gray-600 dark:text-gray-300">Você está prestes a restaurar os dados do arquivo:</p>
+                <p class="font-semibold text-gray-800 dark:text-gray-100">${fileName}</p>
+            </div>
+            <div class="card p-3 mb-4">
+                <h4 class="text-md font-medium mb-2">Resumo do Backup</h4>
+                <dl class="card-dl-grid">
+                    <div class="info-item"><dt>Versão do App:</dt><dd>${metadata.appVersion || 'Desconhecida (formato antigo)'}</dd></div>
+                    <div class="info-item"><dt>Data de Criação:</dt><dd>${metadata.exportDate ? new Date(metadata.exportDate).toLocaleString() : 'Desconhecida'}</dd></div>
+                    <div class="info-item"><dt>Validação:</dt><dd class="${metadata.dataHash ? 'text-green-600 dark:text-green-400' : 'text-yellow-600 dark:text-yellow-400'}">${metadata.dataHash ? 'Verificável' : 'Não Verificável'}</dd></div>
+                </dl>
+                ${countsHtml ? `<h5 class="text-sm font-medium mt-3 pt-2 border-t dark:border-slate-600">Itens Principais:</h5><dl class="card-dl-grid">${countsHtml}</dl>` : ''}
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Modo de Importação:</label>
+                <div class="flex items-center gap-4">
+                    <label class="inline-flex items-center"><input type="radio" name="import-mode-modal" value="replace" class="form-radio" checked><span class="ml-2 text-sm">Substituir Dados Atuais</span></label>
+                    <label class="inline-flex items-center"><input type="radio" name="import-mode-modal" value="merge" class="form-radio"><span class="ml-2 text-sm">Mesclar com Dados Atuais</span></label>
+                </div>
+            </div>
+            <p class="text-xs text-red-600 dark:text-red-400">
+                <strong>Atenção:</strong> "Substituir" apagará os dados existentes. "Mesclar" sobrescreverá itens com o mesmo ID. Esta ação não pode ser desfeita.
+            </p>
+        `;
+
+        uiModuleRef.showModal("Revisão de Restauração", modalContentHtml, [
+            { text: 'Cancelar', class: 'btn-secondary', closesModal: true },
+            {
+                text: 'Confirmar e Restaurar',
+                class: 'btn-delete',
+                callback: async () => {
+                    const importMode = document.querySelector('input[name="import-mode-modal"]:checked')?.value || 'replace';
+                    uiModuleRef.showLoading(true, `Restaurando (Modo: ${importMode})...`);
+                    
+                    try {
+                        const importResult = await dbRef.importAllDataFromJson(jsonData, importMode);
+
+                        if (importResult && importResult.success) {
+                            showGlobalFeedbackRef(`Restauração concluída! ${importResult.message || ''} A aplicação será recarregada.`, "success", null, 5000);
+                            setTimeout(() => window.location.reload(), 2500);
+                        } else {
+                            const errorMsg = importResult.message || `Falha na restauração. Verifique o console.`;
+                            const feedbackEl = document.getElementById('feedback-restore-modal');
+                            if (feedbackEl) {
+                                feedbackEl.innerHTML = `<div class="feedback-message error">${errorMsg}</div>`;
+                            } else {
+                                showGlobalFeedbackRef(errorMsg, "error", null, 0);
+                            }
+                            return false; // Não fechar o modal em caso de erro
+                        }
+                    } catch (error) {
+                         const feedbackEl = document.getElementById('feedback-restore-modal');
+                         if (feedbackEl) {
+                             feedbackEl.innerHTML = `<div class="feedback-message error">Erro crítico: ${error.message}</div>`;
+                         } else {
+                            showGlobalFeedbackRef(`Erro crítico na restauração: ${error.message}`, "error", null, 0);
+                         }
+                         return false;
+                    } finally {
+                        uiModuleRef.showLoading(false);
+                    }
+                    return true; // Fechar modal em caso de sucesso
+                }
+            }
+        ], 'max-w-lg');
     }
-    
+
     // Função agora desativada na versão web
     async function performAutoZipBackup() {
         // Backup automático não é viável no ambiente web padrão.
@@ -289,6 +279,5 @@ window.SEFWorkStation.Backup = (function() {
     return {
         init,
         renderBackupPage,
-        renderGerenciarBackupsPage
     };
 })();
