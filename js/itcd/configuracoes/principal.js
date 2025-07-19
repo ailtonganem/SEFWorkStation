@@ -1,4 +1,5 @@
 // js/itcd/configuracoes/principal.js - Módulo para a aba Principal das Configurações do ITCD
+// v4.0.0 - UNIFICADO: Removida a funcionalidade de backup geral do ITCD. Adicionada funcionalidade específica para importar/exportar apenas as CONFIGURAÇÕES de pautas e valores do ITCD.
 // v3.3.0 - ADICIONADO: Inclui dados da UFEMG e SELIC no backup de configurações.
 // v3.2.0 - CORRIGIDO: Garante que todos os campos e botões de edição/adição sejam desabilitados quando as configurações estão bloqueadas (isLocked=true).
 // v3.1.0 - IMPLEMENTADO: Exportação de configurações para e-mail com salvamento de arquivo local e corpo de texto padronizado.
@@ -21,12 +22,14 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
     const ITCD_CONFIG_STORE = 'itcdConfiguracoesStore';
     const SRF_CIDADES_KEY = 'srfCidades';
     const UFS_KEY = 'unidadesFazendarias';
-    const PARTILHA_REGRAS_KEY = 'partilhaLegalRegras';
-    const UFEMG_KEY = 'valoresUfemg';
-    const SELIC_INDICES_STORE = 'itcdSelicIndicesStore';
-    const PAUTAS_STORE = 'itcdSemoventesPautasStore';
-    const CONFIG_FILENAME_LOCAL = 'itcd_configuracoes_sefworkstation.json';
-    const CONFIG_FILENAME_EMAIL = 'itcd_configuracoes.json';
+    // Lista de todas as chaves de configuração a serem exportadas/importadas
+    const CONFIG_KEYS_TO_MANAGE = [
+        SRF_CIDADES_KEY, UFS_KEY, 'partilhaLegalRegras', 'valoresUfemg',
+        'urbanoLocalizacoes', 'urbanoDepreciacao', 'urbanoTipoTerreno', 'urbanoGeral',
+        'valoresCUB', 'ruralGeralConfig', 'urbanoConservacao', 'urbanoApartamentoFatores'
+    ];
+    const CONFIG_FILENAME = 'sefworkstation_itcd_configuracoes.json';
+
 
     function init(db, app, ui) {
         dbRef = db;
@@ -76,29 +79,15 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
                 </fieldset>
 
                 <div class="section-box p-4 border dark:border-slate-700 rounded-lg">
-                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Salvar/Carregar Configurações do ITCD</h3>
+                    <h3 class="text-lg font-medium mb-3 text-gray-800 dark:text-gray-100">Importar/Exportar Configurações de Pauta</h3>
                     <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                        Use estas ferramentas para salvar ou carregar um conjunto completo de configurações do ITCD.
+                        Exporte as configurações de SRF, cidades, UFs e valores de pauta para um arquivo .json. Você pode compartilhar este arquivo com outros usuários ou usá-lo como backup.
                     </p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="p-3 border dark:border-slate-600 rounded-md">
-                            <h4 class="font-semibold mb-2 dark:text-gray-200">Salvar/Carregar da Pasta da Aplicação</h4>
-                            <p class="text-xs mb-3 dark:text-gray-400">Salva ou carrega um arquivo padrão (<code>${CONFIG_FILENAME_LOCAL}</code>) dentro da pasta <code>data/</code>.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button id="btn-salvar-itcd-config-local" class="btn-secondary" ${isLocked ? 'disabled' : ''}>Salvar na Pasta</button>
-                                <button id="btn-carregar-itcd-config-local" class="btn-primary" ${isLocked ? 'disabled' : ''}>Carregar da Pasta</button>
-                            </div>
-                        </div>
-                        <div class="p-3 border dark:border-slate-600 rounded-md">
-                            <h4 class="font-semibold mb-2 dark:text-gray-200">Exportar/Importar (Arquivo Manual)</h4>
-                            <p class="text-xs mb-3 dark:text-gray-400">Envia as configurações por e-mail ou importa um arquivo que você seleciona manualmente.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <button id="btn-export-itcd-config-email" class="btn-secondary" ${isLocked ? 'disabled' : ''}>Exportar para E-mail</button>
-                                <div>
-                                    <input type="file" id="input-import-itcd-config-manual" class="hidden" accept=".json" ${isLocked ? 'disabled' : ''}>
-                                    <button onclick="document.getElementById('input-import-itcd-config-manual').click()" class="btn-primary" ${isLocked ? 'disabled' : ''}>Importar de Arquivo</button>
-                                </div>
-                            </div>
+                    <div class="flex flex-wrap gap-4">
+                        <button id="btn-export-itcd-config-pautas" class="btn-secondary" ${isLocked ? 'disabled' : ''}>Exportar Configurações (.json)</button>
+                        <div>
+                            <input type="file" id="input-import-itcd-config-pautas" class="hidden" accept=".json">
+                            <button onclick="document.getElementById('input-import-itcd-config-pautas').click()" class="btn-primary" ${isLocked ? 'disabled' : ''}>Importar Configurações (.json)</button>
                         </div>
                     </div>
                 </div>
@@ -130,8 +119,8 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
                 
                 const botoesHtml = isLocked ? '' : `
                     <div class="space-x-2">
-                        <button class="btn-secondary btn-sm text-xs py-1 px-2 btn-editar-srf" data-id="${srf.id}" data-nome="${srf.nome.replace(/"/g, '"')}">Editar SRF</button>
-                        <button class="btn-delete btn-sm text-xs py-1 px-2 btn-excluir-srf" data-id="${srf.id}" data-nome="${srf.nome.replace(/"/g, '"')}">Excluir SRF</button>
+                        <button class="btn-secondary btn-sm text-xs py-1 px-2 btn-editar-srf" data-id="${srf.id}" data-nome="${srf.nome.replace(/"/g, '\"')}">Editar SRF</button>
+                        <button class="btn-delete btn-sm text-xs py-1 px-2 btn-excluir-srf" data-id="${srf.id}" data-nome="${srf.nome.replace(/"/g, '\"')}">Excluir SRF</button>
                     </div>`;
 
                 let cidadesHtml = '<p class="text-xs text-gray-500 dark:text-gray-400 mt-2 ml-4">Nenhuma cidade cadastrada para esta SRF.</p>';
@@ -328,162 +317,44 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
             }
         }
     }
-
-    async function coletarTodasConfiguracoesITCD() {
-        const configData = {};
-        const configKeys = [
-            SRF_CIDADES_KEY, UFS_KEY, 'urbanoLocalizacoes', 'urbanoDepreciacao',
-            'urbanoTipoTerreno', 'urbanoGeral', 'valoresCUB', 'ruralGeralConfig', 
-            'urbanoConservacao', 'urbanoApartamentoFatores', PARTILHA_REGRAS_KEY,
-            UFEMG_KEY // Chave da UFEMG adicionada
-        ];
-        
-        for(const key of configKeys) {
-            const item = await dbRef.getItemById(ITCD_CONFIG_STORE, key);
-            if (item) configData[key] = item.value;
-        }
-        
-        const pautas = await dbRef.getAllItems(PAUTAS_STORE);
-        const selicIndices = await dbRef.getAllItems(SELIC_INDICES_STORE);
-
-        return { 
-            itcdConfiguracoesStore: configData,
-            itcdSemoventesPautasStore: pautas,
-            itcdSelicIndicesStore: selicIndices
-        };
-    }
     
-    async function salvarConfiguracoesLocalmente() {
-        const dirHandle = window.SEFWorkStation.State.getDirectoryHandle();
-        if (!dirHandle) {
-            uiModuleRef.showToastNotification("A pasta raiz da aplicação não foi definida. Não é possível salvar.", "error");
-            return;
-        }
-
-        uiModuleRef.showLoading(true, "Salvando configurações do ITCD na pasta 'data'...");
+    async function _exportarConfiguracoesItcd() {
+        uiModuleRef.showLoading(true, "Exportando configurações do ITCD...");
         try {
-            const dataDirHandle = await dirHandle.getDirectoryHandle('data', { create: true });
-            const fileHandle = await dataDirHandle.getFileHandle(CONFIG_FILENAME_LOCAL, { create: true });
-            
-            const configParaSalvar = await coletarTodasConfiguracoesITCD();
-            const jsonDataString = JSON.stringify(configParaSalvar, null, 2);
-            
-            const writable = await fileHandle.createWritable();
-            await writable.write(jsonDataString);
-            await writable.close();
-
-            uiModuleRef.showToastNotification("Configurações salvas com sucesso em 'data/'.", "success");
-        } catch (error) {
-            console.error("Erro ao salvar configurações do ITCD localmente:", error);
-            uiModuleRef.showToastNotification(`Falha ao salvar: ${error.message}`, "error");
-        } finally {
-            uiModuleRef.showLoading(false);
-        }
-    }
-    
-    async function carregarConfiguracoesLocalmente() {
-        const dirHandle = window.SEFWorkStation.State.getDirectoryHandle();
-        if (!dirHandle) {
-            uiModuleRef.showToastNotification("A pasta raiz da aplicação não foi definida.", "error");
-            return;
-        }
-
-        const userConfirmed = await uiModuleRef.showConfirmationModal(
-            'Confirmar Carregamento',
-            'Isto irá <strong>sobrescrever TODAS as suas configurações atuais do ITCD</strong> com os dados do arquivo na pasta <code>data/</code>. Esta ação não pode ser desfeita. Deseja continuar?',
-            'Sim, Carregar e Substituir', 'Cancelar'
-        );
-        if (!userConfirmed) {
-            uiModuleRef.showToastNotification("Operação cancelada.", "info");
-            return;
-        }
-
-        uiModuleRef.showLoading(true, "Carregando configurações da pasta 'data'...");
-        try {
-            const dataDirHandle = await dirHandle.getDirectoryHandle('data', { create: false });
-            const fileHandle = await dataDirHandle.getFileHandle(CONFIG_FILENAME_LOCAL, { create: false });
-            const file = await fileHandle.getFile();
-            const jsonData = JSON.parse(await file.text());
-
-            await importarDadosConfig(jsonData);
-
-        } catch (error) {
-            console.error("Erro ao carregar configurações do ITCD da pasta 'data':", error);
-            const userMsg = error.name === 'NotFoundError' ? `Arquivo '${CONFIG_FILENAME_LOCAL}' não encontrado na pasta 'data'.` : `Falha na importação: ${error.message}`;
-            uiModuleRef.showToastNotification(userMsg, "error", 0);
-        } finally {
-            uiModuleRef.showLoading(false);
-        }
-    }
-
-    async function handleExportarParaEmail() {
-        uiModuleRef.showLoading(true, "Gerando arquivo de configuração...");
-        try {
-            const configParaSalvar = await coletarTodasConfiguracoesITCD();
-            const jsonDataString = JSON.stringify(configParaSalvar, null, 2);
-            
-            const dirHandle = window.SEFWorkStation.State.getDirectoryHandle();
-            if (!dirHandle) throw new Error("A pasta da aplicação não foi definida.");
-            
-            const dataDirHandle = await dirHandle.getDirectoryHandle('data', { create: true });
-            const fileHandle = await dataDirHandle.getFileHandle(CONFIG_FILENAME_EMAIL, { create: true });
-            const writable = await fileHandle.createWritable();
-            await writable.write(jsonDataString);
-            await writable.close();
-
-            const fileToAttach = await fileHandle.getFile();
-
-            const emailBody = `
-                <p>Prezado(a),</p>
-                <p>Segue em anexo o arquivo de configurações do ITCD (<code>${CONFIG_FILENAME_EMAIL}</code>) gerado pelo sistema SEFWorkStation.</p>
-                <p>Para importar estas configurações para a sua instância do sistema, siga os passos abaixo:</p>
-                <ol style="margin-left: 20px; list-style-type: decimal;">
-                    <li>Salve o arquivo anexo em seu computador.</li>
-                    <li>No SEFWorkStation, acesse o menu "ITCD" → "Configurações ITCD".</li>
-                    <li>Na aba "Principal", encontre a seção "Salvar/Carregar Configurações do ITCD".</li>
-                    <li>Clique no botão "Importar de Arquivo" e selecione o arquivo <code>${CONFIG_FILENAME_EMAIL}</code> que você salvou.</li>
-                    <li>Confirme a importação. O sistema irá substituir as configurações atuais do ITCD pelas do arquivo e recarregará a página.</li>
-                </ol>
-                <br>
-                <p><strong>Observações do Administrador:</strong></p>
-                <p>[Insira aqui suas observações sobre este conjunto de configurações]</p>
-                <br>
-                <p>Atenciosamente,</p>
-                <p><strong>Administrador do Sistema SEFWorkStation</strong></p>
-            `.replace(/\n/g, '').replace(/  +/g, ' ');
-
-            const emailData = {
-                assunto: 'Arquivo de Configuração do ITCD - SEFWorkStation',
-                corpoHtml: emailBody,
-                anexos: [{
-                    fileName: CONFIG_FILENAME_EMAIL,
-                    file: fileToAttach,
-                    mimeType: 'application/json'
-                }]
-            };
-
-            if (appModuleRef && typeof appModuleRef.handleMenuAction === 'function') {
-                appModuleRef.handleMenuAction('escrever-email', { ...emailData });
-            } else {
-                throw new Error("Módulo de comunicação (e-mail) não está disponível.");
+            const configData = {};
+            for (const key of CONFIG_KEYS_TO_MANAGE) {
+                const item = await dbRef.getItemById(ITCD_CONFIG_STORE, key);
+                if (item) configData[key] = item.value;
             }
+            
+            const jsonDataString = JSON.stringify(configData, null, 2);
+            const blob = new Blob([jsonDataString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = CONFIG_FILENAME;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
 
+            uiModuleRef.showToastNotification("Arquivo de configurações do ITCD exportado com sucesso!", "success");
         } catch (error) {
-            console.error("Erro ao exportar configurações para e-mail:", error);
+            console.error("Erro ao exportar configurações do ITCD:", error);
             uiModuleRef.showToastNotification(`Falha na exportação: ${error.message}`, "error");
         } finally {
             uiModuleRef.showLoading(false);
         }
     }
 
-    async function importarConfiguracoesManualmente(file) {
+    async function _importarConfiguracoesItcd(file) {
         if (!file) {
             uiModuleRef.showToastNotification("Nenhum arquivo selecionado.", "warning");
             return;
         }
         const userConfirmed = await uiModuleRef.showConfirmationModal(
             'Confirmar Importação de Configurações',
-            'Isto irá <strong>sobrescrever TODAS as suas configurações atuais do ITCD</strong>. Esta ação não pode ser desfeita. Deseja continuar?',
+            'Isto irá <strong>sobrescrever TODAS as suas configurações de pauta do ITCD</strong>. Esta ação não pode ser desfeita. Deseja continuar?',
             'Sim, Importar e Substituir', 'Cancelar'
         );
         if (!userConfirmed) return;
@@ -493,9 +364,17 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
         reader.onload = async (event) => {
             try {
                 const jsonData = JSON.parse(event.target.result);
-                await importarDadosConfig(jsonData);
+                
+                for (const key of CONFIG_KEYS_TO_MANAGE) {
+                    if (jsonData.hasOwnProperty(key)) {
+                        await dbRef.updateItem(ITCD_CONFIG_STORE, { key, value: jsonData[key] });
+                    }
+                }
+                
+                uiModuleRef.showToastNotification("Configurações importadas com sucesso. A página será recarregada.", "success");
+                setTimeout(() => window.location.reload(), 2000);
             } catch (error) {
-                console.error("Erro ao importar configurações do ITCD (manual):", error);
+                console.error("Erro ao importar configurações do ITCD:", error);
                 uiModuleRef.showToastNotification(`Falha na importação: ${error.message}`, "error", 0);
             } finally {
                 uiModuleRef.showLoading(false);
@@ -504,43 +383,12 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
         reader.readAsText(file);
     }
     
-    async function importarDadosConfig(jsonData) {
-        if (!jsonData || (!jsonData.itcdConfiguracoesStore && !jsonData.itcdSemoventesPautasStore && !jsonData.itcdSelicIndicesStore)) {
-            throw new Error("Arquivo inválido. O JSON não contém a estrutura esperada.");
-        }
-        if (jsonData.itcdConfiguracoesStore) {
-            const configData = jsonData.itcdConfiguracoesStore;
-            for (const key in configData) {
-                if (Object.hasOwnProperty.call(configData, key)) {
-                    await dbRef.updateItem(ITCD_CONFIG_STORE, { key, value: configData[key] });
-                }
-            }
-        }
-        if (jsonData.itcdSemoventesPautasStore) {
-            await dbRef.clearStore(PAUTAS_STORE);
-            for (const pauta of jsonData.itcdSemoventesPautasStore) {
-                await dbRef.addItem(PAUTAS_STORE, pauta);
-            }
-        }
-        if (jsonData.itcdSelicIndicesStore) {
-            await dbRef.clearStore(SELIC_INDICES_STORE);
-            for (const indice of jsonData.itcdSelicIndicesStore) {
-                await dbRef.addItem(SELIC_INDICES_STORE, indice);
-            }
-        }
-        uiModuleRef.showToastNotification("Configurações importadas com sucesso. A página será recarregada.", "success");
-        setTimeout(() => window.location.reload(), 2000);
-    }
-
     function addEventListeners(containerEl) {
         containerEl.addEventListener('click', (e) => {
             const target = e.target;
             const targetIsDisabled = target.disabled || target.closest(':disabled');
             
-            if (targetIsDisabled) {
-                 const isDataTransferAction = target.id === 'btn-carregar-itcd-config-local' || target.id === 'btn-export-itcd-config-email' || target.closest("button[onclick*='input-import-itcd-config-manual']");
-                 if(!isDataTransferAction) return;
-            }
+            if (targetIsDisabled) return;
 
             if (target.closest('#lista-superintendencias')) handleAcoesSRFeCidade(e);
             if (target.closest('#container-gerenciamento-uf')) handleAcoesUF(e);
@@ -560,19 +408,13 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
                         await dbRef.updateItem(ITCD_CONFIG_STORE, config);
                         inputEl.value = '';
                         uiModuleRef.showToastNotification("Superintendência adicionada.", "success");
-                        await carregarERenderizarSRFeCidades(false); // Manter desbloqueado
+                        await carregarERenderizarSRFeCidades(false);
                         await popularDropdownSRFparaUF();
                     } catch (error) { uiModuleRef.showToastNotification(`Erro ao adicionar: ${error.message}`, "error"); }
                 })();
             }
-            if (target.id === 'btn-salvar-itcd-config-local') {
-                salvarConfiguracoesLocalmente();
-            }
-            if (target.id === 'btn-carregar-itcd-config-local') {
-                carregarConfiguracoesLocalmente();
-            }
-            if (target.id === 'btn-export-itcd-config-email') {
-                handleExportarParaEmail();
+            if (target.id === 'btn-export-itcd-config-pautas') {
+                _exportarConfiguracoesItcd();
             }
         });
 
@@ -588,11 +430,11 @@ window.SEFWorkStation.ITCD.Configuracoes.Principal = (function() {
             }
         });
         
-        const importManualInput = containerEl.querySelector('#input-import-itcd-config-manual');
-        if(importManualInput) {
-            importManualInput.addEventListener('change', (e) => {
+        const importInput = containerEl.querySelector('#input-import-itcd-config-pautas');
+        if(importInput) {
+            importInput.addEventListener('change', (e) => {
                 if(e.target.files.length > 0) {
-                    importarConfiguracoesManualmente(e.target.files[0]);
+                    _importarConfiguracoesItcd(e.target.files[0]);
                 }
             });
         }
